@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NordLager Halle - Ihr günstiges und flexibles Self-Storage in Halle (Saale)</title>
+    <meta name="description" content="NordLager Halle bietet die günstigsten und flexibelsten Self-Storage-Lösungen in Halle (Saale). Jetzt online buchen, 24/7 Zugang per App.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+            color: #334155; /* Darker text */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-radius: 1rem; /* More rounded corners */
+        }
+        header {
+            text-align: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e2e8f0; /* Lighter border */
+        }
+        header h1 {
+            color: #1e40af; /* Darker blue for heading */
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem; /* Larger heading */
+            font-weight: 700;
+        }
+        header p {
+            font-size: 1.15rem;
+            color: #475569; /* Slightly darker gray */
+            line-height: 1.6;
+        }
+        .buttons {
+            text-align: center;
+            margin: 2.5rem 0;
+        }
+        .buttons .btn {
+            display: inline-block;
+            background-color: #2563eb; /* Primary blue */
+            color: white;
+            padding: 0.8rem 1.8rem;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            margin: 0.6rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .buttons .btn:hover {
+            background-color: #1e40af; /* Darker blue on hover */
+            transform: translateY(-2px);
+        }
+        .section-title {
+            text-align: center;
+            color: #1e40af;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .grid-item {
+            background-color: #eff6ff; /* Light blue background for items */
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+        .grid-item h3 {
+            color: #1e40af;
+            margin-top: 0;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        .grid-item p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #475569;
+        }
+        .accordion {
+            margin-top: 3rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            overflow: hidden; /* Ensures rounded corners apply to children */
+        }
+        .accordion-item {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+        .accordion-header {
+            background-color: #2563eb;
+            color: white;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-size: 1.25rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        .accordion-header:hover {
+            background-color: #1e40af;
+        }
+        .accordion-header::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .accordion-header.active::after {
+            content: '-';
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            padding: 1.5rem;
+            background-color: #f9fafb;
+            display: none;
+            border-top: 1px solid #e2e8f0;
+            line-height: 1.7;
+            color: #475569;
+        }
+        .accordion-content p, .accordion-content ul {
+            margin-top: 0;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        .accordion-content ul {
+            padding-left: 1.5rem;
+            list-style-type: disc;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NordLager Halle</h1>
+            <p>Ihr günstiger und flexibler Self-Storage-Anbieter in Halle (Saale)</p>
+            <p>Wir verwandeln eine 450m² große Gewerbefläche in der Trothaer Straße in einen hochmodernen Lagerstandort.</p>
+        </header>
+
+        <div class="buttons">
+            <a href="tel:+49123456789" class="btn">Jetzt anrufen</a>
+            <a href="mailto:info@nordlager-halle.de" class="btn">E-Mail senden</a>
+        </div>
+
+        <h2 class="section-title">Ihre Vorteile bei NordLager Halle</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <h3>Preis-Leistungs-Führerschaft</h3>
+                <p>Wir garantieren die günstigsten Mietpreise im direkten Wettbewerbsumfeld von Halle, ohne Kompromisse bei Qualität oder Sicherheit.</p>
+            </div>
+            <div class="grid-item">
+                <h3>Maximale Flexibilität</h3>
+                <p>Kundenfreundliche, transparente Vertragsbedingungen ohne lange Mindestlaufzeiten und monatlich kündbar.</p>
+            </div>
+            <div class="grid-item">
+                <h3>Digitaler Komfort</h3>
+                <p>Von der Online-Buchung bis zum 24/7-Zugang per Smartphone-App – alles vollständig digitalisiert für höchsten Komfort.</p>
+            </div>
+            <div class="grid-item">
+                <h3>Top-Standort-Synergien</h3>
+                <p>Integrierter Standort in einem hochfrequentierten Fachmarktzentrum mit Fitnessstudio, Friseur und Biomarkt für einfache Erreichbarkeit und zusätzliche Bequemlichkeit.</p>
+            </div>
+            <div class="grid-item">
+                <h3>Höchste Sicherheit</h3>
+                <p>Videoüberwachung, alarmgesicherte Anlage und Zugangsprotokollierung für den Schutz Ihrer eingelagerten Gegenstände.</p>
+            </div>
+            <div class="grid-item">
+                <h3>Transparente Preise inkl. Versicherung</h3>
+                <p>Unsere Preisstrategie beinhaltet eine obligatorische Mieterversicherung für Ihre Sicherheit und transparente Gesamtkosten.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Häufige Fragen & Wichtiges</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">Datenschutz</div>
+                <div class="accordion-content">
+                    <p>Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Nachfolgend informieren wir Sie über die Erhebung, Verarbeitung und Nutzung Ihrer Daten im Rahmen der Nutzung unserer Website und unserer Dienstleistungen.</p>
+                    <p><strong>1. Verantwortliche Stelle:</strong></p>
+                    <p>[Ihr Name/Firmenname]<br>
+                    [Ihre Adresse]<br>
+                    [Ihre E-Mail-Adresse]</p>
+                    <p><strong>2. Erhebung und Verarbeitung von Daten:</strong></p>
+                    <ul>
+                        <li>Beim Besuch unserer Website werden standardmäßig technische Informationen wie Ihre IP-Adresse, der verwendete Browser und das Betriebssystem erfasst. Diese Daten dienen ausschließlich der Sicherstellung des Betriebs und der Optimierung unserer Website.</li>
+                        <li>Wenn Sie eine Lagerbox online buchen oder einen Vertrag abschließen, erheben wir die zur Vertragsabwicklung notwendigen Daten wie Name, Adresse, Kontaktdaten (E-Mail, Telefonnummer) und Zahlungsinformationen.</li>
+                        <li>Die Nutzung unserer Smartphone-App zur Zugangskontrolle erfordert die Verarbeitung von Zugriffsdaten, um Ihren 24/7-Zugang zu gewährleisten.</li>
+                        <li>Für die obligatorische Mieterversicherung werden die hierfür notwendigen Daten an unseren Versicherungspartner übermittelt, ausschließlich zum Zweck des Vertragsabschlusses und der Abwicklung der Versicherung.</li>
+                    </ul>
+                    <p><strong>3. Nutzung und Weitergabe von Daten:</strong></p>
+                    <ul>
+                        <li>Ihre Daten werden ausschließlich zur Erfüllung unserer vertraglichen Pflichten, zur Bereitstellung unserer Dienstleistungen und zur Verbesserung unseres Angebots genutzt.</li>
+                        <li>Eine Weitergabe Ihrer Daten an Dritte erfolgt nur, wenn dies zur Vertragserfüllung notwendig ist (z.B. an Zahlungsdienstleister, Versicherungspartner), Sie ausdrücklich eingewilligt haben oder eine gesetzliche Verpflichtung besteht.</li>
+                        <li>Wir setzen Management-Software (z.B. Storable, Storeganise) ein, die für die Online-Buchung, Vertragsabwicklung, Zahlungsabwicklung und Steuerung des Zugangssystems notwendig ist.</li>
+                    </ul>
+                    <p><strong>4. Datensicherheit:</strong></p>
+                    <p>Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre Daten gegen zufällige oder vorsätzliche Manipulationen, Verlust, Zerstörung oder den Zugriff unberechtigter Personen zu schützen.</p>
+                    <p><strong>5. Ihre Rechte:</strong></p>
+                    <p>Sie haben jederzeit das Recht auf Auskunft über Ihre gespeicherten Daten, deren Berichtigung, Löschung oder Sperrung. Bitte kontaktieren Sie uns hierfür unter der oben genannten E-Mail-Adresse.</p>
+                    <p>Diese Datenschutzerklärung kann bei Bedarf angepasst werden, um neuen rechtlichen Anforderungen oder Änderungen unserer Dienstleistungen Rechnung zu tragen. Bitte prüfen Sie diese regelmäßig.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">Impressum</div>
+                <div class="accordion-content">
+                    <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+                    <p>NordLager Halle<br>
+                    [Ihr Name/Firmenname]<br>
+                    [Ihre Straße und Hausnummer]<br>
+                    [Ihre Postleitzahl und Ort]<br>
+                    Deutschland</p>
+                    <p><strong>Vertreten durch:</strong><br>
+                    [Name des Geschäftsführers / Inhabers]</p>
+                    <p><strong>Kontakt:</strong><br>
+                    Telefon: [Ihre Telefonnummer]<br>
+                    E-Mail: info@nordlager-halle.de</p>
+                    <p><strong>Handelsregister:</strong><br>
+                    [falls zutreffend: Registergericht, Registernummer]</p>
+                    <p><strong>Umsatzsteuer-ID:</strong><br>
+                    [falls zutreffend: Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz]</p>
+                    <p><strong>Aufsichtsbehörde:</strong><br>
+                    [falls zutreffend, z.B. bei erlaubnispflichtigen Tätigkeiten]</p>
+                    <p><strong>Streitschlichtung:</strong><br>
+                    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a>.<br>
+                    Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 NordLager Halle. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.accordion-header').forEach(item => {
+            item.addEventListener('click', event => {
+                const currentContent = item.nextElementSibling;
+                const allContents = document.querySelectorAll('.accordion-content');
+                
+                // Close all other open accordions
+                allContents.forEach(content => {
+                    if (content !== currentContent && content.style.display === 'block') {
+                        content.style.display = 'none';
+                        content.previousElementSibling.classList.remove('active');
+                    }
+                });
+
+                // Toggle current accordion
+                if (currentContent.style.display === 'block') {
+                    currentContent.style.display = 'none';
+                    item.classList.remove('active');
+                } else {
+                    currentContent.style.display = 'block';
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
