@@ -329,10 +329,11 @@
                     <p>Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Nachfolgend informieren wir Sie über die Erhebung, Verarbeitung und Nutzung Ihrer Daten im Rahmen der Nutzung unserer Website und unserer Dienstleistungen.</p>
 
                     <p><strong>1. Verantwortliche Stelle:</strong></p>
-                    <p>Nord Lager i.G. <br>
+                    <p>Nord Lager Halle i.G. <br>
                     c/o Volker Kadler<br>
                     Friedenstr. 11A<br>
-                    D-06114 Halle/Saale</p>
+                    D-06114 Halle/Saale<br>
+                    </p>
 
                     <p><strong>2. Erhebung und Verarbeitung von Daten:</strong></p>
                     <ul>
@@ -373,7 +374,6 @@
                 <div class="accordion-content">
                     <p><strong>Angaben gemäß § 5 TMG:</strong></p>
                     <p>Nord Lager Halle i.G.<br>
-                    <br>
                     c/o Volker Kadler<br>
                     Friedenstr. 11A<br>
                     D-06118 Halle/Saale<br>
@@ -405,42 +405,10 @@
     <script>
         document.querySelectorAll('.accordion-header').forEach(item => {
             item.addEventListener('click', event => {
-                const currentItem = item.parentNode; // Das aktuelle accordion-item
                 const currentContent = item.nextElementSibling;
-
-                // Überprüfen, ob es sich um Datenschutz oder Impressum handelt
-                const isStickyAccordion = currentItem.id === 'datenschutz-item' || currentItem.id === 'impressum-item';
-
-                // Wenn der aktuelle Akkordeon NICHT Datenschutz oder Impressum ist,
-                // schließen wir die anderen Akkordeons (außer Datenschutz und Impressum)
-                if (!isStickyAccordion) {
-                    document.querySelectorAll('.accordion-item').forEach(accordionItem => {
-                        if (accordionItem.id !== 'datenschutz-item' && accordionItem.id !== 'impressum-item' && accordionItem !== currentItem) {
-                            const content = accordionItem.querySelector('.accordion-content');
-                            const header = accordionItem.querySelector('.accordion-header');
-                            if (content.style.display === 'block') {
-                                content.style.display = 'none';
-                                header.classList.remove('active');
-                            }
-                        }
-                    });
-                } else {
-                    // Wenn es sich um Datenschutz oder Impressum handelt, stellen wir sicher, dass NUR DIESE Akkordeons
-                    // offen bleiben können, während andere (nicht-sticky) Akkordeons geschlossen werden.
-                    // Aber wir verhindern NICHT, dass sich Datenschutz und Impressum gegenseitig schließen können.
-                    document.querySelectorAll('.accordion-item').forEach(accordionItem => {
-                        if (accordionItem !== currentItem) { // Schließe alle anderen, außer dem gerade geklickten
-                            const content = accordionItem.querySelector('.accordion-content');
-                            const header = accordionItem.querySelector('.accordion-header');
-                            if (content.style.display === 'block') {
-                                content.style.display = 'none';
-                                header.classList.remove('active');
-                            }
-                        }
-                    });
-                }
-
+            
                 // Toggle des aktuell geklickten Akkordeons
+                // Dieser Teil ist für alle Akkordeons gleich und schließt nur sich selbst
                 if (currentContent.style.display === 'block') {
                     currentContent.style.display = 'none';
                     item.classList.remove('active');
