@@ -6,6 +6,7 @@
     <title>NordLager Halle - Ihr günstiges und flexibles Self-Storage in Halle (Saale)</title>
     <meta name="description" content="NordLager Halle bietet die günstigsten und flexibelsten Self-Storage-Lösungen in Halle (Saale). Jetzt online buchen, 24/7 Zugang per App.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -29,8 +30,13 @@
         header h1 {
             color: #1e40af; /* Darker blue for heading */
             margin-bottom: 0.5rem;
-            font-size: 2.5rem; /* Larger heading */
+            font-size: 3.5rem; /* **Größer für Hauptüberschrift** */
             font-weight: 700;
+            padding: 0.5rem 1rem; /* **Abstand zum Hintergrund** */
+            background-color: #e0e7ff; /* **Leicht abgesetzter Hintergrund** */
+            border-radius: 0.75rem; /* Leicht abgerundete Ecken */
+            display: inline-block; /* Für Hintergrund und Padding */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08); /* Leichter Schatten */
         }
         header p {
             font-size: 1.15rem;
@@ -79,6 +85,9 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             text-align: center;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex; /* Für Icon und Text */
+            flex-direction: column; /* Für Icon über Text */
+            align-items: center; /* Zentriert Inhalt */
         }
         .grid-item:hover {
             transform: translateY(-5px);
@@ -95,6 +104,12 @@
             font-size: 0.95rem;
             line-height: 1.6;
             color: #475569;
+        }
+        /* Icon Styling */
+        .grid-item .icon {
+            font-size: 2.5rem; /* Größe des Icons */
+            color: #2563eb; /* Farbe des Icons */
+            margin-bottom: 1rem; /* Abstand zwischen Icon und Text */
         }
         .accordion {
             margin-top: 3rem;
@@ -149,6 +164,13 @@
             padding-left: 1.5rem;
             list-style-type: disc;
         }
+        .accordion-content a {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+        .accordion-content a:hover {
+            color: #1e40af;
+        }
         footer {
             text-align: center;
             padding: 1.5rem;
@@ -175,41 +197,43 @@
         <h2 class="section-title">Ihre Vorteile bei NordLager Halle</h2>
         <div class="grid-container">
             <div class="grid-item">
-                <h3>Preis-Leistung</h3>
+                <i class="fas fa-euro-sign icon"></i> <h3>Preis-Leistung</h3>
                 <p>Wir garantieren günstige Mietpreise im direkten Wettbewerbsumfeld von Halle, ohne Kompromisse bei Qualität oder Sicherheit.</p>
             </div>
             <div class="grid-item">
-                <h3>Maximale Flexibilität</h3>
+                <i class="fas fa-calendar-alt icon"></i> <h3>Maximale Flexibilität</h3>
                 <p>Kundenfreundliche, transparente Vertragsbedingungen ohne lange Mindestlaufzeiten und monatlich kündbar.</p>
             </div>
             <div class="grid-item">
-                <h3>Digitaler Komfort</h3>
+                <i class="fas fa-mobile-alt icon"></i> <h3>Digitaler Komfort</h3>
                 <p>Von der Online-Buchung bis zum 24/7-Zugang per Smartphone-App – alles vollständig digitalisiert für höchsten Komfort.</p>
             </div>
             <div class="grid-item">
-                <h3>Top-Standort-Synergien</h3>
+                <i class="fas fa-map-marker-alt icon"></i> <h3>Top-Standort-Synergien</h3>
                 <p>Integrierter Standort in einem hochfrequentierten Fachmarktzentrum mit Fitnessstudio, Friseur und Restaurants für einfache Erreichbarkeit und zusätzliche Bequemlichkeit.</p>
             </div>
             <div class="grid-item">
-                <h3>Höchste Sicherheit</h3>
+                <i class="fas fa-shield-alt icon"></i> <h3>Höchste Sicherheit</h3>
                 <p>Videoüberwachung, alarmgesicherte Anlage und Zugangsprotokollierung für den Schutz Ihrer eingelagerten Gegenstände.</p>
             </div>
             <div class="grid-item">
-                <h3>Transparente Preise inkl. Versicherung</h3>
+                <i class="fas fa-file-invoice-dollar icon"></i> <h3>Transparente Preise inkl. Versicherung</h3>
                 <p>Unsere Preise beinhaltet eine Mieterversicherung für Ihre Sicherheit und transparente Gesamtkosten.</p>
             </div>
         </div>
 
         <h2 class="section-title">Rechtliches</h2>
         <div class="accordion">
-            <div class="accordion-item">
+            <div class="accordion-item" id="datenschutz-item">
                 <div class="accordion-header">Datenschutz</div>
                 <div class="accordion-content">
                     <p>Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Nachfolgend informieren wir Sie über die Erhebung, Verarbeitung und Nutzung Ihrer Daten im Rahmen der Nutzung unserer Website und unserer Dienstleistungen.</p>
+
                     <p><strong>1. Verantwortliche Stelle:</strong></p>
                     <p>[Ihr Name/Firmenname]<br>
                     [Ihre Adresse]<br>
                     [Ihre E-Mail-Adresse]</p>
+
                     <p><strong>2. Erhebung und Verarbeitung von Daten:</strong></p>
                     <ul>
                         <li>Beim Besuch unserer Website werden standardmäßig technische Informationen wie Ihre IP-Adresse, der verwendete Browser und das Betriebssystem erfasst. Diese Daten dienen ausschließlich der Sicherstellung des Betriebs und der Optimierung unserer Website.</li>
@@ -217,20 +241,34 @@
                         <li>Die Nutzung unserer Smartphone-App zur Zugangskontrolle erfordert die Verarbeitung von Zugriffsdaten, um Ihren 24/7-Zugang zu gewährleisten.</li>
                         <li>Für die obligatorische Mieterversicherung werden die hierfür notwendigen Daten an unseren Versicherungspartner übermittelt, ausschließlich zum Zweck des Vertragsabschlusses und der Abwicklung der Versicherung.</li>
                     </ul>
+
                     <p><strong>3. Nutzung und Weitergabe von Daten:</strong></p>
                     <ul>
                         <li>Ihre Daten werden ausschließlich zur Erfüllung unserer vertraglichen Pflichten, zur Bereitstellung unserer Dienstleistungen und zur Verbesserung unseres Angebots genutzt.</li>
                         <li>Eine Weitergabe Ihrer Daten an Dritte erfolgt nur, wenn dies zur Vertragserfüllung notwendig ist (z.B. an Zahlungsdienstleister, Versicherungspartner), Sie ausdrücklich eingewilligt haben oder eine gesetzliche Verpflichtung besteht.</li>
                         <li>Wir setzen Management-Software (z.B. Storable, Storeganise) ein, die für die Online-Buchung, Vertragsabwicklung, Zahlungsabwicklung und Steuerung des Zugangssystems notwendig ist.</li>
                     </ul>
-                    <p><strong>4. Datensicherheit:</strong></p>
+
+                    <p><strong>4. Externe Ressourcen, Cookies und Datenverarbeitung auf unserer Website:</strong></p>
+                    <p>Unsere Website nutzt verschiedene externe Ressourcen und Technologien, um Funktionalität und Design zu gewährleisten. Hierbei kann es zur Übertragung von Daten an Drittanbieter kommen. Wir haben Maßnahmen ergriffen, um die Datenminimierung zu gewährleisten und weisen auf die Verantwortlichkeiten der jeweiligen Anbieter hin.</p>
+                    <ul>
+                        <li><strong>Content Delivery Networks (CDNs):</strong> Wir verwenden CDNs, um die Ladezeiten unserer Website zu optimieren und Inhalte wie Bilder, Skripte oder Stylesheets schneller bereitzustellen. Hierbei werden Daten an die CDN-Anbieter übertragen. Dies dient unserem berechtigten Interesse an einer schnellen und sicheren Bereitstellung unserer Website.</li>
+                        <li><strong>Google Fonts:</strong> Für eine ansprechende Darstellung der Schriftarten auf unserer Website nutzen wir Google Fonts. Beim Aufruf unserer Seite lädt Ihr Browser die benötigten Schriftarten in ihren Browser-Cache, um Texte und Schriftarten korrekt anzuzeigen. Dabei kann Ihre IP-Adresse an Google übertragen werden. Weitere Informationen zur Datenverarbeitung von Google Fonts finden Sie unter: <a href="https://developers.google.com/fonts/faq/regarding_privacy" target="_blank">Google Fonts Privacy FAQ</a> und in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank">Google Datenschutzerklärung</a>.</li>
+                        <li><strong>Tailwind CSS CDN:</strong> Für das Styling unserer Website nutzen wir das Tailwind CSS CDN. Hierbei werden CSS-Dateien von einem externen Server geladen. Es werden dabei keine personenbezogenen Daten von Tailwind CSS direkt erfasst, jedoch kann die IP-Adresse im Rahmen des Ladevorgangs an den CDN-Anbieter übertragen werden.</li>
+                        <li><strong>Font Awesome:</strong> Zur Darstellung von Icons auf unserer Website nutzen wir Font Awesome. Die Icons werden ebenfalls über ein CDN geladen, wodurch Ihre IP-Adresse an den Anbieter übermittelt werden kann. Weitere Informationen finden Sie in der Datenschutzerklärung von Font Awesome: <a href="https://fontawesome.com/privacy" target="_blank">Font Awesome Privacy Policy</a>.</li>
+                        <li><strong>Externe Links:</strong> Unsere Website enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Eine ständige inhaltliche Kontrolle der verlinkten Seiten ist ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen. Bitte beachten Sie die Datenschutzerklärungen der jeweiligen externen Websites.</li>
+                        <li><strong>Cookies:</strong> Wir verwenden Session-Cookies, die für die technische Bereitstellung unserer Dienste notwendig sind und nach Ende Ihrer Browsersitzung automatisch gelöscht werden. Darüber hinaus verwenden wir keine Cookies, die eine Analyse Ihres Nutzerverhaltens ermöglichen.</li>
+                    </ul>
+
+                    <p><strong>5. Datensicherheit:</strong></p>
                     <p>Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre Daten gegen zufällige oder vorsätzliche Manipulationen, Verlust, Zerstörung oder den Zugriff unberechtigter Personen zu schützen.</p>
-                    <p><strong>5. Ihre Rechte:</strong></p>
+
+                    <p><strong>6. Ihre Rechte:</strong></p>
                     <p>Sie haben jederzeit das Recht auf Auskunft über Ihre gespeicherten Daten, deren Berichtigung, Löschung oder Sperrung. Bitte kontaktieren Sie uns hierfür unter der oben genannten E-Mail-Adresse.</p>
                     <p>Diese Datenschutzerklärung kann bei Bedarf angepasst werden, um neuen rechtlichen Anforderungen oder Änderungen unserer Dienstleistungen Rechnung zu tragen. Bitte prüfen Sie diese regelmäßig.</p>
                 </div>
             </div>
-            <div class="accordion-item">
+            <div class="accordion-item" id="impressum-item">
                 <div class="accordion-header">Impressum</div>
                 <div class="accordion-content">
                     <p><strong>Angaben gemäß § 5 TMG:</strong></p>
@@ -265,18 +303,42 @@
     <script>
         document.querySelectorAll('.accordion-header').forEach(item => {
             item.addEventListener('click', event => {
+                const currentItem = item.parentNode; // Das aktuelle accordion-item
                 const currentContent = item.nextElementSibling;
-                const allContents = document.querySelectorAll('.accordion-content');
-                
-                // Close all other open accordions
-                allContents.forEach(content => {
-                    if (content !== currentContent && content.style.display === 'block') {
-                        content.style.display = 'none';
-                        content.previousElementSibling.classList.remove('active');
-                    }
-                });
 
-                // Toggle current accordion
+                // Überprüfen, ob es sich um Datenschutz oder Impressum handelt
+                const isStickyAccordion = currentItem.id === 'datenschutz-item' || currentItem.id === 'impressum-item';
+
+                // Wenn der aktuelle Akkordeon NICHT Datenschutz oder Impressum ist,
+                // schließen wir die anderen Akkordeons (außer Datenschutz und Impressum)
+                if (!isStickyAccordion) {
+                    document.querySelectorAll('.accordion-item').forEach(accordionItem => {
+                        if (accordionItem.id !== 'datenschutz-item' && accordionItem.id !== 'impressum-item' && accordionItem !== currentItem) {
+                            const content = accordionItem.querySelector('.accordion-content');
+                            const header = accordionItem.querySelector('.accordion-header');
+                            if (content.style.display === 'block') {
+                                content.style.display = 'none';
+                                header.classList.remove('active');
+                            }
+                        }
+                    });
+                } else {
+                    // Wenn es sich um Datenschutz oder Impressum handelt, stellen wir sicher, dass NUR DIESE Akkordeons
+                    // offen bleiben können, während andere (nicht-sticky) Akkordeons geschlossen werden.
+                    // Aber wir verhindern NICHT, dass sich Datenschutz und Impressum gegenseitig schließen können.
+                    document.querySelectorAll('.accordion-item').forEach(accordionItem => {
+                        if (accordionItem !== currentItem) { // Schließe alle anderen, außer dem gerade geklickten
+                            const content = accordionItem.querySelector('.accordion-content');
+                            const header = accordionItem.querySelector('.accordion-header');
+                            if (content.style.display === 'block') {
+                                content.style.display = 'none';
+                                header.classList.remove('active');
+                            }
+                        }
+                    });
+                }
+
+                // Toggle des aktuell geklickten Akkordeons
                 if (currentContent.style.display === 'block') {
                     currentContent.style.display = 'none';
                     item.classList.remove('active');
