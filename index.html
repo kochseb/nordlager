@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NordLager Halle - Ihr günstiges und flexibles Self-Storage in Halle (Saale)</title>
+    <title>Nord Lager Halle - Ihr flexibles Self-Storage in Halle (Saale)</title>
     <meta name="description" content="NordLager Halle bietet die günstigsten und flexibelsten Self-Storage-Lösungen in Halle (Saale). Jetzt online buchen, 24/7 Zugang per App.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -49,6 +49,19 @@
             color: #475569; /* Slightly darker gray */
             line-height: 1.6;
         }
+
+        .header-logo {
+            margin-top: 1.5rem; /* Abstand zur Überschrift */
+            margin-bottom: 1.5rem; /* Abstand zum Text darunter */
+            max-width: 250px; /* Maximale Breite des Logos */
+            height: auto; /* Höhe automatisch anpassen */
+            border-radius: 0.5rem; /* Leichte Rundung der Ecken */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Deutlicherer Schatteneffekt */
+            transition: transform 0.3s ease; /* Übergang für Hover-Effekt */
+        }
+        .header-logo:hover {
+            transform: scale(1.03); /* Leichter Zoom-Effekt beim Hover */
+        }
         .buttons {
             text-align: center;
             margin: 2.5rem 0;
@@ -74,7 +87,7 @@
             text-align: center;
             color: #1e40af;
             margin-top: 3rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             font-size: 2rem;
             font-weight: 700;
         }
@@ -116,6 +129,63 @@
             font-size: 2.5rem; /* Größe des Icons */
             color: #2563eb; /* Farbe des Icons */
             margin-bottom: 1rem; /* Abstand zwischen Icon und Text */
+        }
+
+        .multi-icon-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Zwei Spalten */
+            grid-template-rows: 1fr 1fr; /* Zwei Reihen */
+            gap: 1rem; /* Abstand zwischen den kleinen Icon-Boxen */
+            width: 100%; /* Füllt die Elternkachel aus */
+            height: 100%; /* Füllt die Elternkachel aus */
+            padding: 1.5rem; /* Padding für den Inhalt der Kachel */
+            box-sizing: border-box; /* Padding in die Breite/Höhe einrechnen */
+        }
+
+        .multi-icon-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #e0e7ff; /* Hintergrundfarbe für die kleinen Boxen */
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            text-align: center;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            cursor: pointer; /* Zeigt an, dass es klickbar ist */
+            text-decoration: none; /* Unterstreichung für Links entfernen */
+            color: #1e40af; /* Textfarbe für die Links/Icons setzen */
+        }
+
+        .multi-icon-item:hover {
+            background-color: #c3d4ff; /* Leichterer Hover-Effekt */
+            transform: translateY(-2px); /* Kleiner Hoch-Effekt beim Hover */
+        }
+
+        .multi-icon-item .icon-small {
+            font-size: 3rem; /* Kleinere Größe für die Icons in der Multi-Kachel */
+            color: #1e40af; /* Dunkelblau für Kontrast */
+            margin-bottom: 0rem;
+        }
+
+        /* Animation für das blinkende Telefon */
+        @keyframes pulse-phone {
+            0% {
+                color: #1e40af;
+                transform: scale(1);
+            }
+            50% {
+                color: #ef4444; /* Rot beim Blinken */
+                transform: scale(1.1);
+            }
+            100% {
+                color: #1e40af;
+                transform: scale(1);
+            }
+        }
+
+        .multi-icon-item .icon-call-blink {
+            animation: pulse-phone 2s infinite ease-in-out; /* Animation anwenden */
         }
         .accordion {
             margin-top: 3rem;
@@ -190,14 +260,19 @@
 <body>
     <div class="container">
         <header>
-            <h1>NordLager Halle</h1><br><br>
-            <p>Ihr günstiger und flexibler Self-Storage-Anbieter in Halle (Saale)</p>
-            <p>Wir verwandeln eine 450m² große Gewerbefläche in der Trothaer Straße in einen hochmodernen Lagerstandort.</p>
+            <h1>NordLager Halle</h1>
+            <img src="nordlager.jpg" alt="Nord Lager Halle Logo" class="header-logo">
+            <p>Ihr günstiger und flexibler Self-Storage-Anbieter im Norden von Halle (Saale)</p>
+            <p>Wir verwandeln eine 500m² große Gewerbefläche in der Trothaer Straße in einen hochmodernen Lagerstandort.</p>
         </header>
 
         <div class="buttons">
-            <a href="tel:+49123456789" class="btn">Jetzt anrufen</a>
-            <a href="mailto:kadler@anwalt.io" class="btn">E-Mail senden</a>
+            <a href="tel:+49177202092" class="btn">
+              <i class="fas fa-phone-alt mr-2"></i>Jetzt anrufen
+            </a>
+            <a href="mailto:kadler@anwalt.io" class="btn">
+              <i class="fas fa-envelope mr-2"></i>E-Mail senden
+            </a>
         </div>
 
         <h2 class="section-title">Ihre Vorteile bei NordLager Halle</h2>
@@ -226,8 +301,26 @@
                 <i class="fas fa-file-invoice-dollar icon"></i> <h3>Transparente Preise inkl. Versicherung</h3>
                 <p>Unsere Preise beinhaltet eine Mieterversicherung für Ihre Sicherheit und transparente Gesamtkosten.</p>
             </div>
+            <div class="grid-item multi-icon-grid-container"> 
+              <div class="multi-icon-grid">
+                <a href="#" class="multi-icon-item">
+                  <i class="fas fa-warehouse icon-small"></i>
+                    <span>Lagerfläche</span>
+                </a>
+                <a href="#" class="multi-icon-item">
+                  <i class="fas fa-box-open icon-small"></i>
+                    <span>Umzugshilfe</span>
+                </a>
+                <a href="#" class="multi-icon-item">
+                  <i class="fas fa-dolly icon-small"></i>
+                    <span>Geräte</span>
+                </a>
+                <a href="tel:+491772002092" class="multi-icon-item">
+                  <i class="fas fa-phone-volume icon-small icon-call-blink"></i>
+                    <span>Jetzt anrufen</span>
+                </a>
+             </div>
         </div>
-
         <h2 class="section-title">Rechtliches</h2>
         <div class="accordion">
             <div class="accordion-item" id="datenschutz-item">
@@ -281,20 +374,22 @@
                     <p><strong>Angaben gemäß § 5 TMG:</strong></p>
                     <p>Nord Lager Halle i.G.<br>
                     <br>
-                    Trothaer Str. 14<br>
+                    c/o Volker Kadler<br>
+                    Friedenstr. 11A<br>
                     D-06118 Halle/Saale<br>
                     </p>
-                    <!-- <p><strong>Vertreten durch:</strong><br>
-                    </p> -->
+                    <p><strong>Vertreten durch:</strong><br>
+                    Volker Kadler
+                    </p>
                     <p><strong>Kontakt:</strong><br>
-                    Telefon: [Ihre Telefonnummer]<br>
+                    Telefon: +491772002092<br>
                     E-Mail: kadler@anwalt.io</p>
-                    <!-- <p><strong>Handelsregister:</strong><br>
+                    <!--<p><strong>Handelsregister:</strong><br>
                     </p>
                     <p><strong>Umsatzsteuer-ID:</strong><br>
                     </p>
                     <p><strong>Aufsichtsbehörde:</strong><br>
-                    </p> -->
+                    </p>-->
                     <p><strong>Streitschlichtung:</strong><br>
                     Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a>.<br>
                     Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
