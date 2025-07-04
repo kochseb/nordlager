@@ -98,9 +98,13 @@
             padding: 4rem 0; /* Innenabstand für die Sektion */
             position: relative; /* Wichtig für den Pseudo-Overlay */
             z-index: 0; /* Stellt sicher, dass der Overlay darunter liegt */
+            /* Neue CSS-Regeln für die volle Breite und den Overlay */
+            margin-left: calc(-2rem - 2rem); /* Entspricht -padding-left des containers - margin-left des containers */
+            margin-right: calc(-2rem - 2rem); /* Entspricht -padding-right des containers - margin-right des containers */
+            max-width: unset; /* Entfernt die maximale Breite des containers */
+            width: calc(100% + 4rem + 4rem); /* 100% der übergeordneten Breite + 2x padding + 2x margin */
         }
-
-        /* Pseudo-Element für den dunkleren Overlay über dem Parallax-Bild */
+        /* Pseudo-Element für den weißen, opaquen Overlay über dem Parallax-Bild */
         .parallax-section::before {
             content: '';
             position: absolute;
@@ -108,7 +112,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.4); /* Dunklerer Overlay (40% Deckkraft) */
+            background-color: rgba(255, 255, 255, 0.7); /* Weißer Overlay (70% Deckkraft) */
             z-index: -1; /* Liegt unter dem Inhalt */
         }
         .grid-container {
@@ -197,7 +201,7 @@
                 transform: scale(1);
             }
             50% {
-                color: #2ECC71; 
+                color: #2ECC71;  
                 transform: scale(1.1);
             }
             100% {
@@ -295,52 +299,54 @@
               <i class="fas fa-envelope mr-2"></i>E-Mail senden
             </a>
         </div>
-        <div class="parallax-section">
-          <h2 class="section-title">Ihre Vorteile beim Nord Lager Halle</h2>
-          <div class="grid-container">
-              <div class="grid-item">
-                  <i class="fas fa-euro-sign icon"></i> <h3>Preis-Leistung</h3>
-                  <p>Wir garantieren günstige Mietpreise im direkten Wettbewerbsumfeld von Halle, ohne Kompromisse bei Qualität oder Sicherheit.</p>
-              </div>
-              <div class="grid-item">
-                  <i class="fas fa-calendar-alt icon"></i> <h3>Maximale Flexibilität</h3>
-                  <p>Kundenfreundliche, transparente Vertragsbedingungen ohne lange Mindestlaufzeiten und monatlich kündbar.</p>
-              </div>
-              <div class="grid-item">
-                  <i class="fas fa-mobile-alt icon"></i> <h3>Digitaler Komfort</h3>
-                  <p>Von der Online-Buchung bis zum 24/7-Zugang per Smartphone-App – alles vollständig digitalisiert für höchsten Komfort.</p>
-              </div>
-              <div class="grid-item">
-                  <i class="fas fa-map-marker-alt icon"></i> <h3>Top-Standort</h3>
-                  <p>Integrierter Standort in einem hochfrequentierten Fachmarktzentrum mit Fitnessstudio, Friseur und mehr.</p>
-              </div>
-              <div class="grid-item">
-                  <i class="fas fa-shield-alt icon"></i> <h3>Höchste Sicherheit</h3>
-                  <p>Videoüberwachung, alarmgesicherte Anlage und Zugangsprotokollierung für den Schutz Ihrer eingelagerten Gegenstände.</p>
-              </div>
-              <div class="grid-item">
-                  <i class="fas fa-file-invoice-dollar icon"></i> <h3>Transparente Preise inkl. Versicherung</h3>
-                  <p>Unsere Preise beinhaltet eine Mieterversicherung für Ihre Sicherheit und transparente Gesamtkosten.</p>
-              </div>
-              <div class="grid-item multi-icon-grid-container"> 
-                <div class="multi-icon-grid">
-                  <a href="#" class="multi-icon-item">
-                    <i class="fas fa-warehouse icon-small"></i>
-                  </a>
-                  <a href="#" class="multi-icon-item">
-                    <i class="fas fa-box-open icon-small"></i>
-                  </a>
-                  <a href="#" class="multi-icon-item">
-                    <i class="fas fa-dolly icon-small"></i>
-                  </a>
-                  <a href="tel:+491772002092" class="multi-icon-item">
-                    <i class="fas fa-phone-volume icon-small icon-call-blink"></i>
-                  </a>
+    </div>
+    <div class="parallax-section">
+        <div class="container"> <h2 class="section-title">Ihre Vorteile beim Nord Lager Halle</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <i class="fas fa-euro-sign icon"></i> <h3>Preis-Leistung</h3>
+                    <p>Wir garantieren günstige Mietpreise im direkten Wettbewerbsumfeld von Halle, ohne Kompromisse bei Qualität oder Sicherheit.</p>
                 </div>
-              </div>
-          </div>
+                <div class="grid-item">
+                    <i class="fas fa-calendar-alt icon"></i> <h3>Maximale Flexibilität</h3>
+                    <p>Kundenfreundliche, transparente Vertragsbedingungen ohne lange Mindestlaufzeiten und monatlich kündbar.</p>
+                </div>
+                <div class="grid-item">
+                    <i class="fas fa-mobile-alt icon"></i> <h3>Digitaler Komfort</h3>
+                    <p>Von der Online-Buchung bis zum 24/7-Zugang per Smartphone-App – alles vollständig digitalisiert für höchsten Komfort.</p>
+                </div>
+                <div class="grid-item">
+                    <i class="fas fa-map-marker-alt icon"></i> <h3>Top-Standort</h3>
+                    <p>Integrierter Standort in einem hochfrequentierten Fachmarktzentrum mit Fitnessstudio, Friseur und mehr.</p>
+                </div>
+                <div class="grid-item">
+                    <i class="fas fa-shield-alt icon"></i> <h3>Höchste Sicherheit</h3>
+                    <p>Videoüberwachung, alarmgesicherte Anlage und Zugangsprotokollierung für den Schutz Ihrer eingelagerten Gegenstände.</p>
+                </div>
+                <div class="grid-item">
+                    <i class="fas fa-file-invoice-dollar icon"></i> <h3>Transparente Preise inkl. Versicherung</h3>
+                    <p>Unsere Preise beinhaltet eine Mieterversicherung für Ihre Sicherheit und transparente Gesamtkosten.</p>
+                </div>
+                <div class="grid-item multi-icon-grid-container">  
+                  <div class="multi-icon-grid">
+                    <a href="#" class="multi-icon-item">
+                      <i class="fas fa-warehouse icon-small"></i>
+                    </a>
+                    <a href="#" class="multi-icon-item">
+                      <i class="fas fa-box-open icon-small"></i>
+                    </a>
+                    <a href="#" class="multi-icon-item">
+                      <i class="fas fa-dolly icon-small"></i>
+                    </a>
+                    <a href="tel:+491772002092" class="multi-icon-item">
+                      <i class="fas fa-phone-volume icon-small icon-call-blink"></i>
+                    </a>
+                  </div>
+                </div>
+            </div>
         </div>
-        <h2 class="section-title">Rechtliches</h2>
+    </div>
+    <div class="container"> <h2 class="section-title">Rechtliches</h2>
         <div class="accordion">
             <div class="accordion-item" id="datenschutz-item">
                 <div class="accordion-header">Datenschutz</div>
@@ -404,12 +410,6 @@
                     <p><strong>Kontakt:</strong><br>
                     Telefon: +49(0)1772002092<br>
                     E-Mail: kadler@anwalt.io</p>
-                    <!--<p><strong>Handelsregister:</strong><br>
-                    </p>
-                    <p><strong>Umsatzsteuer-ID:</strong><br>
-                    </p>
-                    <p><strong>Aufsichtsbehörde:</strong><br>
-                    </p>-->
                     <p><strong>Streitschlichtung:</strong><br>
                     Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a>.<br>
                     Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
