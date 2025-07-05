@@ -399,3 +399,6 @@ footer {
   align-items: center; /* Vertically center content within the footer */
   justify-content: center; /* Horizontally center content within the footer (already text-align: center, but good for flex) */
 }
+footer p {
+  margin-bottom: 1rem;
+}
