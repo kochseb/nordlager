@@ -344,9 +344,8 @@ header p {
 /* Styles for the footer section */
 footer {
   text-align: center;
-  padding: 1.5rem;
+  padding: 1.3rem;
   margin-top: 3rem; /* Adjusted for better spacing from the content above */
-  border-top: 1px solid #e2e8f0; /* Kept for consistent footer separation */
   color: #64748b;
   font-size: 0.9rem;
 }
