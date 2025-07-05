@@ -1,0 +1,322 @@
+/*
+  Base styles for the body and main layout.
+  The 'Inter' font is imported via Google Fonts in the HTML head.
+*/
+body {
+  font-family: 'Inter', sans-serif;
+  color: #334155; /* Darker text */
+  margin: 0; /* Ensures no default body margin */
+  padding: 0; /* Ensures no default body padding */
+  overflow-x: hidden; /* Prevents horizontal scrolling on small screens */
+  background-color: #f8fafc; /* Fallback background for browsers not supporting parallax */
+}
+
+/*
+  Main wrapper for the entire page content.
+  This creates the global parallax background effect.
+*/
+.main-wrapper {
+  background-image: url('selfstorage.jpg'); /* Your parallax background image */
+  background-attachment: fixed; /* Makes the background scroll independently */
+  background-position: center center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the background from repeating */
+  background-size: cover; /* Ensures the background covers the entire element */
+  min-height: 100vh; /* Ensures the wrapper takes at least the full viewport height */
+  position: relative; /* Needed for the pseudo-element overlay */
+}
+
+/* Pseudo-element for the opaque white overlay over the global parallax background */
+.main-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7); /* White overlay with 70% opacity */
+  z-index: 0; /* Ensures the overlay is above the background image but below content */
+}
+
+/*
+  Container for main content sections.
+  This ensures content is centered and has consistent padding.
+*/
+.container {
+  max-width: 1200px;
+  margin: 2rem auto; /* Centers the container horizontally with vertical margin */
+  padding: 2rem; /* Inner padding for content */
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque white background for content boxes */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-radius: 1rem; /* More rounded corners */
+  position: relative; /* Ensures content is above the parallax background overlay */
+  z-index: 1; /* Places the container content above the .main-wrapper::before overlay */
+}
+
+/* Styles for the header section */
+header {
+  text-align: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0; /* Lighter border */
+}
+
+header p {
+  font-size: 1.15rem;
+  color: #475569; /* Slightly darker gray */
+  line-height: 1.6;
+}
+
+/* Styles for the header logo image */
+.header-logo {
+  margin-top: 0.33rem; /* Spacing above the heading */
+  margin-bottom: 1.5rem; /* Spacing below the text */
+  max-width: 250px; /* Maximum width of the logo */
+  height: auto; /* Auto-adjust height to maintain aspect ratio */
+  border-radius: 0.6rem; /* Slightly rounded corners */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow effect */
+  transition: transform 0.7s ease; /* Transition for hover effect */
+  display: block; /* Treat image as a block element */
+  margin-left: auto; /* Auto left margin for centering */
+  margin-right: auto; /* Auto right margin for centering */
+}
+
+.header-logo:hover {
+  transform: scale(1.17); /* Slight zoom effect on hover */
+}
+
+/* Styles for action buttons */
+.buttons {
+  text-align: center;
+  margin: 2.5rem 0;
+}
+
+.buttons .btn {
+  display: inline-block;
+  background-color: #2563eb; /* Primary blue */
+  color: white;
+  padding: 0.8rem 1.8rem;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  margin: 0.6rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.buttons .btn:hover {
+  background-color: #1e40af; /* Darker blue on hover */
+  transform: translateY(-2px);
+}
+
+/* Separator line style */
+.separator {
+  border: none;
+  border-top: 1px solid #e2e8f0; /* Same style as header border-bottom */
+  margin: 2.5rem 0; /* Same vertical spacing as the buttons */
+}
+
+/* Styles for section titles */
+.section-title {
+  text-align: center;
+  color: #1e40af;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/*
+  Removed .parallax-section specific styling because the global parallax is now handled by .main-wrapper.
+  The content within the parallax area is now handled by the standard .container.
+*/
+/* .parallax-section {} */ 
+
+/* Styles for the grid layout within sections */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
+  gap: 1.5rem; /* Gap between grid items */
+  margin-top: 2rem;
+  padding-bottom: 1.7rem;
+  /* border-bottom: 1px solid #e2e8f0; <-- This line was removed to eliminate the stripe */
+}
+
+/* Styles for individual grid items (cards) */
+.grid-item {
+  background-color: #eff6ff; /* Light blue background for items */
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex; /* For icon and text layout */
+  flex-direction: column; /* Stacks icon above text */
+  align-items: center; /* Centers content horizontally */
+}
+
+.grid-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item h3 {
+  color: #1e40af;
+  margin-top: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.grid-item p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #475569;
+}
+
+/* Icon styling within grid items */
+.grid-item .icon {
+  font-size: 2.6rem; /* Size of the icon */
+  color: #2563eb; /* Color of the icon */
+  margin-bottom: 1rem; /* Space between icon and text */
+}
+
+/* Styles for the multi-icon grid item (special grid item with multiple icons) */
+.multi-icon-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  grid-template-rows: 1fr 1fr; /* Two rows */
+  gap: 1.1rem; /* Space between small icon boxes */
+  width: 100%; /* Fills the parent card */
+  height: 100%; /* Fills the parent card */
+  padding: 1.5rem; /* Padding for the content of the card */
+  box-sizing: border-box; /* Include padding in width/height calculation */
+}
+
+.multi-icon-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0e7ff; /* Background color for small boxes */
+  border-radius: 0.6rem;
+  padding: 0.75rem;
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer; /* Indicates it's clickable */
+  text-decoration: none; /* Removes underline for links */
+  color: #1e40af; /* Text color for links/icons */
+}
+
+.multi-icon-item:hover {
+  background-color: #c3d4ff; /* Lighter hover effect */
+  transform: translateY(-2px); /* Small lift effect on hover */
+}
+
+.multi-icon-item .icon-small {
+  font-size: 3.3rem; /* Smaller size for icons in the multi-card */
+  color: #1e40af; /* Dark blue for contrast */
+  margin-bottom: 0rem;
+}
+
+/* Keyframe animation for the pulsating phone icon */
+@keyframes pulse-phone {
+  0% {
+    color: #1e40af;
+    transform: scale(1);
+  }
+  50% {
+    color: #2ECC71; /* Green color for pulse */
+    transform: scale(1.1);
+  }
+  100% {
+    color: #1e40af;
+    transform: scale(1);
+  }
+}
+
+.multi-icon-item .icon-call-blink {
+  animation: pulse-phone 2s infinite ease-in-out; /* Apply the animation */
+}
+
+/* Styles for the accordion (FAQ/legal sections) */
+.accordion {
+  margin-top: 3rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  overflow: hidden; /* Ensures rounded corners apply to children */
+}
+
+.accordion-item {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-header {
+  background-color: #2563eb;
+  color: white;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+  background-color: #1e40af;
+}
+
+.accordion-header::after {
+  content: '+';
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.active::after {
+  content: '-';
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  padding: 1.5rem;
+  background-color: #f9fafb;
+  display: none; /* Hidden by default */
+  border-top: 1px solid #e2e8f0;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.accordion-content p, .accordion-content ul {
+  margin-top: 0;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+.accordion-content ul {
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.accordion-content a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.accordion-content a:hover {
+  color: #1e40af;
+}
+
+/* Styles for the footer section */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  border-top: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
