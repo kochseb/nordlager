@@ -391,7 +391,7 @@ header p {
 /* Styles for the footer section */
 footer {
   text-align: center;
-  padding: 0.5rem;
+  padding: 0;
   margin-top: 3rem; /* Adjusted for better spacing from the content above */
   color: #64748b;
   font-size: 0.9rem;
