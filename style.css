@@ -395,6 +395,7 @@ footer {
   margin-top: 3rem; /* Adjusted for better spacing from the content above */
   color: #64748b;
   font-size: 0.9rem;
+  line-height: 1.2;
 }
 footer p {
   margin: 0; /* Remove default top/bottom margins of the paragraph */
