@@ -32,19 +32,51 @@ body {
 /* Animation for the scrolling text */
 .top-announcement span {
   display: inline-block; /* Allows text to move horizontally */
-  padding-left: 100%; /* Starts the text off-screen to the right */
+  /* Remove padding-left: 100% and use a fixed width for the content to ensure it scrolls correctly */
+  /* This value should be roughly the width of your text content to avoid gaps or abrupt stops */
+  min-width: 200%; /* Make sure the span is wide enough to contain the scrolling text comfortably */
   animation: scroll-text 30s linear infinite; /* Adjust duration for speed */
+  /* Add vendor prefixes for wider browser compatibility */
+  -webkit-animation: scroll-text 30s linear infinite;
+  -moz-animation: scroll-text 30s linear infinite;
+  -o-animation: scroll-text 30s linear infinite;
+  animation-fill-mode: forwards; /* Keeps the final state of the animation */
 }
 
 @keyframes scroll-text {
   0% {
-    transform: translateX(0%);
+    transform: translateX(100%); /* Start completely off-screen to the right */
   }
   100% {
-    transform: translateX(-100%); /* Moves the text completely off-screen to the left */
+    transform: translateX(-100%); /* Move completely off-screen to the left */
   }
 }
 
+/* Add vendor prefixes for the keyframes as well */
+@-webkit-keyframes scroll-text {
+  0% {
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+  }
+}
+@-moz-keyframes scroll-text {
+  0% {
+    -moz-transform: translateX(100%);
+  }
+  100% {
+    -moz-transform: translateX(-100%);
+  }
+}
+@-o-keyframes scroll-text {
+  0% {
+    -o-transform: translateX(100%);
+  }
+  100% {
+    -o-transform: translateX(-100%);
+  }
+}
 /*
   Main wrapper for the entire page content.
   This creates the global parallax background effect.
