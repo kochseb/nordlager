@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nord Lager Halle - Ihr flexibles Self-Storage in Halle (Saale)</title>
     <meta name="description" content="NordLager Halle bietet die günstigsten und flexibelsten Self-Storage-Lösungen in Halle (Saale). Jetzt online buchen, 24/7 Zugang per App.">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
@@ -14,426 +15,162 @@
     <link rel="manifest" href="manifest.webmanifest">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Light gray background */
-            color: #334155; /* Darker text */
-        }
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background-color: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-            border-radius: 1rem; /* More rounded corners */
-        }
-        header {
-            text-align: center;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #e2e8f0; /* Lighter border */
-        }
-        
-        header p {
-            font-size: 1.15rem;
-            color: #475569; /* Slightly darker gray */
-            line-height: 1.6;
-        }
-
-        .header-logo {
-            margin-top: 0.33rem; /* Abstand zur Überschrift */
-            margin-bottom: 1.5rem; /* Abstand zum Text darunter */
-            max-width: 250px; /* Maximale Breite des Logos */
-            height: auto; /* Höhe automatisch anpassen */
-            border-radius: 0.6rem; /* Leichte Rundung der Ecken */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Deutlicherer Schatteneffekt */
-            transition: transform 0.7s ease; /* Übergang für Hover-Effekt */
-            display: block; /* Bild als Block-Element behandeln */
-            margin-left: auto; /* Automatische linke Margin */
-            margin-right: auto; /* Automatische rechte Margin */
-        }
-        .header-logo:hover {
-            transform: scale(1.17); /* Leichter Zoom-Effekt beim Hover */
-        }
-        .buttons {
-            text-align: center;
-            margin: 2.5rem 0;
-        }
-        .buttons .btn {
-            display: inline-block;
-            background-color: #2563eb; /* Primary blue */
-            color: white;
-            padding: 0.8rem 1.8rem;
-            text-decoration: none;
-            border-radius: 0.5rem;
-            margin: 0.6rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .buttons .btn:hover {
-            background-color: #1e40af; /* Darker blue on hover */
-            transform: translateY(-2px);
-        }
-        .separator {
-            border: none;
-            border-top: 1px solid #e2e8f0; /* Gleicher Stil wie header border-bottom */
-            margin: 2.5rem 0; /* Gleicher vertikaler Abstand wie die Buttons */
-        }
-        .section-title {
-            text-align: center;
-            color: #1e40af;
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-            font-size: 2rem;
-            font-weight: 700;
-        }
-        .parallax-section {
-            background-image: url('selfstorage.jpg'); /* Dein Parallax-Bild */
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding: 4rem 0; /* Innenabstand für die Sektion */
-            position: relative; /* Wichtig für den Pseudo-Overlay */
-            z-index: 0; /* Stellt sicher, dass der Overlay darunter liegt */
-            /* Neue CSS-Regeln für die volle Breite und den Overlay */
-            margin-left: calc(-2rem - 2rem); /* Entspricht -padding-left des containers - margin-left des containers */
-            margin-right: calc(-2rem - 2rem); /* Entspricht -padding-right des containers - margin-right des containers */
-            max-width: unset; /* Entfernt die maximale Breite des containers */
-            width: calc(100% + 4rem + 4rem); /* 100% der übergeordneten Breite + 2x padding + 2x margin */
-        }
-        /* Pseudo-Element für den weißen, opaquen Overlay über dem Parallax-Bild */
-        .parallax-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.7); /* Weißer Overlay (70% Deckkraft) */
-            z-index: -1; /* Liegt unter dem Inhalt */
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-            padding-bottom: 1.7rem;
-        }
-        .grid-item {
-            background-color: #eff6ff; /* Light blue background for items */
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex; /* Für Icon und Text */
-            flex-direction: column; /* Für Icon über Text */
-            align-items: center; /* Zentriert Inhalt */
-        }
-        .grid-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-        }
-        .grid-item h3 {
-            color: #1e40af;
-            margin-top: 0;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        .grid-item p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #475569;
-        }
-        /* Icon Styling */
-        .grid-item .icon {
-            font-size: 2.6rem; /* Größe des Icons */
-            color: #2563eb; /* Farbe des Icons */
-            margin-bottom: 1rem; /* Abstand zwischen Icon und Text */
-        }
-
-        .multi-icon-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* Zwei Spalten */
-            grid-template-rows: 1fr 1fr; /* Zwei Reihen */
-            gap: 1.1rem; /* Abstand zwischen den kleinen Icon-Boxen */
-            width: 100%; /* Füllt die Elternkachel aus */
-            height: 100%; /* Füllt die Elternkachel aus */
-            padding: 1.5rem; /* Padding für den Inhalt der Kachel */
-            box-sizing: border-box; /* Padding in die Breite/Höhe einrechnen */
-        }
-
-        .multi-icon-item {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #e0e7ff; /* Hintergrundfarbe für die kleinen Boxen */
-            border-radius: 0.6rem;
-            padding: 0.75rem;
-            text-align: center;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-            cursor: pointer; /* Zeigt an, dass es klickbar ist */
-            text-decoration: none; /* Unterstreichung für Links entfernen */
-            color: #1e40af; /* Textfarbe für die Links/Icons setzen */
-        }
-
-        .multi-icon-item:hover {
-            background-color: #c3d4ff; /* Leichterer Hover-Effekt */
-            transform: translateY(-2px); /* Kleiner Hoch-Effekt beim Hover */
-        }
-
-        .multi-icon-item .icon-small {
-            font-size: 3.3rem; /* Kleinere Größe für die Icons in der Multi-Kachel */
-            color: #1e40af; /* Dunkelblau für Kontrast */
-            margin-bottom: 0rem;
-        }
-
-        /* Animation für das blinkende Telefon */
-        @keyframes pulse-phone {
-            0% {
-                color: #1e40af;
-                transform: scale(1);
-            }
-            50% {
-                color: #2ECC71;  
-                transform: scale(1.1);
-            }
-            100% {
-                color: #1e40af;
-                transform: scale(1);
-            }
-        }
-
-        .multi-icon-item .icon-call-blink {
-            animation: pulse-phone 2s infinite ease-in-out; /* Animation anwenden */
-        }
-        .accordion {
-            margin-top: 3rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 1rem;
-            overflow: hidden; /* Ensures rounded corners apply to children */
-        }
-        .accordion-item {
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .accordion-item:last-child {
-            border-bottom: none;
-        }
-        .accordion-header {
-            background-color: #2563eb;
-            color: white;
-            padding: 1rem 1.5rem;
-            cursor: pointer;
-            font-size: 1.25rem;
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s ease;
-        }
-        .accordion-header:hover {
-            background-color: #1e40af;
-        }
-        .accordion-header::after {
-            content: '+';
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-        .accordion-header.active::after {
-            content: '-';
-            transform: rotate(180deg);
-        }
-        .accordion-content {
-            padding: 1.5rem;
-            background-color: #f9fafb;
-            display: none;
-            border-top: 1px solid #e2e8f0;
-            line-height: 1.7;
-            color: #475569;
-        }
-        .accordion-content p, .accordion-content ul {
-            margin-top: 0;
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-        .accordion-content ul {
-            padding-left: 1.5rem;
-            list-style-type: disc;
-        }
-        .accordion-content a {
-            color: #2563eb;
-            text-decoration: underline;
-        }
-        .accordion-content a:hover {
-            color: #1e40af;
-        }
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
-            border-top: 1px solid #e2e8f0;
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
+    
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="container">
         <header>
-            <img src="nordlager.jpg" alt="Nord Lager Halle Logo" class="header-logo">
-            <p>Ihr günstiger und flexibler Self-Storage-Anbieter im Norden von Halle (Saale)</p>
-            <p>Wir verwandeln eine 500m² große Gewerbefläche in der Trothaer Straße in einen hochmodernen Lagerstandort mit Räumen von 3 m³ bis 40 m³.</p>
+          <img src="nordlager.jpg" alt="Nord Lager Halle Logo" class="header-logo">
+          <p>Ihr günstiger und flexibler Self-Storage-Anbieter im Norden von Halle (Saale)</p>
+          <p>Wir verwandeln eine 500m² große Gewerbefläche in der Trothaer Straße in einen hochmodernen Lagerstandort mit Räumen von 3 m³ bis 40 m³.</p>
         </header>
 
         <div class="buttons">
-            <a href="tel:+491772002092" class="btn">
-              <i class="fas fa-phone-alt mr-2"></i>Jetzt anrufen
-            </a>
-            <a href="mailto:kadler@anwalt.io" class="btn">
-              <i class="fas fa-envelope mr-2"></i>E-Mail senden
-            </a>
+          <a href="tel:+491772002092" class="btn">
+            <i class="fas fa-phone-alt mr-2"></i>Jetzt anrufen
+          </a>
+          <a href="mailto:kadler@anwalt.io" class="btn">
+            <i class="fas fa-envelope mr-2"></i>E-Mail senden
+          </a>
         </div>
-    </div>
-    <div class="parallax-section">
-        <div class="container"> <h2 class="section-title">Ihre Vorteile beim Nord Lager Halle</h2>
-            <div class="grid-container">
-                <div class="grid-item">
-                    <i class="fas fa-euro-sign icon"></i> <h3>Preis-Leistung</h3>
-                    <p>Wir garantieren günstige Mietpreise im direkten Wettbewerbsumfeld von Halle, ohne Kompromisse bei Qualität oder Sicherheit.</p>
-                </div>
-                <div class="grid-item">
-                    <i class="fas fa-calendar-alt icon"></i> <h3>Maximale Flexibilität</h3>
-                    <p>Kundenfreundliche, transparente Vertragsbedingungen ohne lange Mindestlaufzeiten und monatlich kündbar.</p>
-                </div>
-                <div class="grid-item">
-                    <i class="fas fa-mobile-alt icon"></i> <h3>Digitaler Komfort</h3>
-                    <p>Von der Online-Buchung bis zum 24/7-Zugang per Smartphone-App – alles vollständig digitalisiert für höchsten Komfort.</p>
-                </div>
-                <div class="grid-item">
-                    <i class="fas fa-map-marker-alt icon"></i> <h3>Top-Standort</h3>
-                    <p>Integrierter Standort in einem hochfrequentierten Fachmarktzentrum mit Fitnessstudio, Friseur und mehr.</p>
-                </div>
-                <div class="grid-item">
-                    <i class="fas fa-shield-alt icon"></i> <h3>Höchste Sicherheit</h3>
-                    <p>Videoüberwachung, alarmgesicherte Anlage und Zugangsprotokollierung für den Schutz Ihrer eingelagerten Gegenstände.</p>
-                </div>
-                <div class="grid-item">
-                    <i class="fas fa-file-invoice-dollar icon"></i> <h3>Transparente Preise inkl. Versicherung</h3>
-                    <p>Unsere Preise beinhaltet eine Mieterversicherung für Ihre Sicherheit und transparente Gesamtkosten.</p>
-                </div>
-                <div class="grid-item multi-icon-grid-container">  
-                  <div class="multi-icon-grid">
-                    <a href="#" class="multi-icon-item">
-                      <i class="fas fa-warehouse icon-small"></i>
-                    </a>
-                    <a href="#" class="multi-icon-item">
-                      <i class="fas fa-box-open icon-small"></i>
-                    </a>
-                    <a href="#" class="multi-icon-item">
-                      <i class="fas fa-dolly icon-small"></i>
-                    </a>
-                    <a href="tel:+491772002092" class="multi-icon-item">
-                      <i class="fas fa-phone-volume icon-small icon-call-blink"></i>
-                    </a>
-                  </div>
-                </div>
+      </div>
+
+      <div class="container">
+        <h2 class="section-title">Ihre Vorteile beim Nord Lager Halle</h2>
+        <div class="grid-container">
+          <div class="grid-item">
+            <i class="fas fa-euro-sign icon"></i> <h3>Preis-Leistung</h3>
+            <p>Wir garantieren günstige Mietpreise im direkten Wettbewerbsumfeld von Halle, ohne Kompromisse bei Qualität oder Sicherheit.</p>
+          </div>
+          <div class="grid-item">
+            <i class="fas fa-calendar-alt icon"></i> <h3>Maximale Flexibilität</h3>
+            <p>Kundenfreundliche, transparente Vertragsbedingungen ohne lange Mindestlaufzeiten und monatlich kündbar.</p>
+          </div>
+          <div class="grid-item">
+            <i class="fas fa-mobile-alt icon"></i> <h3>Digitaler Komfort</h3>
+            <p>Von der Online-Buchung bis zum 24/7-Zugang per Smartphone-App – alles vollständig digitalisiert für höchsten Komfort.</p>
+          </div>
+          <div class="grid-item">
+            <i class="fas fa-map-marker-alt icon"></i> <h3>Top-Standort</h3>
+            <p>Integrierter Standort in einem hochfrequentierten Fachmarktzentrum mit Fitnessstudio, Friseur und mehr.</p>
+          </div>
+          <div class="grid-item">
+            <i class="fas fa-shield-alt icon"></i> <h3>Höchste Sicherheit</h3>
+            <p>Videoüberwachung, alarmgesicherte Anlage und Zugangsprotokollierung für den Schutz Ihrer eingelagerten Gegenstände.</p>
+          </div>
+          <div class="grid-item">
+            <i class="fas fa-file-invoice-dollar icon"></i> <h3>Transparente Preise inkl. Versicherung</h3>
+            <p>Unsere Preise beinhaltet eine Mieterversicherung für Ihre Sicherheit und transparente Gesamtkosten.</p>
+          </div>
+          <div class="grid-item multi-icon-grid-container">  
+            <div class="multi-icon-grid">
+              <a href="#" class="multi-icon-item">
+                <i class="fas fa-warehouse icon-small"></i>
+              </a>
+              <a href="#" class="multi-icon-item">
+                <i class="fas fa-box-open icon-small"></i>
+              </a>
+              <a href="#" class="multi-icon-item">
+                <i class="fas fa-dolly icon-small"></i>
+              </a>
+              <a href="tel:+491772002092" class="multi-icon-item">
+                <i class="fas fa-phone-volume icon-small icon-call-blink"></i>
+              </a>
             </div>
+          </div>
         </div>
-    </div>
-    <div class="container"> <h2 class="section-title">Rechtliches</h2>
+      </div>
+
+      <div class="container"> 
+        <h2 class="section-title">Rechtliches</h2>
         <div class="accordion">
-            <div class="accordion-item" id="datenschutz-item">
-                <div class="accordion-header">Datenschutz</div>
-                <div class="accordion-content">
-                    <p>Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Nachfolgend informieren wir Sie über die Erhebung, Verarbeitung und Nutzung Ihrer Daten im Rahmen der Nutzung unserer Website und unserer Dienstleistungen.</p>
+          <div class="accordion-item" id="datenschutz-item">
+            <div class="accordion-header">Datenschutz</div>
+            <div class="accordion-content">
+              <p>Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Nachfolgend informieren wir Sie über die Erhebung, Verarbeitung und Nutzung Ihrer Daten im Rahmen der Nutzung unserer Website und unserer Dienstleistungen.</p>
 
-                    <p><strong>1. Verantwortliche Stelle:</strong></p>
-                    <p>Nord Lager Halle i.G. <br>
-                    c/o Volker Kadler<br>
-                    Friedenstr. 11A<br>
-                    D-06114 Halle/Saale<br>
-                    </p>
+              <p><strong>1. Verantwortliche Stelle:</strong></p>
+              <p>Nord Lager Halle i.G. <br>
+              c/o Volker Kadler<br>
+              Friedenstr. 11A<br>
+              D-06114 Halle/Saale<br>
+              </p>
 
-                    <p><strong>2. Erhebung und Verarbeitung von Daten:</strong></p>
-                    <ul>
-                        <li>Beim Besuch unserer Website werden standardmäßig technische Informationen wie Ihre IP-Adresse, der verwendete Browser und das Betriebssystem erfasst. Diese Daten dienen ausschließlich der Sicherstellung des Betriebs und der Optimierung unserer Website.</li>
-                        <li>Wenn Sie eine Lagerbox online buchen oder einen Vertrag abschließen, erheben wir die zur Vertragsabwicklung notwendigen Daten wie Name, Adresse, Kontaktdaten (E-Mail, Telefonnummer) und Zahlungsinformationen.</li>
-                        <li>Die Nutzung unserer Smartphone-App zur Zugangskontrolle erfordert die Verarbeitung von Zugriffsdaten, um Ihren 24/7-Zugang zu gewährleisten.</li>
-                        <li>Für die obligatorische Mieterversicherung werden die hierfür notwendigen Daten an unseren Versicherungspartner übermittelt, ausschließlich zum Zweck des Vertragsabschlusses und der Abwicklung der Versicherung.</li>
-                    </ul>
+              <p><strong>2. Erhebung und Verarbeitung von Daten:</strong></p>
+              <ul>
+                <li>Beim Besuch unserer Website werden standardmäßig technische Informationen wie Ihre IP-Adresse, der verwendete Browser und das Betriebssystem erfasst. Diese Daten dienen ausschließlich der Sicherstellung des Betriebs und der Optimierung unserer Website.</li>
+                <li>Wenn Sie eine Lagerbox online buchen oder einen Vertrag abschließen, erheben wir die zur Vertragsabwicklung notwendigen Daten wie Name, Adresse, Kontaktdaten (E-Mail, Telefonnummer) und Zahlungsinformationen.</li>
+                <li>Die Nutzung unserer Smartphone-App zur Zugangskontrolle erfordert die Verarbeitung von Zugriffsdaten, um Ihren 24/7-Zugang zu gewährleisten.</li>
+                <li>Für die obligatorische Mieterversicherung werden die hierfür notwendigen Daten an unseren Versicherungspartner übermittelt, ausschließlich zum Zweck des Vertragsabschlusses und der Abwicklung der Versicherung.</li>
+              </ul>
 
-                    <p><strong>3. Nutzung und Weitergabe von Daten:</strong></p>
-                    <ul>
-                        <li>Ihre Daten werden ausschließlich zur Erfüllung unserer vertraglichen Pflichten, zur Bereitstellung unserer Dienstleistungen und zur Verbesserung unseres Angebots genutzt.</li>
-                        <li>Eine Weitergabe Ihrer Daten an Dritte erfolgt nur, wenn dies zur Vertragserfüllung notwendig ist (z.B. an Zahlungsdienstleister, Versicherungspartner), Sie ausdrücklich eingewilligt haben oder eine gesetzliche Verpflichtung besteht.</li>
-                        <li>Wir setzen Management-Software (z.B. Storable, Storeganise) ein, die für die Online-Buchung, Vertragsabwicklung, Zahlungsabwicklung und Steuerung des Zugangssystems notwendig ist.</li>
-                    </ul>
+              <p><strong>3. Nutzung und Weitergabe von Daten:</strong></p>
+              <ul>
+                <li>Ihre Daten werden ausschließlich zur Erfüllung unserer vertraglichen Pflichten, zur Bereitstellung unserer Dienstleistungen und zur Verbesserung unseres Angebots genutzt.</li>
+                <li>Eine Weitergabe Ihrer Daten an Dritte erfolgt nur, wenn dies zur Vertragserfüllung notwendig ist (z.B. an Zahlungsdienstleister, Versicherungspartner), Sie ausdrücklich eingewilligt haben oder eine gesetzliche Verpflichtung besteht.</li>
+                <li>Wir setzen Management-Software (z.B. Storable, Storeganise) ein, die für die Online-Buchung, Vertragsabwicklung, Zahlungsabwicklung und Steuerung des Zugangssystems notwendig ist.</li>
+              </ul>
 
-                    <p><strong>4. Externe Ressourcen, Cookies und Datenverarbeitung auf unserer Website:</strong></p>
-                    <p>Unsere Website nutzt verschiedene externe Ressourcen und Technologien, um Funktionalität und Design zu gewährleisten. Hierbei kann es zur Übertragung von Daten an Drittanbieter kommen. Die Rechtsgrundlage hierfür ist unser berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO. Wir haben Maßnahmen ergriffen, um die Datenminimierung zu gewährleisten und weisen auf die Verantwortlichkeiten der jeweiligen Anbieter hin.</p>
-                    <ul>
-                        <li><strong>Datenverarbeitung durch den Hoster:</strong> Diese Website wird als statische Seite bei GitHub Pages gehostet. Beim Aufruf der Website werden technisch notwendige Daten wie Ihre IP-Adresse, das Datum und die Uhrzeit des Zugriffs, sowie Informationen über Ihren Browser und Ihr Betriebssystem an den Server des Hosters (GitHub Inc., USA) übermittelt. Diese Daten werden in sogenannten Server-Log-Dateien gespeichert, um die Stabilität und Sicherheit des Dienstes zu gewährleisten. Eine Zuordnung zu Ihrer Person findet in der Regel nicht statt. </li>
-                        <li><strong>Content Delivery Networks (CDNs):</strong> Wir verwenden CDNs, um die Ladezeiten unserer Website zu optimieren und Inhalte wie Bilder, Skripte oder Stylesheets schneller bereitzustellen. Hierbei werden Daten an die CDN-Anbieter übertragen. Dies dient unserem berechtigten Interesse an einer schnellen und sicheren Bereitstellung unserer Website.</li>
-                        <li><strong>Google Fonts:</strong> Für eine ansprechende Darstellung der Schriftarten auf unserer Website nutzen wir Google Fonts. Beim Aufruf unserer Seite lädt Ihr Browser die benötigten Schriftarten in ihren Browser-Cache, um Texte und Schriftarten korrekt anzuzeigen. Dabei kann Ihre IP-Adresse an Google übertragen werden. Weitere Informationen zur Datenverarbeitung von Google Fonts finden Sie unter: <a href="https://developers.google.com/fonts/faq/regarding_privacy" target="_blank">Google Fonts Privacy FAQ</a> und in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank">Google Datenschutzerklärung</a>.</li>
-                        <li><strong>Tailwind CSS CDN:</strong> Für das Styling unserer Website nutzen wir das Tailwind CSS CDN. Hierbei werden CSS-Dateien von einem externen Server geladen. Es werden dabei keine personenbezogenen Daten von Tailwind CSS direkt erfasst, jedoch kann die IP-Adresse im Rahmen des Ladevorgangs an den CDN-Anbieter übertragen werden.</li>
-                        <li><strong>Font Awesome:</strong> Zur Darstellung von Icons auf unserer Website nutzen wir Font Awesome. Die Icons werden ebenfalls über ein CDN geladen, wodurch Ihre IP-Adresse an den Anbieter übermittelt werden kann. Weitere Informationen finden Sie in der Datenschutzerklärung von Font Awesome: <a href="https://fontawesome.com/privacy" target="_blank">Font Awesome Privacy Policy</a>.</li>
-                        <li><strong>Externe Links:</strong> Unsere Website enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Eine ständige inhaltliche Kontrolle der verlinkten Seiten ist ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen. Bitte beachten Sie die Datenschutzerklärungen der jeweiligen externen Websites.</li>
-                        <li><strong>Cookies:</strong> Wir verwenden Session-Cookies, die für die technische Bereitstellung unserer Dienste notwendig sind und nach Ende Ihrer Browsersitzung automatisch gelöscht werden. Darüber hinaus verwenden wir keine Cookies, die eine Analyse Ihres Nutzerverhaltens ermöglichen.</li>
-                    </ul>
+              <p><strong>4. Externe Ressourcen, Cookies und Datenverarbeitung auf unserer Website:</strong></p>
+              <p>Unsere Website nutzt verschiedene externe Ressourcen und Technologien, um Funktionalität und Design zu gewährleisten. Hierbei kann es zur Übertragung von Daten an Drittanbieter kommen. Die Rechtsgrundlage hierfür ist unser berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO. Wir haben Maßnahmen ergriffen, um die Datenminimierung zu gewährleisten und weisen auf die Verantwortlichkeiten der jeweiligen Anbieter hin.</p>
+              <ul>
+                <li><strong>Datenverarbeitung durch den Hoster:</strong> Diese Website wird als statische Seite bei GitHub Pages gehostet. Beim Aufruf der Website werden technisch notwendige Daten wie Ihre IP-Adresse, das Datum und die Uhrzeit des Zugriffs, sowie Informationen über Ihren Browser und Ihr Betriebssystem an den Server des Hosters (GitHub Inc., USA) übermittelt. Diese Daten werden in sogenannten Server-Log-Dateien gespeichert, um die Stabilität und Sicherheit des Dienstes zu gewährleisten. Eine Zuordnung zu Ihrer Person findet in der Regel nicht statt. </li>
+                <li><strong>Content Delivery Networks (CDNs):</strong> Wir verwenden CDNs, um die Ladezeiten unserer Website zu optimieren und Inhalte wie Bilder, Skripte oder Stylesheets schneller bereitzustellen. Hierbei werden Daten an die CDN-Anbieter übertragen. Dies dient unserem berechtigten Interesse an einer schnellen und sicheren Bereitstellung unserer Website.</li>
+                <li><strong>Google Fonts:</strong> Für eine ansprechende Darstellung der Schriftarten auf unserer Website nutzen wir Google Fonts. Beim Aufruf unserer Seite lädt Ihr Browser die benötigten Schriftarten in ihren Browser-Cache, um Texte und Schriftarten korrekt anzuzeigen. Dabei kann Ihre IP-Adresse an Google übertragen werden. Weitere Informationen zur Datenverarbeitung von Google Fonts finden Sie unter: <a href="https://developers.google.com/fonts/faq/regarding_privacy" target="_blank">Google Fonts Privacy FAQ</a> und in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank">Google Datenschutzerklärung</a>.</li>
+                <li><strong>Tailwind CSS CDN:</strong> Für das Styling unserer Website nutzen wir das Tailwind CSS CDN. Hierbei werden CSS-Dateien von einem externen Server geladen. Es werden dabei keine personenbezogenen Daten von Tailwind CSS direkt erfasst, jedoch kann die IP-Adresse im Rahmen des Ladevorgangs an den CDN-Anbieter übertragen werden.</li>
+                <li><strong>Font Awesome:</strong> Zur Darstellung von Icons auf unserer Website nutzen wir Font Awesome. Die Icons werden ebenfalls über ein CDN geladen, wodurch Ihre IP-Adresse an den Anbieter übermittelt werden kann. Weitere Informationen finden Sie in der Datenschutzerklärung von Font Awesome: <a href="https://fontawesome.com/privacy" target="_blank">Font Awesome Privacy Policy</a>.</li>
+                <li><strong>Externe Links:</strong> Unsere Website enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Eine ständige inhaltliche Kontrolle der verlinkten Seiten ist ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen. Bitte beachten Sie die Datenschutzerklärungen der jeweiligen externen Websites.</li>
+                <li><strong>Cookies:</strong> Wir verwenden Session-Cookies, die für die technische Bereitstellung unserer Dienste notwendig sind und nach Ende Ihrer Browsersitzung automatisch gelöscht werden. Darüber hinaus verwenden wir keine Cookies, die eine Analyse Ihres Nutzerverhaltens ermöglichen.</li>
+              </ul>
 
-                    <p><strong>5. Datensicherheit:</strong></p>
-                    <p>Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre Daten gegen zufällige oder vorsätzliche Manipulationen, Verlust, Zerstörung oder den Zugriff unberechtigter Personen zu schützen.</p>
+              <p><strong>5. Datensicherheit:</strong></p>
+              <p>Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre Daten gegen zufällige oder vorsätzliche Manipulationen, Verlust, Zerstörung oder den Zugriff unberechtigter Personen zu schützen.</p>
 
-                    <p><strong>6. Ihre Rechte:</strong></p>
-                    <p>Sie haben jederzeit das Recht auf Auskunft über Ihre gespeicherten Daten, deren Berichtigung, Löschung oder Sperrung. Bitte kontaktieren Sie uns hierfür unter der oben genannten E-Mail-Adresse.</p>
-                    <p>Diese Datenschutzerklärung kann bei Bedarf angepasst werden, um neuen rechtlichen Anforderungen oder Änderungen unserer Dienstleistungen Rechnung zu tragen. Bitte prüfen Sie diese regelmäßig.</p>
-                </div>
+              <p><strong>6. Ihre Rechte:</strong></p>
+              <p>Sie haben jederzeit das Recht auf Auskunft über Ihre gespeicherten Daten, deren Berichtigung, Löschung oder Sperrung. Bitte kontaktieren Sie uns hierfür unter der oben genannten E-Mail-Adresse.</p>
+              <p>Diese Datenschutzerklärung kann bei Bedarf angepasst werden, um neuen rechtlichen Anforderungen oder Änderungen unserer Dienstleistungen Rechnung zu tragen. Bitte prüfen Sie diese regelmäßig.</p>
             </div>
-            <div class="accordion-item" id="impressum-item">
-                <div class="accordion-header">Impressum</div>
-                <div class="accordion-content">
-                    <p><strong>Angaben gemäß § 5 TMG:</strong></p>
-                    <p>Nord Lager Halle i.G.<br>
-                    c/o Volker Kadler<br>
-                    Friedenstr. 11A<br>
-                    D-06118 Halle/Saale<br>
-                    </p>
-                    <p><strong>Vertreten durch:</strong><br>
-                    Volker Kadler
-                    </p>
-                    <p><strong>Kontakt:</strong><br>
-                    Telefon: +49(0)1772002092<br>
-                    E-Mail: kadler@anwalt.io</p>
-                </div>
+          </div>
+          <div class="accordion-item" id="impressum-item">
+            <div class="accordion-header">Impressum</div>
+            <div class="accordion-content">
+              <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+              <p>Nord Lager Halle i.G.<br>
+              c/o Volker Kadler<br>
+              Friedenstr. 11A<br>
+              D-06118 Halle/Saale<br>
+              </p>
+              <p><strong>Vertreten durch:</strong><br>
+              Volker Kadler
+              </p>
+              <p><strong>Kontakt:</strong><br>
+              Telefon: +49(0)1772002092<br>
+              E-Mail: kadler@anwalt.io</p>
             </div>
+          </div>
         </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Nord Lager Halle. Alle Rechte vorbehalten.</p>
+      </div>
+    </div> <footer>
+      <p>&copy; 2025 Nord Lager Halle. Alle Rechte vorbehalten.</p>
     </footer>
 
     <script>
-        document.querySelectorAll('.accordion-header').forEach(item => {
-            item.addEventListener('click', event => {
-                const currentContent = item.nextElementSibling;
-            
-                // Toggle des aktuell geklickten Akkordeons
-                // Dieser Teil ist für alle Akkordeons gleich und schließt nur sich selbst
-                if (currentContent.style.display === 'block') {
-                    currentContent.style.display = 'none';
-                    item.classList.remove('active');
-                } else {
-                    currentContent.style.display = 'block';
-                    item.classList.add('active');
-                }
-            });
+      document.querySelectorAll('.accordion-header').forEach(item => {
+        item.addEventListener('click', event => {
+          const currentContent = item.nextElementSibling;
+          
+          // Toggles the display of the current accordion content
+          if (currentContent.style.display === 'block') {
+            currentContent.style.display = 'none';
+            item.classList.remove('active');
+          } else {
+            currentContent.style.display = 'block';
+            item.classList.add('active');
+          }
         });
+      });
     </script>
-</body>
+  </body>
 </html>
