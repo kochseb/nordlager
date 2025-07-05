@@ -19,7 +19,6 @@ body {
   color: #fff;
   padding: 0.5rem 0; /* Vertical padding */
   text-align: center;
-  word-spacing: 0.5rem;
   font-size: 1rem;
   font-weight: 600;
   white-space: nowrap; /* Prevents text from wrapping */
@@ -27,36 +26,41 @@ body {
   position: sticky; /* Makes it stick to the top */
   top: 0;
   z-index: 100; /* Ensures it stays on top of other content */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Subtle shadow */
 }
 
 /* Animation for the scrolling text */
 .top-announcement span {
   display: inline-block; /* Allows text to move horizontally */
-  /* Remove padding-left: 100% and use a fixed width for the content to ensure it scrolls correctly */
-  /* This value should be roughly the width of your text content to avoid gaps or abrupt stops */
-  min-width: 200%; /* Make sure the span is wide enough to contain the scrolling text comfortably */
-  animation: scroll-text 30s linear infinite; /* Adjust duration for speed */
-  /* Add vendor prefixes for wider browser compatibility */
-  -webkit-animation: scroll-text 30s linear infinite;
-  -moz-animation: scroll-text 30s linear infinite;
-  -o-animation: scroll-text 30s linear infinite;
-  animation-fill-mode: forwards; /* Keeps the final state of the animation */
+  /* Key change: Duplicate the text content for seamless looping */
+  /* The width should be roughly double the visible width to ensure no gaps */
+  width: auto; /* Allow content to dictate width */
+  padding-right: 2rem; /* Add some space between repeated texts if desired */
+  animation: scroll-text 15s linear infinite; /* Adjusted duration for speed and smoother loop */
+  /* Adjusted `min-width` to ensure content wraps correctly if needed */
+  min-width: 100%; /* Ensure it's at least the width of its parent for the animation */
+
+  /* Vendor prefixes for wider browser compatibility */
+  -webkit-animation: scroll-text 23s linear infinite;
+  -moz-animation: scroll-text 23s linear infinite;
+  -o-animation: scroll-text 23s linear infinite;
+  animation-fill-mode: forwards; /* This is usually not needed for infinite animations, but no harm */
 }
 
+/* Keyframes for the scrolling text animation */
 @keyframes scroll-text {
   0% {
-    transform: translateX(100%); /* Start completely off-screen to the right */
+    transform: translateX(0); /* Starts at its natural position (left edge of the parent) */
   }
   100% {
-    transform: translateX(-100%); /* Move completely off-screen to the left */
+    transform: translateX(-100%); /* Moves exactly its own width to the left */
   }
 }
 
 /* Add vendor prefixes for the keyframes as well */
 @-webkit-keyframes scroll-text {
   0% {
-    -webkit-transform: translateX(100%);
+    -webkit-transform: translateX(0);
   }
   100% {
     -webkit-transform: translateX(-100%);
@@ -64,7 +68,7 @@ body {
 }
 @-moz-keyframes scroll-text {
   0% {
-    -moz-transform: translateX(100%);
+    -moz-transform: translateX(0);
   }
   100% {
     -moz-transform: translateX(-100%);
@@ -72,7 +76,7 @@ body {
 }
 @-o-keyframes scroll-text {
   0% {
-    -o-transform: translateX(100%);
+    -o-transform: translateX(0);
   }
   100% {
     -o-transform: translateX(-100%);
