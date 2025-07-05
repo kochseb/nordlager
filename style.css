@@ -37,9 +37,7 @@ body {
   width: auto; /* Allow content to dictate width */
   padding-right: 2rem; /* Add some space between repeated texts if desired */
   animation: scroll-text 15s linear infinite; /* Adjusted duration for speed and smoother loop */
-  /* Adjusted `min-width` to ensure content wraps correctly if needed */
-  min-width: 100%; /* Ensure it's at least the width of its parent for the animation */
-
+  
   /* Vendor prefixes for wider browser compatibility */
   -webkit-animation: scroll-text 23s linear infinite;
   -moz-animation: scroll-text 23s linear infinite;
@@ -50,7 +48,7 @@ body {
 /* Keyframes for the scrolling text animation */
 @keyframes scroll-text {
   0% {
-    transform: translateX(0); /* Starts at its natural position (left edge of the parent) */
+    transform: translateX(87%); /* Starts at its natural position (left edge of the parent) */
   }
   100% {
     transform: translateX(-100%); /* Moves exactly its own width to the left */
@@ -382,7 +380,7 @@ header p {
 /* Styles for the footer section */
 footer {
   text-align: center;
-  padding: 1.3rem;
+  padding: 1rem;
   margin-top: 3rem; /* Adjusted for better spacing from the content above */
   color: #64748b;
   font-size: 0.9rem;
