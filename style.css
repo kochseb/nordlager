@@ -46,18 +46,21 @@ body {
   max-width: 1200px;
   margin: 2rem auto; /* Centers the container horizontally with vertical margin */
   padding: 2rem; /* Inner padding for content */
-  background-color: rgba(255, 255, 255, 0.7); /* Slightly opaque white background for content boxes (more transparent) */
+  background-color: rgba(255, 255, 255, 0.71); /* Slightly opaque white background for content boxes (more transparent) */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   border-radius: 1rem; /* More rounded corners */
   position: relative; /* Ensures content is above the parallax background overlay */
   z-index: 1; /* Places the container content above the .main-wrapper::before overlay */
 }
-
+/* Separate styles for the header container */
+.header-container {
+  background-color: rgba(255, 255, 255, 0.87); /* Beispiel: Weniger transparent (90% Deckkraft) */
+}
 /* Styles for the header section */
 header {
   text-align: center;
   padding-bottom: 1.5rem;
-  /* border-bottom: 1px solid #e2e8f0; <-- This line was removed to eliminate the stripe above the header */
+  border-bottom: 1px solid #e2e8f0;
 }
 
 header p {
