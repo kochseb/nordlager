@@ -36,12 +36,12 @@ body {
   /* The width should be roughly double the visible width to ensure no gaps */
   width: auto; /* Allow content to dictate width */
   padding-right: 2rem; /* Add some space between repeated texts if desired */
-  animation: scroll-text 15s linear infinite; /* Adjusted duration for speed and smoother loop */
+  animation: scroll-text 23s linear infinite; /* Adjusted duration for speed and smoother loop */
   
   /* Vendor prefixes for wider browser compatibility */
-  -webkit-animation: scroll-text 23s linear infinite;
-  -moz-animation: scroll-text 23s linear infinite;
-  -o-animation: scroll-text 23s linear infinite;
+  -webkit-animation: scroll-text 27s linear infinite;
+  -moz-animation: scroll-text 27s linear infinite;
+  -o-animation: scroll-text 27s linear infinite;
   animation-fill-mode: forwards; /* This is usually not needed for infinite animations, but no harm */
 }
 
@@ -124,6 +124,7 @@ body {
 /* Separate styles for the header container */
 .header-container {
   background-color: rgba(255, 255, 255, 0.87); /* Beispiel: Weniger transparent (90% Deckkraft) */
+  margin-top: 0;
 }
 /* Styles for the header section */
 header {
@@ -380,7 +381,7 @@ header p {
 /* Styles for the footer section */
 footer {
   text-align: center;
-  padding: 1rem;
+  padding: 0.7rem;
   margin-top: 3rem; /* Adjusted for better spacing from the content above */
   color: #64748b;
   font-size: 0.9rem;
