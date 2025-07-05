@@ -34,7 +34,6 @@ body {
   display: inline-block; /* Allows text to move horizontally */
   /* The width should be roughly double the visible width to ensure no gaps */
   width: auto; /* Allow content to dictate width */
-  padding-right: 1rem; /* Add some space between repeated texts if desired */
   animation: scroll-text 23s linear infinite; /* Adjusted duration for speed and smoother loop */
   
   /* Vendor prefixes for wider browser compatibility */
@@ -125,7 +124,7 @@ body {
   max-width: 1200px;
   margin: 2rem auto; /* Centers the container horizontally with vertical margin */
   padding: 2rem; /* Inner padding for content */
-  background-color: rgba(255, 255, 255, 0.71); /* Slightly opaque white background for content boxes (more transparent) */
+  background-color: rgba(255, 255, 255, 0.65); /* Slightly opaque white background for content boxes (more transparent) */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   border-radius: 1rem; /* More rounded corners */
   position: relative; /* Ensures content is above the parallax background overlay */
@@ -133,7 +132,7 @@ body {
 }
 /* Separate styles for the header container */
 .header-container {
-  background-color: rgba(255, 255, 255, 0.87); /* Beispiel: Weniger transparent (90% Deckkraft) */
+  background-color: rgba(255, 255, 255, 0.74); /* Beispiel: Weniger transparent (90% Deckkraft) */
   margin-top: 0;
 }
 /* Styles for the header section */
