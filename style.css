@@ -391,11 +391,14 @@ header p {
 /* Styles for the footer section */
 footer {
   text-align: center;
-  padding: 0;
+  padding: 0.1rem 0;
   margin-top: 3rem; /* Adjusted for better spacing from the content above */
   color: #64748b;
   font-size: 0.9rem;
   line-height: 1.2;
+  display: flex; /* Enable flexbox for the footer */
+  align-items: center; /* Vertically center content within the footer */
+  justify-content: center; /* Horizontally center content within the footer (already text-align: center, but good for flex) */
 }
 footer p {
   margin: 0; /* Remove default top/bottom margins of the paragraph */
