@@ -32,10 +32,9 @@ body {
 /* Animation for the scrolling text */
 .top-announcement span {
   display: inline-block; /* Allows text to move horizontally */
-  /* Key change: Duplicate the text content for seamless looping */
   /* The width should be roughly double the visible width to ensure no gaps */
   width: auto; /* Allow content to dictate width */
-  padding-right: 2rem; /* Add some space between repeated texts if desired */
+  padding-right: 1rem; /* Add some space between repeated texts if desired */
   animation: scroll-text 23s linear infinite; /* Adjusted duration for speed and smoother loop */
   
   /* Vendor prefixes for wider browser compatibility */
@@ -50,12 +49,6 @@ body {
   text-decoration: underline; /* Underline the text */
   white-space: nowrap; /* Ensure the link text doesn't wrap */
   font-weight: 700; /* Optional: Make it bold for more prominence */
-
-  /* Apply the existing pulsing animation */
-  animation: pulse-phone 2s infinite ease-in-out; 
-  -webkit-animation: pulse-phone 2s infinite ease-in-out;
-  -moz-animation: pulse-phone 2s infinite ease-in-out;
-  -o-animation: pulse-phone 2s infinite ease-in-out;
 }
 
 /* Optional: Remove underline on hover if preferred */
@@ -398,7 +391,7 @@ header p {
 /* Styles for the footer section */
 footer {
   text-align: center;
-  padding: 0.6rem;
+  padding: 0.5rem;
   margin-top: 3rem; /* Adjusted for better spacing from the content above */
   color: #64748b;
   font-size: 0.9rem;
