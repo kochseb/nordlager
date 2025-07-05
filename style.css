@@ -44,7 +44,24 @@ body {
   -o-animation: scroll-text 27s linear infinite;
   animation-fill-mode: forwards; /* This is usually not needed for infinite animations, but no harm */
 }
+/* Styles for the call link within the announcement bar */
+.top-announcement .call-link {
+  color: #fff; /* White text color */
+  text-decoration: underline; /* Underline the text */
+  white-space: nowrap; /* Ensure the link text doesn't wrap */
+  font-weight: 700; /* Optional: Make it bold for more prominence */
 
+  /* Apply the existing pulsing animation */
+  animation: pulse-phone 2s infinite ease-in-out; 
+  -webkit-animation: pulse-phone 2s infinite ease-in-out;
+  -moz-animation: pulse-phone 2s infinite ease-in-out;
+  -o-animation: pulse-phone 2s infinite ease-in-out;
+}
+
+/* Optional: Remove underline on hover if preferred */
+.top-announcement .call-link:hover {
+  text-decoration: none; /* Removes underline on hover */
+}
 /* Keyframes for the scrolling text animation */
 @keyframes scroll-text {
   0% {
@@ -381,7 +398,7 @@ header p {
 /* Styles for the footer section */
 footer {
   text-align: center;
-  padding: 0.7rem;
+  padding: 0.6rem;
   margin-top: 3rem; /* Adjusted for better spacing from the content above */
   color: #64748b;
   font-size: 0.9rem;
