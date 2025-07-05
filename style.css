@@ -26,7 +26,7 @@ body {
   position: sticky; /* Makes it stick to the top */
   top: 0;
   z-index: 100; /* Ensures it stays on top of other content */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Subtle shadow */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.5); /* Subtle shadow */
 }
 
 /* Animation for the scrolling text */
