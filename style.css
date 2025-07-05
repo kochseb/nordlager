@@ -23,6 +23,7 @@ body {
   background-size: cover; /* Ensures the background covers the entire element */
   min-height: 100vh; /* Ensures the wrapper takes at least the full viewport height */
   position: relative; /* Needed for the pseudo-element overlay */
+  padding-bottom: 2rem; /* Adds space at the bottom to show parallax before the footer */
 }
 
 /* Pseudo-element for the opaque white overlay over the global parallax background */
@@ -33,7 +34,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.7); /* White overlay with 70% opacity */
+  background-color: rgba(255, 255, 255, 0.6); /* White overlay with 60% opacity (more transparent) */
   z-index: 0; /* Ensures the overlay is above the background image but below content */
 }
 
@@ -45,7 +46,7 @@ body {
   max-width: 1200px;
   margin: 2rem auto; /* Centers the container horizontally with vertical margin */
   padding: 2rem; /* Inner padding for content */
-  background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque white background for content boxes */
+  background-color: rgba(255, 255, 255, 0.7); /* Slightly opaque white background for content boxes (more transparent) */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   border-radius: 1rem; /* More rounded corners */
   position: relative; /* Ensures content is above the parallax background overlay */
@@ -56,7 +57,7 @@ body {
 header {
   text-align: center;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #e2e8f0; /* Lighter border */
+  /* border-bottom: 1px solid #e2e8f0; <-- This line was removed to eliminate the stripe above the header */
 }
 
 header p {
@@ -125,12 +126,6 @@ header p {
   font-weight: 700;
 }
 
-/*
-  Removed .parallax-section specific styling because the global parallax is now handled by .main-wrapper.
-  The content within the parallax area is now handled by the standard .container.
-*/
-/* .parallax-section {} */ 
-
 /* Styles for the grid layout within sections */
 .grid-container {
   display: grid;
@@ -138,7 +133,6 @@ header p {
   gap: 1.5rem; /* Gap between grid items */
   margin-top: 2rem;
   padding-bottom: 1.7rem;
-  /* border-bottom: 1px solid #e2e8f0; <-- This line was removed to eliminate the stripe */
 }
 
 /* Styles for individual grid items (cards) */
@@ -286,7 +280,7 @@ header p {
   padding: 1.5rem;
   background-color: #f9fafb;
   display: none; /* Hidden by default */
-  border-top: 1px solid #e2e8f0;
+  /* border-top: 1px solid #e2e8f0; <-- This line was removed to eliminate the stripe below the header of the accordion */
   line-height: 1.7;
   color: #475569;
 }
@@ -315,8 +309,8 @@ header p {
 footer {
   text-align: center;
   padding: 1.5rem;
-  margin-top: 3rem;
-  border-top: 1px solid #e2e8f0;
+  margin-top: 3rem; /* Adjusted for better spacing from the content above */
+  border-top: 1px solid #e2e8f0; /* Kept for consistent footer separation */
   color: #64748b;
   font-size: 0.9rem;
 }
