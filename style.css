@@ -7,9 +7,8 @@
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
-  src: url('assets/fonts/Inter-Regular.woff2') format('woff2'), /* Modern Browsers */
-       url('assets/fonts/Inter-Regular.woff') format('woff');  /* Older Browsers */
-  /* Ggf. weitere Formate wie .ttf, .eot hinzufügen, falls benötigt. Woff2/Woff deckt die meisten ab. */
+  src: url('assets/fonts/Inter-Regular.woff2') format('woff2'), 
+       url('assets/fonts/Inter-Regular.woff') format('woff');
 }
 
 /* Inter SemiBold (600) */
@@ -30,309 +29,66 @@
        url('assets/fonts/Inter-Bold.woff') format('woff');
 }
 
+/* Inter ExtraBold (800) - Wenn in der Schriftart-Datei vorhanden */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  src: url('assets/fonts/Inter-ExtraBold.woff2') format('woff2'),
+       url('assets/fonts/Inter-ExtraBold.woff') format('woff');
+}
+
 
 /* ------------------------------------ */
-/* 2. BASE STYLES & TYPOGRAPHY */
+/* 2. BASE STYLES & CUSTOMIZATIONS */
 /* ------------------------------------ */
 body {
-  font-family: 'Inter', sans-serif; /* Wichtig: Lokale Nutzung aktivieren */
-  color: #334155; /* Darker text */
-  margin: 0; /* Ensures no default body margin */
-  padding: 0; /* Ensures no default body padding */
-  overflow-x: hidden; /* Prevents horizontal scrolling on small screens */
-  background-color: #f8fafc; /* Fallback background for browsers not supporting parallax */
+    font-family: 'Inter', sans-serif;
+    background-color: #F8F7F4; /* Light background */
+    color: #2D3748; /* Dark text */
 }
 
-/* Der top-announcement Banner ist jetzt statisch und wird hauptsächlich über Tailwind im HTML gestylt */
-.top-announcement {
-  /* Keine Animation mehr, da statisch */
-  box-shadow: 0 3px 6px rgba(0,0,0,0.5); /* Subtle shadow beibehalten */
-  position: sticky; /* Bleibt oben */
-  top: 0;
-  z-index: 100;
+/* AKZENTFARBE WIE VOM URSPRÜNGLICHEN CODE */
+.accent-bg {
+    background-color: #2c5282; /* Deep Blue */
+}
+.accent-text {
+    color: #2c5282; /* Deep Blue */
 }
 
-/* call-link styling innerhalb des ehemaligen announcement bars wird nicht mehr benötigt,
-   da der Banner statisch ist und die Telefonnummer direkt im Text sein könnte oder 
-   besser als Button im Header. Falls doch, hier anpassen */
-.top-announcement .call-link {
-  color: #fff;
-  text-decoration: underline;
-  white-space: nowrap;
-  font-weight: 700;
-}
-
-.top-announcement .call-link:hover {
-  text-decoration: none;
-}
-
-/* Alle @keyframes für scroll-text können entfernt werden, da der Banner statisch ist */
-/* @keyframes scroll-text { ... } */
-/* @-webkit-keyframes scroll-text { ... } */
-/* @-moz-keyframes scroll-text { ... } */
-/* @-o-keyframes scroll-text { ... } */
-
-
-/*
-  Main wrapper for the entire page content.
-  This creates the global parallax background effect.
-*/
-.main-wrapper {
-  background-image: url('selfstorage.jpg'); /* Your parallax background image */
-  background-attachment: fixed; /* Makes the background scroll independently */
-  background-position: center center; /* Centers the background image */
-  background-repeat: no-repeat; /* Prevents the background from repeating */
-  background-size: cover; /* Ensures the background covers the entire element */
-  min-height: 100vh; /* Ensures the wrapper takes at least the full viewport height */
-  position: relative; /* Needed for the pseudo-element overlay */
-  padding-bottom: 2rem; /* Adds space at the bottom to show parallax before the footer */
-}
-
-/* Pseudo-element for the opaque white overlay over the global parallax background */
-.main-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(255, 255, 255, 0.6); /* White overlay with 60% opacity (more transparent) */
-  z-index: 0; /* Ensures the overlay is above the background image but below content */
-}
-
-/*
-  Container for main content sections.
-  This ensures content is centered and has consistent padding.
-*/
-.container {
-  max-width: 1200px;
-  margin: 2rem auto; /* Centers the container horizontally with vertical margin */
-  padding: 2rem; /* Inner padding for content */
-  background-color: rgba(255, 255, 255, 0.65); /* Slightly opaque white background for content boxes (more transparent) */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  border-radius: 1rem; /* More rounded corners */
-  position: relative; /* Ensures content is above the parallax background overlay */
-  z-index: 1; /* Places the container content above the .main-wrapper::before overlay */
-}
-/* Separate styles for the header container */
-.header-container {
-  background-color: rgba(255, 255, 255, 0.74); /* Beispiel: Weniger transparent (90% Deckkraft) */
-  margin-top: 0;
-}
-/* Styles for the header section */
-header {
-  text-align: center;
-  padding-bottom: 1.3rem;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-header p {
-  font-size: 1.15rem;
-  color: #475569; /* Slightly darker gray */
-  line-height: 1.6;
-}
-
-/* Styles for the header logo image */
+/* LOGO STYLING */
 .header-logo {
-  margin-top: 0.33rem; /* Spacing above the heading */
-  margin-bottom: 1.5rem; /* Spacing below the text */
-  max-width: 250px; /* Maximum width of the logo */
-  height: auto; /* Auto-adjust height to maintain aspect ratio */
-  border-radius: 0.6rem; /* Slightly rounded corners */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow effect */
-  transition: transform 0.7s ease; /* Transition for hover effect */
-  display: block; /* Treat image as a block element */
-  margin-left: auto; /* Auto left margin for centering */
-  margin-right: auto; /* Auto right margin for centering */
+    /* Macht das Logo kleiner und zentriert */
+    max-height: 3rem; /* Max. Höhe, da h-12 in Tailwind */
+    width: auto;
 }
 
-.header-logo:hover {
-  transform: scale(1.17); /* Slight zoom effect on hover */
+/* HERO SECTION BACKGROUND (Hier fügen wir das Bild ein) */
+.hero-bg {
+    /* WICHTIG: Ersetzt die ursprüngliche 'background-color: #E2E8F0;' */
+    background-image: url('selfstorage.jpg'); /* Stellen Sie sicher, dass das Bild im Root liegt! */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Optional: Für Parallax-Effekt */
 }
 
-/* Styles for action buttons */
-.buttons {
-  text-align: center;
-  margin: 2.5rem 0;
+/* CTA & BENEFIT CARD STYLING (Vom Original-Code übernommen) */
+.cta-button {
+    transition: all 0.3s ease;
+}
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.benefit-card {
+    transition: all 0.3s ease;
+}
+.benefit-card:hover {
+    transform: scale(1.05);
+    background-color: #ffffff;
 }
 
-.buttons .btn {
-  display: inline-block;
-  background-color: #2563eb; /* Primary blue */
-  color: white;
-  padding: 0.8rem 1.8rem;
-  text-decoration: none;
-  border-radius: 0.5rem;
-  margin: 0.6rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.buttons .btn:hover {
-  background-color: #1e40af; /* Darker blue on hover */
-  transform: translateY(-2px);
-}
-
-/* Separator line style */
-.separator {
-  border: none;
-  border-top: 1px solid #e2e8f0; /* Same style as header border-bottom */
-  margin: 2.5rem 0; /* Same vertical spacing as the buttons */
-}
-
-/* Styles for section titles */
-.section-title {
-  text-align: center;
-  color: #1e40af;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-/* Styles for the grid layout within sections */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
-  gap: 1.5rem; /* Gap between grid items */
-  margin-top: 2rem;
-  padding-bottom: 1.7rem;
-}
-
-/* Styles for individual grid items (cards) */
-.grid-item {
-  background-color: #eff6ff; /* Light blue background for items */
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  display: flex; /* For icon and text layout */
-  flex-direction: column; /* Stacks icon above text */
-  align-items: center; /* Centers content horizontally */
-}
-
-.grid-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-}
-
-.grid-item h3 {
-  color: #1e40af;
-  margin-top: 0;
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-}
-
-.grid-item p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #475569;
-}
-
-/* Icon styling within grid items */
-.grid-item .icon {
-  font-size: 2.6rem; /* Size of the icon */
-  color: #2563eb; /* Color of the icon */
-  margin-bottom: 1rem; /* Space between icon and text */
-}
-
-/* Styles for the multi-icon grid item (special grid item with multiple icons) */
-.multi-icon-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Two columns */
-  grid-template-rows: 1fr 1fr; /* Two rows */
-  gap: 1.1rem; /* Space between small icon boxes */
-  width: 100%; /* Fills the parent card */
-  height: 100%; /* Fills the parent card */
-  padding: 1.5rem; /* Padding for the content of the card */
-  box-sizing: border-box; /* Include padding in width/height calculation */
-}
-
-.multi-icon-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #e0e7ff; /* Background color for small boxes */
-  border-radius: 0.6rem;
-  padding: 0.75rem;
-  text-align: center;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  cursor: pointer; /* Indicates it's clickable */
-  text-decoration: none; /* Removes underline for links */
-  color: #1e40af; /* Text color for links/icons */
-}
-
-.multi-icon-item:hover {
-  background-color: #c3d4ff; /* Lighter hover effect */
-  transform: translateY(-2px); /* Small lift effect on hover */
-}
-
-.multi-icon-item .icon-small {
-  font-size: 3.3rem; /* Smaller size for icons in the multi-card */
-  color: #1e40af; /* Dark blue for contrast */
-  margin-bottom: 0rem;
-}
-
-/* Keyframe animation for the pulsating phone icon */
-@keyframes pulse-phone {
-  0% {
-    color: #1e40af;
-    transform: scale(1);
-  }
-  50% {
-    color: #2ECC71; /* Green color for pulse */
-    transform: scale(1.1);
-  }
-  100% {
-    color: #1e40af;
-    transform: scale(1);
-  }
-}
-
-.multi-icon-item .icon-call-blink {
-  animation: pulse-phone 2s infinite ease-in-out; /* Apply the animation */
-}
-
-/* Footer-Links stylen */
+/* FOOTER LINKS STYLING */
 footer a {
-    color: #2563eb; 
-    text-decoration: underline;
-    margin-left: 10px;
+    transition: color 0.3s ease;
 }
-
-footer a:hover {
-    text-decoration: none;
-}
-
-/* Styles for the footer section */
-footer {
-  text-align: center;
-  padding: 0.1rem 0;
-  margin-top: 3rem; /* Adjusted for better spacing from the content above */
-  color: #64748b;
-  font-size: 0.9rem;
-  line-height: 1.2;
-  display: flex; /* Enable flexbox for the footer */
-  align-items: center; /* Vertically center content within the footer */
-  justify-content: center; /* Horizontally center content within the footer (already text-align: center, but good for flex) */
-}
-footer p {
-  margin-bottom: 0rem; /* Footer-Text hat jetzt weniger Abstand nach unten */
-}
-
-/* --- REMOVED ACCORDION STYLES --- */
-/* The following styles were for the accordion and are no longer needed */
-/* .accordion { ... } */
-/* .accordion-item { ... } */
-/* .accordion-header { ... } */
-/* .accordion-header::after { ... } */
-/* .accordion-header.active::after { ... } */
-/* .accordion-content { ... } */
-/* .accordion-content p, .accordion-content ul { ... } */
-/* .accordion-content a { ... } */
-/* .accordion-content a:hover { ... } */
