@@ -1,111 +1,310 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nordlager Halle NEU: Ihr flexibles Self-Storage in Halle (Saale)</title>
-    <meta name="description" content="NordLager Halle: Günstige Self-Storage-Lösungen in Halle (Saale). Jetzt Wunschbox unverbindlich reservieren und 24/7 Zugang sichern.">
-    
-    <link rel="stylesheet" href="assets/css/tailwind.min.css"> 
-    
+    <title>Nordlager-Halle.de | Ihr Self-Storage in Halle</title>
+
+    <link rel="stylesheet" href="assets/css/tailwind.min.css">
     <link rel="stylesheet" href="assets/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
-    
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" href="icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="manifest" href="manifest.webmanifest">
 </head>
-<body>
-    <div class="top-announcement bg-yellow-400 text-black p-2 text-center font-semibold">
-        <i class="fas fa-star"></i> PRE-LAUNCH AKTION: Jetzt unverbindlich reservieren und den ersten Monat gratis sichern! <i class="fas fa-star"></i>
+<body class="antialiased">
+
+    <div class="bg-orange-500 text-white text-center py-2 font-semibold">
+        <a href="mailto:kadler@anwalt.io?subject=Anfrage%3A%20Aktion%201.%20Monat%20Gratis" class="hover:underline"><i class="fas fa-gift mr-2"></i> AKTION: 1. Monat GRATIS! Jetzt unverbindlich reservieren!</a>
     </div>
 
-    <div class="main-wrapper">
-        <div class="container header-container">
-            <header>
-                <img src="nordlager.jpg" alt="Nord Lager Halle Logo" class="header-logo">
-                <p>Ihr **neuer**, günstiger und flexibler Self-Storage-Anbieter im Norden von Halle (Saale)</p>
-                <p>Wir verwandeln eine 500m² große Gewerbefläche in der Trothaer Straße in einen hochmodernen Lagerstandort mit Räumen von 3 m³ bis 40 m³.</p>
-            </header>
-
-            <div class="buttons">
-                <a href="tel:+491772002092" class="btn">
-                    <i class="fas fa-phone-alt mr-2"></i> Jetzt anrufen
-                </a>
-                <a href="mailto:kadler@anwalt.io" class="btn">
-                    <i class="fas fa-envelope mr-2"></i> Info-Mail senden
-                </a>
-            </div>
-        </div>
-
-        <div class="container cta-container-reservierung text-center mt-12 mb-12 p-8 bg-blue-100 rounded-lg shadow-xl">
-            <h2 class="text-3xl font-bold text-blue-900 mb-4">Sichern Sie sich jetzt Ihre Wunschbox!</h2>
-            <p class="mb-8 text-lg text-gray-700">
-                Nur begrenzte Stückzahlen in Top-Größen verfügbar. Nutzen Sie die Pre-Launch-Phase.
-            </p>
+    <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html">
+                <img src="nordlager.jpg" alt="Nord Lager Halle Logo" class="h-10 md:h-12 w-auto header-logo">
+            </a>
             
-            <a href="mailto:info@nordlager-halle.de?subject=Unverbindliche%20Box-Reservierung" class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full text-xl shadow-lg transition duration-300 transform hover:scale-105 inline-block">
-                <i class="fas fa-calendar-check mr-2"></i> UNVERBINDLICH RESERVIEREN & BESTPREIS SICHERN
+            <nav class="hidden md:flex space-x-8">
+                <a href="#vorteile" class="text-gray-600 hover:accent-text font-semibold">Vorteile</a>
+                <a href="#angebot" class="text-gray-600 hover:accent-text font-semibold">Angebot</a>
+                <a href="#rechner" class="text-gray-600 hover:accent-text font-semibold">Bedarfsrechner</a>
+            </nav>
+            <a href="tel:+491772002092" class="cta-button bg-orange-500 text-white font-bold py-2 px-5 rounded-lg shadow-md hover:bg-orange-600">
+                <i class="fas fa-phone-alt mr-2"></i> Jetzt Anfragen
             </a>
         </div>
+    </header>
 
-        <div class="container">
-            <h2 class="section-title">Ihre Vorteile beim Nordlager Halle</h2>
-            <div class="grid-container">
-                <div class="grid-item">
-                    <i class="fas fa-euro-sign icon"></i> <h3>Preis-Leistung</h3>
-                    <p>Wir garantieren günstige Mietpreise im direkten Wettbewerbsumfeld von Halle, ohne Kompromisse bei Qualität oder Sicherheit.</p>
+    <main>
+        <section id="problem" class="hero-bg py-20 md:py-32 relative text-white">
+            <div class="absolute inset-0 bg-black/50 z-10"></div>
+            <div class="container mx-auto px-6 text-center relative z-20">
+                <h1 class="text-4xl md:text-7xl font-extrabold mb-4 leading-tight">PLATZMANGEL?</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto opacity-90">Vom überquellenden Keller bis zum Umzugsstress – wir kennen das Chaos. Es ist Zeit für eine klare, flexible Lösung in Halle.</p>
+                <div class="mt-12">
+                    <a href="#loesung" class="inline-block accent-bg text-white font-bold text-lg py-4 px-10 rounded-lg shadow-xl cta-button">
+                        <i class="fas fa-chevron-down mr-2"></i> Entdecken Sie Ihre Freiheit
+                    </a>
                 </div>
-                <div class="grid-item">
-                    <i class="fas fa-calendar-alt icon"></i> <h3>Maximale Flexibilität</h3>
-                    <p>Kundenfreundliche, transparente Vertragsbedingungen ohne lange Mindestlaufzeiten und monatlich kündbar.</p>
+            </div>
+        </section>
+
+        <section id="loesung" class="py-20 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3">Ihre Freiheit. Ihr Lager.</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Schaffen Sie Platz in Ihrem Leben mit unseren modernen Self-Storage-Lösungen in Halle. Einfach, zugänglich und genau auf Ihre Bedürfnisse zugeschnitten.</p>
                 </div>
-                <div class="grid-item">
-                    <i class="fas fa-map-marker-alt icon"></i> <h3>Top-Standort</h3>
-                    <p>Integrierter Standort in einem hochfrequentierten Fachmarktzentrum mit Fitnessstudio, Friseur und mehr.</p>
-                </div>
-                <div class="grid-item">
-                    <i class="fas fa-shield-alt icon"></i> <h3>Höchste Sicherheit</h3>
-                    <p>Videoüberwachung, alarmgesicherte Anlage und Zugangsprotokollierung für den Schutz Ihrer eingelagerten Gegenstände.</p>
-                </div>
-                <div class="grid-item">
-                    <i class="fas fa-file-invoice-dollar icon"></i> <h3>Transparente Preise inkl. Versicherung</h3>
-                    <p>Unsere Preise beinhalten eine Mieterversicherung für Ihre Sicherheit und transparente Gesamtkosten.</p>
-                </div>
-                <div class="grid-item multi-icon-grid-container">
-                    <div class="multi-icon-grid">
-                        <a href="#" class="multi-icon-item">
-                            <i class="fas fa-warehouse icon-small"></i>
-                        </a>
-                        <a href="#" class="multi-icon-item">
-                            <i class="fas fa-box-open icon-small"></i>
-                        </a>
-                        <a href="#" class="multi-icon-item">
-                            <i class="fas fa-dolly icon-small"></i>
-                        </a>
-                        <a href="tel:+491772002092" class="multi-icon-item">
-                            <i class="fas fa-phone-volume icon-small icon-call-blink"></i>
-                        </a>
+                <div id="vorteile" class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="benefit-card bg-gray-50 p-8 rounded-xl shadow-md border border-gray-200">
+                        <div class="text-5xl mb-4 accent-text"><i class="fas fa-shield-alt"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Sicher & Überwacht</h3>
+                        <p class="text-gray-600">Ihr Eigentum ist bei uns sicher. Unsere Anlage ist 24/7 videoüberwacht und nur für Sie zugänglich.</p>
+                    </div>
+                    <div class="benefit-card bg-gray-50 p-8 rounded-xl shadow-md border border-gray-200">
+                        <div class="text-5xl mb-4 accent-text"><i class="fas fa-sun"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Trocken & Sauber</h3>
+                        <p class="text-gray-600">Alle Lagerräume sind trocken, sauber und witterungsgeschützt. Ideal für Möbel, Akten und empfindliche Gegenstände.</p>
+                    </div>
+                    <div class="benefit-card bg-gray-50 p-8 rounded-xl shadow-md border border-gray-200">
+                        <div class="text-5xl mb-4 accent-text"><i class="fas fa-calendar-alt"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Flexibel & Fair</h3>
+                        <p class="text-gray-600">Mieten Sie genau den Platz, den Sie brauchen, mit kurzen Kündigungsfristen und transparenten Preisen.</p>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section id="angebot" class="accent-bg py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center text-white">
+                <h2 class="text-4xl md:text-6xl font-extrabold mb-4">Jetzt buchen &</h2>
+                <p class="text-5xl md:text-7xl font-extrabold bg-orange-500 inline-block px-6 py-2 rounded-lg shadow-2xl mb-10 transform -rotate-2">1. Monat GRATIS sichern!</p>
+                <p class="text-xl max-w-2xl mx-auto mb-12">Dieses Angebot ist zeitlich begrenzt. Sichern Sie sich jetzt Ihre Lagerbox und genießen Sie den ersten Monat mietfrei. Keine versteckten Kosten, keine Kompromisse.</p>
+                <a href="mailto:kadler@anwalt.io?subject=Unverbindliche%20Reservierungsanfrage%20%281.%20Monat%20Gratis%29" class="cta-button bg-white accent-text font-bold text-xl py-5 px-12 rounded-lg shadow-xl hover:bg-gray-100">
+                    Unverbindlich anfragen
+                </a>
+            </div>
+        </section>
+
+        <section id="rechner" class="py-20 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3">Wie viel Platz brauchen Sie?</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Unser Bedarfsrechner hilft Ihnen, die passende Lagerbox-Größe zu finden. Wählen Sie einfach aus, was Sie einlagern möchten.</p>
+                </div>
+                <div class="max-w-xl mx-auto bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-200">
+                    <div class="mb-6">
+                        <label for="storage-need" class="block text-lg font-semibold mb-2 text-gray-700">Was möchten Sie einlagern?</label>
+                        <select id="storage-need" class="w-full p-4 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                            <option value="default" selected disabled>-- Bitte wählen --</option>
+                            <option value="kartons">Umzugskartons (10-20 Stück)</option>
+                            <option value="wohnung1">Möbel aus 1-Zimmer-Wohnung</option>
+                            <option value="wohnung2">Möbel aus 2-Zimmer-Wohnung</option>
+                            <option value="akten">Akten & Büromaterial</option>
+                            <option value="hobby">Hobby- / Saisonausrüstung</option>
+                            <option value="motorrad">Motorrad / Fahrräder</option>
+                        </select>
+                    </div>
+                    <button id="calculate-btn" class="w-full cta-button accent-bg text-white font-bold text-lg py-4 px-10 rounded-lg shadow-lg hover:bg-blue-800">
+                        <i class="fas fa-cube mr-2"></i> Größe empfehlen
+                    </button>
+                    <div id="recommendation" class="mt-8 text-center bg-orange-100 p-6 rounded-lg border-2 border-dashed border-orange-300 hidden">
+                        <h4 class="text-xl font-bold text-orange-800 mb-2">Unsere Empfehlung:</h4>
+                        <p id="recommendation-text" class="text-lg text-orange-700"></p>
+                    </div>
+
+                    <button id="generate-packlist-btn" class="w-full cta-button bg-green-600 text-white font-bold text-lg py-4 px-10 rounded-lg shadow-lg hover:bg-green-700 mt-6 hidden">
+                        ✨ Gemini Packplan erstellen
+                    </button>
+                    <div id="packlist-result" class="mt-8 text-left bg-blue-50 p-6 rounded-xl border border-blue-200 hidden">
+                        <h4 class="text-xl font-bold text-blue-800 mb-4">Ihr individueller Packplan (Powered by Gemini):</h4>
+                        <div id="packlist-content"></div>
+                    </div>
+                    
+                    <div class="mt-8 pt-4 border-t border-gray-300">
+                         <a href="mailto:kadler@anwalt.io?subject=Reservierung%20nach%20Gr%C3%B6%C3%9Fenempfehlung" class="w-full cta-button bg-orange-500 text-white font-bold text-md py-3 px-8 rounded-lg shadow-md hover:bg-orange-600 inline-block">
+                            <i class="fas fa-envelope mr-2"></i> Jetzt Wunschbox unverbindlich anfragen
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-2xl font-bold mb-4">Nordlager-Halle</h3>
+            <div class="space-x-4 mb-4">
+                <a href="impressum.html" class="text-gray-400 hover:text-white hover:underline">Impressum</a>
+                <a href="datenschutz.html" class="text-gray-400 hover:text-white hover:underline">Datenschutz</a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2025 Nordlager-Halle.de</p>
         </div>
-
-        <div class="container text-center mt-8 p-4">
-            <h2 class="section-title">Informationen & Rechtliches</h2>
-            <a href="datenschutz.html" class="inline-block mr-4 text-blue-600 hover:underline">Datenschutz</a>
-            <a href="impressum.html" class="inline-block text-blue-600 hover:underline">Impressum</a>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Nordlager Halle.</p>
     </footer>
 
-    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calculateBtn = document.getElementById('calculate-btn');
+            const storageNeedSelect = document.getElementById('storage-need');
+            const recommendationDiv = document.getElementById('recommendation');
+            const recommendationText = document.getElementById('recommendation-text');
+            
+            const generatePacklistBtn = document.getElementById('generate-packlist-btn');
+            const packlistResultDiv = document.getElementById('packlist-result');
+            const packlistContentDiv = document.getElementById('packlist-content');
+
+            // HINWEIS: Hier muss IHR Gemini API Key eingefügt werden!
+            const apiKey = ""; 
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const recommendations = {
+                kartons: "Lagerbox S (2-3 m²). Perfekt für Kartons und kleinere Gegenstände.",
+                wohnung1: "Lagerbox M (4-6 m²). Ideal für die Einrichtung einer kleinen Wohnung.",
+                wohnung2: "Lagerbox L (7-10 m²). Bietet genug Platz für den Hausstand einer 2-Zimmer-Wohnung.",
+                akten: "Lagerbox S oder M (je nach Menge). Optimal für die sichere Archivierung Ihrer Dokumente.",
+                hobby: "Lagerbox S (2-3 m²). Genug Raum für Ihre Ski, Campingausrüstung oder saisonale Deko.",
+                motorrad: "Lagerbox M (4-5 m²). Sicherer Stellplatz für Ihr Motorrad und Zubehör."
+            };
+
+            const detailedDescriptions = {
+                kartons: "20 Umzugskartons, Kleidung, Bücher und kleine Haushaltsgegenstände, die in einem S-Lagerraum (2-3 m²) verstaut werden sollen.",
+                wohnung1: "Möbel und Gegenstände aus einer typischen 1-Zimmer-Wohnung, darunter ein Bett, ein Schreibtisch, ein kleines Sofa und 15 Kisten. Lagerraumgröße M (4-6 m²).",
+                wohnung2: "Möbel und Gegenstände aus einer typischen 2-Zimmer-Wohnung, darunter ein Doppelbett, ein Esstisch mit Stühlen, ein größeres Sofa und ca. 30 Kisten. Lagerraumgröße L (7-10 m²).",
+                akten: "Archivmaterial und Aktenordner (ca. 50 Stück) sowie ein kleiner Aktenschrank. Lagerraumgröße S oder M.",
+                hobby: "Umfangreiche Hobbymaterialien (z.B. Angelausrüstung, Modellbau, Wintersportausrüstung) die trocken gelagert werden müssen.",
+                motorrad: "Ein Motorrad, Helm und Motorradkleidung, die sicher und witterungsgeschützt in einem M-Lagerraum untergebracht werden sollen."
+            };
+
+            async function fetchWithRetry(url, options, maxRetries = 3) {
+                for (let i = 0; i < maxRetries; i++) {
+                    try {
+                        const response = await fetch(url, options);
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return await response.json();
+                    } catch (error) {
+                        console.error("Fetch attempt failed:", error);
+                        if (i === maxRetries - 1) throw error;
+                        const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                    }
+                }
+            }
+            
+            async function generatePacklist(storageNeedKey) {
+                packlistContentDiv.innerHTML = '<p class="text-center text-blue-700">Wird generiert... ✨</p>';
+                packlistResultDiv.classList.remove('hidden');
+                
+                const description = detailedDescriptions[storageNeedKey];
+                
+                const systemPrompt = "Sie sind ein professioneller Umzugs- und Lagerplaner. Erstellen Sie eine detaillierte und strukturierte Packliste basierend auf der folgenden Beschreibung. Geben Sie die Antwort ausschließlich im angeforderten JSON-Format zurück.";
+                const userQuery = `Erstelle eine Packliste für das Einlagern folgender Gegenstände: ${description}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        responseSchema: {
+                            type: "OBJECT",
+                            properties: {
+                                title: { type: "STRING", description: "Ein kurzer, ansprechender Titel für die Packliste." },
+                                categories: {
+                                    type: "ARRAY",
+                                    description: "Eine Liste von Packkategorien (z.B. Küche, Wohnzimmer, Archiv).",
+                                    items: {
+                                        type: "OBJECT",
+                                        properties: {
+                                            name: { type: "STRING", description: "Name der Kategorie." },
+                                            items: {
+                                                type: "ARRAY",
+                                                description: "3 bis 5 spezifische Gegenstände/Aufgaben für diese Kategorie.",
+                                                items: { type: "STRING" }
+                                            }
+                                        },
+                                        propertyOrdering: ["name", "items"]
+                                    }
+                                }
+                            },
+                            propertyOrdering: ["title", "categories"]
+                        }
+                    }
+                };
+
+                try {
+                    const response = await fetchWithRetry(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const jsonText = response.candidates?.[0]?.content?.parts?.[0]?.text;
+                    if (!jsonText) {
+                        throw new Error("API response text was empty.");
+                    }
+                    
+                    const parsedJson = JSON.parse(jsonText);
+                    renderPacklist(parsedJson);
+
+                } catch (error) {
+                    console.error("Fehler beim Abrufen des Packplans:", error);
+                    packlistContentDiv.innerHTML = '<p class="text-center text-red-600">Es tut uns leid, beim Generieren des Packplans ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.</p>';
+                }
+            }
+
+            function renderPacklist(data) {
+                let html = `<h5 class="text-2xl font-semibold mb-4">${data.title}</h5>`;
+                
+                data.categories.forEach(cat => {
+                    html += `<div class="mb-5 border-b border-blue-100 pb-3">`;
+                    html += `<h6 class="text-xl font-bold text-blue-700 mb-2">${cat.name}</h6>`;
+                    html += `<ul class="list-disc list-inside pl-2 space-y-1 text-gray-700">`;
+                    cat.items.forEach(item => {
+                        html += `<li>${item}</li>`;
+                    });
+                    html += `</ul>`;
+                    html += `</div>`;
+                });
+
+                packlistContentDiv.innerHTML = html;
+            }
+
+            calculateBtn.addEventListener('click', function() {
+                const selectedValue = storageNeedSelect.value;
+                if (selectedValue && selectedValue !== 'default') {
+                    recommendationText.textContent = recommendations[selectedValue];
+                    recommendationDiv.classList.remove('hidden');
+                    generatePacklistBtn.classList.remove('hidden');
+                    packlistResultDiv.classList.add('hidden');
+                } else {
+                    recommendationText.textContent = "Bitte wählen Sie eine Option aus, um eine Empfehlung zu erhalten.";
+                    recommendationDiv.classList.remove('hidden');
+                    generatePacklistBtn.classList.add('hidden');
+                    packlistResultDiv.classList.add('hidden');
+                }
+            });
+
+            generatePacklistBtn.addEventListener('click', function() {
+                 const selectedValue = storageNeedSelect.value;
+                 if (selectedValue && selectedValue !== 'default') {
+                    generatePacklist(selectedValue);
+                 }
+            });
+
+            storageNeedSelect.addEventListener('change', function() {
+                recommendationDiv.classList.add('hidden');
+                generatePacklistBtn.classList.add('hidden');
+                packlistResultDiv.classList.add('hidden');
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
 </html>
-
-
