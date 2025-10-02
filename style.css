@@ -4,7 +4,7 @@
   font-style: normal;
   font-weight: 400;
   src: url('assets/fonts/Inter-Regular.woff2') format('woff2'),
-       url('assets/fonts/Inter-Regular.woff') format('woff');
+       url('assets-fonts/Inter-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -66,66 +66,4 @@ body {
 .benefit-card:hover {
     transform: scale(1.05);
     background-color: #ffffff;
-}
-
-/* 3. STILE FÜR RECHTLICHE SEITEN (IMPRESSUM/DATENSCHUTZ) */
-.legal-container {
-    background-color: white;
-    padding: 2rem 1.5rem;
-    border-radius: 0.75rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    max-width: 800px;
-    margin: 2rem auto;
-}
-
-@media (min-width: 768px) {
-    .legal-container {
-        padding: 3rem 4rem;
-        margin: 4rem auto;
-    }
-}
-
-.legal-container h1 {
-    font-size: 2.25rem;
-    font-weight: 800;
-    color: #2c5282;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.legal-container h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #2d3748;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #e2e8f0;
-    padding-bottom: 0.5rem;
-}
-
-.legal-container p, .legal-container li {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: #4a5568;
-    margin-bottom: 1rem;
-}
-
-.legal-container strong {
-    font-weight: 600;
-    color: #2d3748;
-}
-
-.legal-container a {
-    color: #dd6b20;
-    text-decoration: underline;
-}
-
-.legal-container a:hover {
-    color: #c05621;
-}
-
-.legal-container ul {
-    list-style-position: inside;
-    list-style-type: disc;
-    padding-left: 1rem;
 }
