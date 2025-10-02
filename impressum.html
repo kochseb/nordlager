@@ -1,82 +1,70 @@
 <!DOCTYPE html>
-<html lang="de" class="scroll-smooth">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum | Nordlager-Halle</title>
-    
-    <link rel="stylesheet" href="assets/css/tailwind.min.css"> 
-    <link rel="stylesheet" href="assets/css/all.min.css">
+    <title>Impressum | Nordlager-Halle.de</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F8F7F4; 
-            color: #2D3748; 
-        }
-        /* Definiert die Deep Blue Akzentfarben */
-        .accent-bg {
-            background-color: #2c5282; 
-        }
-        .accent-text {
-            color: #2c5282; 
-        }
-        /* Hover-Effekte (für Buttons) */
-        .cta-button {
-            transition: all 0.3s ease;
-        }
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        /* Das Hintergrundbild brauchen wir hier nicht, nur die Basis-Farben. */
-    </style>
 </head>
 <body class="antialiased">
 
-    <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html">
-                <img src="nordlager.jpg" alt="Nord Lager Halle Logo" class="h-10 md:h-12 w-auto header-logo">
+            <a href="index.html" class="text-2xl font-bold accent-text">
+                Nordlager-Halle<span class="text-gray-400">.de</span>
             </a>
-            <h1 class="text-2xl font-bold accent-text">Impressum</h1>
-            <a href="tel:+491772002092" class="cta-button bg-orange-500 text-white font-bold py-2 px-5 rounded-lg shadow-md hover:bg-orange-600">
-                <i class="fas fa-phone-alt mr-2"></i> Anrufen
+            <a href="index.html#angebot" class="cta-button bg-orange-500 text-white font-bold py-2 px-5 rounded-lg shadow-md hover:bg-orange-600">
+                Jetzt Buchen
             </a>
         </div>
     </header>
 
     <main>
-        <section class="py-20 md:py-24">
-            <div class="container mx-auto px-6 max-w-4xl bg-white p-8 rounded-xl shadow-lg border border-gray-200">
-                <h2 class="text-3xl font-bold mb-6 accent-text">Gesetzliche Anbieterkennzeichnung</h2>
-                
-                <p><strong>Angaben gemäß § 5 TMG:</strong></p>
-                <p class="mb-4">Nord Lager Halle i.G.<br>
+        <div class="legal-container">
+            <h1>Impressum</h1>
+            
+            <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+            <p>
+                Nordlager Halle i.G.<br>
                 c/o Volker Kadler<br>
                 Friedenstr. 11A<br>
-                D-06118 Halle/Saale<br>
-                </p>
-                <p><strong>Vertreten durch:</strong><br>
+                D-06118 Halle/Saale
+            </p>
+            
+            <p><strong>Vertreten durch:</strong><br>
                 Volker Kadler
-                </p>
-                <p class="mt-4"><strong>Kontakt:</strong><br>
-                Telefon: +49(0)1772002092<br>
-                E-Mail: kadler@anwalt.io</p>
-                
-                <div class="mt-12 text-center">
-                    <a href="index.html" class="inline-block accent-bg text-white font-bold text-lg py-3 px-8 rounded-lg shadow-md hover:bg-blue-800">
-                        <i class="fas fa-home mr-2"></i> Zurück zur Startseite
-                    </a>
-                </div>
+            </p>
+            
+            <p><strong>Kontakt:</strong><br>
+                Telefon: +49 (0) 177 200 20 92<br>
+                E-Mail: kadler@anwalt.io
+            </p>
+
+            <div class="text-center mt-12">
+                 <a href="index.html" class="cta-button bg-gray-200 text-gray-800 font-bold py-3 px-8 rounded-lg shadow-md hover:bg-gray-300 no-underline">
+                    Zurück zur Startseite
+                </a>
             </div>
-        </section>
+        </div>
     </main>
-    
-    <footer class="bg-gray-800 text-white py-8">
+
+    <footer class="bg-gray-800 text-white py-16">
         <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-500 text-sm">&copy; 2025 Nordlager-Halle.de</p>
+             <h3 class="text-3xl font-bold mb-4">Nordlager-Halle.de</h3>
+            <p class="mb-4">Ihr Self-Storage in Halle</p>
+            <p class="text-gray-400">Friedenstr. 11A, 06118 Halle (Saale)</p>
+            <p class="text-gray-400 mb-8">
+                <a href="tel:+491772002092" class="hover:text-orange-400">Tel: +49 (0) 177 200 20 92</a> | 
+                <a href="mailto:kadler@anwalt.io" class="hover:text-orange-400">E-Mail: kadler@anwalt.io</a>
+            </p>
+            <div class="mb-8 space-x-6">
+                <a href="impressum.html" class="text-gray-400 hover:text-white">Impressum</a>
+                <a href="datenschutz.html" class="text-gray-400 hover:text-white">Datenschutz</a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2025 Nordlager-Halle.de.</p>
         </div>
     </footer>
+
 </body>
 </html>
