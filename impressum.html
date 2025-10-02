@@ -1,34 +1,35 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum | Nordlager Halle</title>
-    <meta name="description" content="Impressum für Nordlager Halle.">
+    <title>Impressum | Nordlager-Halle</title>
     
     <link rel="stylesheet" href="assets/css/tailwind.min.css"> 
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    
-    <link rel="icon" href="favicon.ico" sizes="any">
 </head>
-<body>
-    <div class="top-announcement bg-yellow-400 text-black p-2 text-center font-semibold">
-        <i class="fas fa-star"></i> PRE-LAUNCH AKTION: Jetzt unverbindlich reservieren und den ersten Monat gratis sichern! <i class="fas fa-star"></i>
-    </div>
+<body class="antialiased">
 
-    <div class="main-wrapper">
-        <div class="container header-container">
-            <header>
-                <img src="nordlager.jpg" alt="Nord Lager Halle Logo" class="header-logo">
-                <h1>Impressum</h1>
-            </header>
+    <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html">
+                <img src="nordlager.jpg" alt="Nord Lager Halle Logo" class="h-10 md:h-12 w-auto header-logo">
+            </a>
+            <h1 class="text-2xl font-bold accent-text">Impressum</h1>
+            <a href="tel:+491772002092" class="cta-button bg-orange-500 text-white font-bold py-2 px-5 rounded-lg shadow-md hover:bg-orange-600">
+                <i class="fas fa-phone-alt mr-2"></i> Anrufen
+            </a>
         </div>
+    </header>
 
-        <div class="container">
-            <div class="legal-content">
+    <main>
+        <section class="py-20 md:py-24">
+            <div class="container mx-auto px-6 max-w-4xl bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                <h2 class="text-3xl font-bold mb-6 accent-text">Gesetzliche Anbieterkennzeichnung</h2>
+                
                 <p><strong>Angaben gemäß § 5 TMG:</strong></p>
-                <p>Nordlager Halle i.G.<br>
+                <p class="mb-4">Nord Lager Halle i.G.<br>
                 c/o Volker Kadler<br>
                 Friedenstr. 11A<br>
                 D-06118 Halle/Saale<br>
@@ -36,22 +37,23 @@
                 <p><strong>Vertreten durch:</strong><br>
                 Volker Kadler
                 </p>
-                <p><strong>Kontakt:</strong><br>
+                <p class="mt-4"><strong>Kontakt:</strong><br>
                 Telefon: +49(0)1772002092<br>
                 E-Mail: kadler@anwalt.io</p>
+                
+                <div class="mt-12 text-center">
+                    <a href="index.html" class="inline-block accent-bg text-white font-bold text-lg py-3 px-8 rounded-lg shadow-md hover:bg-blue-800">
+                        <i class="fas fa-home mr-2"></i> Zurück zur Startseite
+                    </a>
+                </div>
             </div>
-            
-            <p class="mt-8 text-center">
-                <a href="index.html" class="text-blue-600 hover:underline"><i class="fas fa-home mr-2"></i> Zurück zur Startseite</a>
-            </p>
-        </div>
-    </div>
+        </section>
+    </main>
     
-    <footer>
-        <p>&copy; 2025 Nordlager Halle. | 
-            <a href="impressum.html">Impressum</a> | 
-            <a href="datenschutz.html">Datenschutz</a>
-        </p>
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-500 text-sm">&copy; 2025 Nordlager-Halle.de</p>
+        </div>
     </footer>
 </body>
 </html>
