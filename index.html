@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nordlager-Halle.de | Ihr Self-Storage in Halle Trotha</title>
+    <title>Nordlager-Halle.de | Ihr Self-Storage in Halle</title>
     <link rel="stylesheet" href="assets/css/tailwind.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -101,13 +101,23 @@
                         <h4 class="text-xl font-bold text-orange-800 mb-2">Unsere Empfehlung:</h4>
                         <p id="recommendation-text" class="text-lg text-orange-700"></p>
                     </div>
+                    
                     <button id="generate-packlist-btn" class="w-full cta-button bg-green-600 text-white font-bold text-lg py-4 px-10 rounded-lg shadow-lg hover:bg-green-700 mt-6 hidden">
                         ✨ Detaillierten Packplan erstellen
                     </button>
+
+                    <div id="packlist-consent" class="hidden mt-4 p-4 bg-gray-100 rounded-lg border border-gray-200 text-sm">
+                        <label for="consent-checkbox" class="flex items-start">
+                            <input type="checkbox" id="consent-checkbox" class="mt-1 mr-3 h-5 w-5 rounded border-gray-300 text-orange-500 focus:ring-orange-500">
+                            <span class="text-gray-700">Ich stimme zu, dass meine Anfrage zur Erstellung des Packplans an Google (USA) gesendet wird. Dabei wird meine IP-Adresse übertragen. Diese Einwilligung kann ich jederzeit widerrufen. <a href="datenschutz.html" target="_blank" class="underline text-orange-600">Mehr Infos.</a></span>
+                        </label>
+                    </div>
+                    
                     <div id="packlist-result" class="mt-8 text-left bg-blue-50 p-6 rounded-xl border border-blue-200 hidden">
                         <h4 class="text-xl font-bold text-blue-800 mb-4">Ihr individueller Packplan:</h4>
                         <div id="packlist-content"></div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -139,106 +149,28 @@
             const generatePacklistBtn = document.getElementById('generate-packlist-btn');
             const packlistResultDiv = document.getElementById('packlist-result');
             const packlistContentDiv = document.getElementById('packlist-content');
+            const packlistConsentDiv = document.getElementById('packlist-consent');
+            const consentCheckbox = document.getElementById('consent-checkbox');
+            
             const apiKey = ""; 
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
-            const recommendations = {
-                kartons: "Lagerbox S (2-3 m²). Perfekt für Kartons und kleinere Gegenstände.",
-                wohnung1: "Lagerbox M (4-6 m²). Ideal für die Einrichtung einer kleinen Wohnung.",
-                wohnung2: "Lagerbox L (7-10 m²). Bietet genug Platz für den Hausstand einer 2-Zimmer-Wohnung.",
-                akten: "Lagerbox S oder M (je nach Menge). Optimal für die sichere Archivierung Ihrer Dokumente.",
-                hobby: "Lagerbox S (2-3 m²). Genug Raum für Ihre Ski, Campingausrüstung oder saisonale Deko.",
-                motorrad: "Lagerbox M (4-5 m²). Sicherer Stellplatz für Ihr Motorrad und Zubehör."
-            };
-            const detailedDescriptions = {
-                kartons: "20 Umzugskartons, Kleidung, Bücher und kleine Haushaltsgegenstände, die in einem S-Lagerraum (2-3 m²) verstaut werden sollen.",
-                wohnung1: "Möbel und Gegenstände aus einer typischen 1-Zimmer-Wohnung, darunter ein Bett, ein Schreibtisch, ein kleines Sofa und 15 Kisten. Lagerraumgröße M (4-6 m²).",
-                wohnung2: "Möbel und Gegenstände aus einer typischen 2-Zimmer-Wohnung, darunter ein Doppelbett, ein Esstisch mit Stühlen, ein größeres Sofa und ca. 30 Kisten. Lagerraumgröße L (7-10 m²).",
-                akten: "Archivmaterial und Aktenordner (ca. 50 Stück) sowie ein kleiner Aktenschrank. Lagerraumgröße S oder M.",
-                hobby: "Umfangreiche Hobbymaterialien (z.B. Angelausrüstung, Modellbau, Wintersportausrüstung) die trocken gelagert werden müssen.",
-                motorrad: "Ein Motorrad, Helm und Motorradkleidung, die sicher und witterungsgeschützt in einem M-Lagerraum untergebracht werden sollen."
-            };
-            async function fetchWithRetry(url, options, maxRetries = 3) {
-                for (let i = 0; i < maxRetries; i++) {
-                    try {
-                        const response = await fetch(url, options);
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! status: ${response.status}`);
-                        }
-                        return await response.json();
-                    } catch (error) {
-                        console.error("Fetch attempt failed:", error);
-                        if (i === maxRetries - 1) throw error;
-                        const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
-                        await new Promise(resolve => setTimeout(resolve, delay));
-                    }
-                }
-            }
+            const recommendations = { kartons: "Lagerbox S (2-3 m²). Perfekt für Kartons und kleinere Gegenstände.", wohnung1: "Lagerbox M (4-6 m²). Ideal für die Einrichtung einer kleinen Wohnung.", wohnung2: "Lagerbox L (7-10 m²). Bietet genug Platz für den Hausstand einer 2-Zimmer-Wohnung.", akten: "Lagerbox S oder M (je nach Menge). Optimal für die sichere Archivierung Ihrer Dokumente.", hobby: "Lagerbox S (2-3 m²). Genug Raum für Ihre Ski, Campingausrüstung oder saisonale Deko.", motorrad: "Lagerbox M (4-5 m²). Sicherer Stellplatz für Ihr Motorrad und Zubehör." };
+            const detailedDescriptions = { kartons: "20 Umzugskartons, Kleidung, Bücher und kleine Haushaltsgegenstände, die in einem S-Lagerraum (2-3 m²) verstaut werden sollen.", wohnung1: "Möbel und Gegenstände aus einer typischen 1-Zimmer-Wohnung, darunter ein Bett, ein Schreibtisch, ein kleines Sofa und 15 Kisten. Lagerraumgröße M (4-6 m²).", wohnung2: "Möbel und Gegenstände aus einer typischen 2-Zimmer-Wohnung, darunter ein Doppelbett, ein Esstisch mit Stühlen, ein größeres Sofa und ca. 30 Kisten. Lagerraumgröße L (7-10 m²).", akten: "Archivmaterial und Aktenordner (ca. 50 Stück) sowie ein kleiner Aktenschrank. Lagerraumgröße S oder M.", hobby: "Umfangreiche Hobbymaterialien (z.B. Angelausrüstung, Modellbau, Wintersportausrüstung) die trocken gelagert werden müssen.", motorrad: "Ein Motorrad, Helm und Motorradkleidung, die sicher und witterungsgeschützt in einem M-Lagerraum untergebracht werden sollen." };
+
+            async function fetchWithRetry(url, options, maxRetries = 3) { for (let i = 0; i < maxRetries; i++) { try { const response = await fetch(url, options); if (!response.ok) { throw new Error(`HTTP error! status: ${response.status}`); } return await response.json(); } catch (error) { console.error("Fetch attempt failed:", error); if (i === maxRetries - 1) throw error; const delay = Math.pow(2, i) * 1000 + Math.random() * 1000; await new Promise(resolve => setTimeout(resolve, delay)); } } }
+            
             async function generatePacklist(storageNeedKey) {
                 packlistContentDiv.innerHTML = '<p class="text-center text-blue-700">Wird generiert... ✨</p>';
                 packlistResultDiv.classList.remove('hidden');
                 const description = detailedDescriptions[storageNeedKey];
                 const systemPrompt = "Sie sind ein professioneller Umzugs- und Lagerplaner. Erstellen Sie eine detaillierte und strukturierte Packliste basierend auf der folgenden Beschreibung. Geben Sie die Antwort ausschließlich im angeforderten JSON-Format zurück.";
                 const userQuery = `Erstelle eine Packliste für das Einlagern folgender Gegenstände: ${description}`;
-                const payload = {
-                    contents: [{ parts: [{ text: userQuery }] }],
-                    systemInstruction: { parts: [{ text: systemPrompt }] },
-                    generationConfig: {
-                        responseMimeType: "application/json",
-                        responseSchema: {
-                            type: "OBJECT",
-                            properties: {
-                                title: { type: "STRING", description: "Ein kurzer, ansprechender Titel für die Packliste." },
-                                categories: {
-                                    type: "ARRAY",
-                                    description: "Eine Liste von Packkategorien (z.B. Küche, Wohnzimmer, Archiv).",
-                                    items: {
-                                        type: "OBJECT",
-                                        properties: {
-                                            name: { type: "STRING", description: "Name der Kategorie." },
-                                            items: {
-                                                type: "ARRAY",
-                                                description: "3 bis 5 spezifische Gegenstände/Aufgaben für diese Kategorie.",
-                                                items: { type: "STRING" }
-                                            }
-                                        },
-                                        required: ["name", "items"]
-                                    }
-                                }
-                            },
-                            required: ["title", "categories"]
-                        }
-                    }
-                };
-                try {
-                    const response = await fetchWithRetry(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    const jsonText = response.candidates?.[0]?.content?.parts?.[0]?.text;
-                    if (!jsonText) {
-                        throw new Error("API response text was empty.");
-                    }
-                    const parsedJson = JSON.parse(jsonText);
-                    renderPacklist(parsedJson);
-                } catch (error) {
-                    console.error("Fehler beim Abrufen des Packplans:", error);
-                    packlistContentDiv.innerHTML = '<p class="text-center text-red-600">Es tut uns leid, beim Generieren des Packplans ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.</p>';
-                }
+                const payload = { contents: [{ parts: [{ text: userQuery }] }], systemInstruction: { parts: [{ text: systemPrompt }] }, generationConfig: { responseMimeType: "application/json", responseSchema: { type: "OBJECT", properties: { title: { type: "STRING", description: "Ein kurzer, ansprechender Titel für die Packliste." }, categories: { type: "ARRAY", description: "Eine Liste von Packkategorien (z.B. Küche, Wohnzimmer, Archiv).", items: { type: "OBJECT", properties: { name: { type: "STRING", description: "Name der Kategorie." }, items: { type: "ARRAY", description: "3 bis 5 spezifische Gegenstände/Aufgaben für diese Kategorie.", items: { type: "STRING" } } }, required: ["name", "items"] } } }, required: ["title", "categories"] } } };
+                try { const response = await fetchWithRetry(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }); const jsonText = response.candidates?.[0]?.content?.parts?.[0]?.text; if (!jsonText) { throw new Error("API response text was empty."); } const parsedJson = JSON.parse(jsonText); renderPacklist(parsedJson); } catch (error) { console.error("Fehler beim Abrufen des Packplans:", error); packlistContentDiv.innerHTML = '<p class="text-center text-red-600">Es tut uns leid, beim Generieren des Packplans ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.</p>'; }
             }
-            function renderPacklist(data) {
-                let html = `<h5 class="text-2xl font-semibold mb-4">${data.title}</h5>`;
-                data.categories.forEach(cat => {
-                    html += `<div class="mb-5 border-b border-blue-100 pb-3">`;
-                    html += `<h6 class="text-xl font-bold text-blue-700 mb-2">${cat.name}</h6>`;
-                    html += `<ul class="list-disc list-inside pl-2 space-y-1 text-gray-700">`;
-                    cat.items.forEach(item => {
-                        html += `<li>${item}</li>`;
-                    });
-                    html += `</ul></div>`;
-                });
-                packlistContentDiv.innerHTML = html;
-            }
+
+            function renderPacklist(data) { let html = `<h5 class="text-2xl font-semibold mb-4">${data.title}</h5>`; data.categories.forEach(cat => { html += `<div class="mb-5 border-b border-blue-100 pb-3"><h6 class="text-xl font-bold text-blue-700 mb-2">${cat.name}</h6><ul class="list-disc list-inside pl-2 space-y-1 text-gray-700">`; cat.items.forEach(item => { html += `<li>${item}</li>`; }); html += `</ul></div>`; }); packlistContentDiv.innerHTML = html; }
+            
             calculateBtn.addEventListener('click', function() {
                 const selectedValue = storageNeedSelect.value;
                 if (selectedValue && selectedValue !== 'default') {
@@ -246,24 +178,37 @@
                     recommendationDiv.classList.remove('hidden');
                     generatePacklistBtn.classList.remove('hidden');
                     packlistResultDiv.classList.add('hidden');
+                    packlistConsentDiv.classList.add('hidden'); 
+                    consentCheckbox.checked = false;
                 } else {
                     recommendationText.textContent = "Bitte wählen Sie eine Option aus, um eine Empfehlung zu erhalten.";
                     recommendationDiv.classList.remove('hidden');
                     generatePacklistBtn.classList.add('hidden');
                     packlistResultDiv.classList.add('hidden');
+                    packlistConsentDiv.classList.add('hidden');
                 }
             });
+
             generatePacklistBtn.addEventListener('click', function() {
+                packlistConsentDiv.classList.remove('hidden');
                 const selectedValue = storageNeedSelect.value;
-                if (selectedValue && selectedValue !== 'default') {
+                if (selectedValue && selectedValue !== 'default' && consentCheckbox.checked) {
                     generatePacklist(selectedValue);
+                } else if (consentCheckbox.checked === false) {
+                    packlistResultDiv.classList.add('hidden'); 
+                    packlistContentDiv.innerHTML = '<p class="text-center text-red-600">Bitte stimmen Sie der Datenverarbeitung zu, um den Plan zu erstellen.</p>';
+                    packlistResultDiv.classList.remove('hidden');
                 }
             });
+
             storageNeedSelect.addEventListener('change', function() {
                 recommendationDiv.classList.add('hidden');
                 generatePacklistBtn.classList.add('hidden');
                 packlistResultDiv.classList.add('hidden');
+                packlistConsentDiv.classList.add('hidden');
+                consentCheckbox.checked = false;
             });
+
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -276,4 +221,3 @@
     </script>
 </body>
 </html>
-
