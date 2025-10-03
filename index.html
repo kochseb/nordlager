@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nordlager-Halle.de | Ihr Self-Storage in Halle</title>
+    <title>Nordlager-Halle.de | Ihr Self-Storage in Halle Trotha</title>
     <link rel="stylesheet" href="assets/css/tailwind.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body class="antialiased">
 
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold accent-text">
-                Nordlager-Halle<span class="text-gray-400">.de</span>
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="favicon-32x32.png" alt="Nordlager-Halle Logo" class="h-8 w-8">
+                <span class="text-2xl font-bold accent-text">
+                    Nordlager-Halle<span class="text-gray-400">.de</span>
+                </span>
             </a>
             <nav class="hidden md:flex space-x-8">
                 <a href="#vorteile" class="text-gray-600 hover:accent-text">Vorteile</a>
@@ -42,7 +47,7 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold mb-3">Ihre Freiheit. Ihr Lager.</h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Schaffen Sie Platz in Ihrem Leben mit unseren modernen Self-Storage-Lösungen in Halle. Einfach, zugänglich und genau auf Ihre Bedürfnisse zugeschnitten.</p>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Schaffen Sie Platz in Ihrem Leben mit unseren modernen Self-Storage-Lösungen in Halle Trotha. Einfach, zugänglich und genau auf Ihre Bedürfnisse zugeschnitten.</p>
                 </div>
                 <div id="vorteile" class="grid md:grid-cols-3 gap-8 text-center">
                     <div class="benefit-card bg-gray-50 p-8 rounded-xl shadow-md border border-gray-200">
@@ -67,9 +72,9 @@
         <section id="angebot" class="accent-bg py-20 md:py-32">
             <div class="container mx-auto px-6 text-center text-white">
                 <h2 class="text-4xl md:text-6xl font-extrabold mb-4">Jetzt buchen &</h2>
-                <p class="text-5xl md:text-7xl font-extrabold bg-orange-500 inline-block px-6 py-2 rounded-lg shadow-2xl mb-10 transform -rotate-2">1. Monat GRATIS sichern!</p>
+                <p class="text-5xl md:text-7xl font-extrabold bg-yellow-400 text-gray-900 inline-block px-6 py-2 rounded-lg shadow-2xl mb-10 transform -rotate-2">1. Monat GRATIS sichern!</p>
                 <p class="text-xl max-w-2xl mx-auto mb-12">Dieses Angebot ist zeitlich begrenzt. Sichern Sie sich jetzt Ihre Lagerbox und genießen Sie den ersten Monat mietfrei. Keine versteckten Kosten, keine Kompromisse.</p>
-                <a href="#rechner" class="cta-button bg-white accent-text font-bold text-xl py-5 px-12 rounded-lg shadow-xl hover:bg-gray-100">
+                <a href="#rechner" class="cta-button bg-orange-500 text-white font-bold text-xl py-5 px-12 rounded-lg shadow-xl hover:bg-orange-600">
                     Unverbindlich anfragen
                 </a>
             </div>
@@ -126,7 +131,7 @@
     <footer class="bg-gray-800 text-white py-16">
         <div class="container mx-auto px-6 text-center">
             <h3 class="text-3xl font-bold mb-4">Nordlager-Halle.de</h3>
-            <p class="mb-4">Ihr Self-Storage in Halle</p>
+            <p class="mb-4">Ihr Self-Storage in Halle Trotha</p>
             <p class="text-gray-400">Friedenstr. 11A, 06118 Halle (Saale)</p>
             <p class="text-gray-400 mb-8">
                 <a href="tel:+491772002092" class="hover:text-orange-400">Tel: +49 (0) 177 200 20 92</a> | 
@@ -136,11 +141,12 @@
                 <a href="impressum.html" class="text-gray-400 hover:text-white">Impressum</a>
                 <a href="datenschutz.html" class="text-gray-400 hover:text-white">Datenschutz</a>
             </div>
-            <p class="text-gray-500 text-sm">&copy; 2025 Nordlager-Halle.de.</p>
+            <p class="text-gray-500 text-sm">&copy; 2025 Nordlager-Halle.de</p>
         </div>
     </footer>
 
     <script>
+        <script>
         document.addEventListener('DOMContentLoaded', function() {
             const calculateBtn = document.getElementById('calculate-btn');
             const storageNeedSelect = document.getElementById('storage-need');
@@ -218,6 +224,7 @@
                 });
             });
         });
+    </script>
     </script>
 </body>
 </html>
