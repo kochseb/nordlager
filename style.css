@@ -72,3 +72,35 @@ header {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
+/* Datenschutz & Impressum Formatierung */
+main h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+main p {
+    margin-bottom: 1rem;
+    line-height: 1.75;
+}
+
+main ul {
+    margin-bottom: 1rem;
+    margin-left: 1.5rem;
+    list-style-type: disc;
+}
+
+main li {
+    margin-bottom: 0.5rem;
+}
+
+main a {
+    color: #ea580c;
+    text-decoration: underline;
+}
+
+main a:hover {
+    color: #c2410c;
+}
