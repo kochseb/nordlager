@@ -231,6 +231,11 @@
                     </a>
             </div>
         </section>
+        
+        <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+            <stripe-pricing-table pricing-table-id="prctbl_1SSkylIHbAmKC3GSwP7ws6RY"
+            publishable-key="pk_test_51SSkheIHbAmKC3GSUNIaISDNAkh9dAaZhn8Hwv9nw084HM3zl73qwjKHMe9MT6folfucnDJXs2SDlJbcM1TzV9CS00c49Cf9KC">
+        </stripe-pricing-table>
 
         <section id="rechner" class="py-20 md:py-24 bg-white">
             <div class="container mx-auto px-6">
@@ -289,7 +294,19 @@
                 <div class="bg-white rounded-xl max-w-6xl mx-auto shadow-lg border border-gray-200">
 
                     <h3 class="text-xl font-semibold text-gray-800 pt-6 px-6 mt-2">Allgemein & Sicherheit</h3>
-                    
+                    <div class="faq-item px-6">
+                        <button class="faq-question flex justify-between items-center w-full py-3">
+                            <span class="text-lg font-medium text-gray-900 text-left">Wo kann ich meinen Mietvertrag verwalten?</span>
+                            <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="pt-2 pb-5 text-gray-700 leading-relaxed">
+                                Wir arbeiten mit <strong>Stripe</strong>. Sie können Ihre Mietezahlungen <a href="https://billing.stripe.com/p/login/test_bJeeVebLEegUgCw02ueME00">hier verwalten</a>. Bei weiteren Fragen oder Änderungswünschen melden Sie sich bitte telefonisch oder per Email bei uns. 
+                            </p>
+                        </div>
+                    </div>
                     <div class="faq-item px-6">
                         <button class="faq-question flex justify-between items-center w-full py-3">
                             <span class="text-lg font-medium text-gray-900 text-left">Wann habe ich Zugang zu meiner Lagerbox?</span>
@@ -634,6 +651,7 @@
     </script>
 </body>
 </html>
+
 
 
 
