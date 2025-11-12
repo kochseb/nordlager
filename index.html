@@ -8,6 +8,24 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <style>
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-answer.is-open {
+            max-height: 500px; /* Ausreichend Höhe für den Inhalt */
+            transition: max-height 0.5s ease-in;
+        }
+        .faq-question .chevron {
+            transition: transform 0.3s ease-out;
+        }
+        .faq-question.is-open .chevron {
+            transform: rotate(180deg);
+        }
+    </style>
 </head>
 <body class="antialiased">
 
@@ -76,8 +94,8 @@
 
         <section id="angebot" class="py-20 md:py-32 relative overflow-hidden">
             <img src="box4.jpg" 
-                alt="4m² Lager-Box" 
-                class="absolute z-0 inset-0 w-full h-full object-cover opacity-20">
+                 alt="4m² Lager-Box" 
+                 class="absolute z-0 inset-0 w-full h-full object-cover opacity-20">
             <div class="container mx-auto px-6 text-center relative z-10">
                 <h2 class="text-4xl md:text-6xl font-extrabold mb-4 text-gray-800">Jetzt buchen &</h2>
                 <p class="text-5xl md:text-7xl font-extrabold bg-yellow-400 text-gray-900 inline-block px-6 py-2 rounded-lg shadow-2xl mb-10 transform -rotate-2">1. Monat GRATIS sichern!</p>
@@ -142,34 +160,60 @@
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto">Antworten auf die wichtigsten Fragen zu Ihrem Lagerraum bei Nordlager-Halle.de.</p>
                 </div>
 
-                <div class="bg-white rounded-xl max-w-3xl mx-auto shadow-lg border border-gray-200">
+                <div class="bg-white rounded-xl max-w-4xl mx-auto shadow-lg border border-gray-200">
 
                     <h3 class="text-xl font-semibold text-gray-800 pt-6 px-6 mt-2">Allgemein & Sicherheit</h3>
                     
                     <div class="faq-item px-6">
                         <button class="faq-question flex justify-between items-center w-full py-6">
-                            <span class="text-lg font-medium text-gray-900">Wann habe ich Zugang zu meiner Lagerbox?</span>
-                            <svg class="chevron w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <span class="text-lg font-medium text-gray-900 text-left">Wann habe ich Zugang zu meiner Lagerbox?</span>
+                            <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </button>
                         <div class="faq-answer">
                             <p class="pt-2 pb-6 text-gray-700 leading-relaxed">
-                                Unser Premium-Service: Sie haben **24 Stunden am Tag, 7 Tage die Woche (24/7)** Zugang zu Ihrer Lagerbox. Der Zugang erfolgt bequem und sicher per App oder PIN-Code.
+                                Unser Service: Sie haben <strong>24 Stunden am Tag, 7 Tage die Woche (24/7)</strong> Zugang zu Ihrer Lagerbox. Der Zugang zu Ihrem Selfstorage-Abteil erfolgt bequem und sicher
                             </p>
                         </div>
                     </div>
 
                     <div class="faq-item px-6">
                         <button class="faq-question flex justify-between items-center w-full py-6">
-                            <span class="text-lg font-medium text-gray-900">Wie sicher ist mein Lagergut?</span>
-                            <svg class="chevron w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <span class="text-lg font-medium text-gray-900 text-left">Wie sicher ist mein Lagergut?</span>
+                            <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </button>
                         <div class="faq-answer">
                             <p class="pt-2 pb-6 text-gray-700 leading-relaxed">
-                                Sicherheit hat bei uns höchste Priorität. Das gesamte Gelände ist videoüberwacht und alarmgesichert. Jede Lagerbox ist individuell abschließbar. Die Gänge sind sauber und hell beleuchtet.
+                                Sicherheit hat bei uns höchste Priorität. Die gesamte Selfstorage-Anlage ist videoüberwacht und alarmgesichert. Jedes Lagerabteil ist individuell abschließbar. Die Gänge sind sauber und hell beleuchtet.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item px-6">
+                        <button class="faq-question flex justify-between items-center w-full py-6">
+                            <span class="text-lg font-medium text-gray-900 text-left">Barrierefreiheit und Toiletten?</span>
+                            <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="pt-2 pb-6 text-gray-700 leading-relaxed">
+                                Alle Lagerboxen sind ebenerdig zugänglich, die Türen und Gänge sind breit und barrierefrei. Gender-neutrale Toilettenräume stehen Ihnen zur Verfügung.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item px-6">
+                        <button class="faq-question flex justify-between items-center w-full py-6">
+                            <span class="text-lg font-medium text-gray-900 text-left">Parkplätze?</span>
+                            <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="pt-2 pb-6 text-gray-700 leading-relaxed">
+                                Für Kund*innen kostenlose Parkplätze sind diret vor der Tür, Überdacht und ebenerdig, zum einfachen und sicheren Be- und Entladen Ihres Fahrzeuges. Auch für Gäste sind ausreichend kostengünstige Parkplätze verfügbar.
                             </p>
                         </div>
                     </div>
@@ -178,20 +222,20 @@
 
                     <div class="faq-item px-6">
                         <button class="faq-question flex justify-between items-center w-full py-6">
-                            <span class="text-lg font-medium text-gray-900">Welche Lagerbox-Größen gibt es?</span>
-                            <svg class="chevron w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <span class="text-lg font-medium text-gray-900 text-left">Welche Lagerbox-Größen gibt es?</span>
+                            <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </button>
                         <div class="faq-answer">
                             <p class="pt-2 pb-6 text-gray-700 leading-relaxed">
-                                Wir bieten flexible Lösungen für jeden Bedarf. Unsere gängigsten Boxen sind:
+                                Wir bieten flexible Lösungen für jeden Lagerbedarf. Unsere gängigsten Lagerflächen sind:
                                 <ul class="list-disc list-inside mt-2 space-y-1">
-                                    <li>**3 m²** (z.B. für Akten, 10-15 Kartons) - ca. 66 € / Monat</li>
-                                    <li>**4 m²** (z.B. für Saisonausrüstung) - ca. 84 € / Monat</li>
-                                    <li>**5 m²** (z.B. für Handwerker-Material) - ca. 100 € / Monat</li>
-                                    <li>**6 m²** (z.B. Einrichtung 1-Zi-Wohnung) - ca. 114 € / Monat</li>
-                                    <li>**9 m²** (und größer auf Anfrage)</li>
+                                    <li><strong>2-3 m²</strong> (z.B. für Aktenlagerung, 10-15 Umzugskartons) - ca. 66 € / Monat</li>
+                                    <li><strong>4 m²</strong> (z.B. für Saisonausrüstung, kleine Möbel) - ca. 84 € / Monat</li>
+                                    <li><strong>5 m²</strong> (z.B. für Handwerker-Material, Möbellagerung) - ca. 100 € / Monat</li>
+                                    <li><strong>6 m²</strong> (z.B. Einrichtung 1-Zi-Wohnung, Hausrat) - ca. 114 € / Monat</li>
+                                    <li><strong>7+ m²</strong> (auf Anfrage)</li>
                                 </ul>
                             </p>
                         </div>
@@ -199,14 +243,14 @@
 
                     <div class="faq-item px-6">
                         <button class="faq-question flex justify-between items-center w-full py-6">
-                            <span class="text-lg font-medium text-gray-900">Wie flexibel sind die Mietverträge?</span>
-                            <svg class="chevron w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <span class="text-lg font-medium text-gray-900 text-left">Wie flexibel sind die Mietverträge?</span>
+                            <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </button>
                         <div class="faq-answer">
                             <p class="pt-2 pb-6 text-gray-700 leading-relaxed">
-                                Wir bieten maximale Flexibilität. Die Mindestmietdauer beträgt in der Regel einen Monat. Die Kündigungsfrist ist kurz und beträgt meist nur 14 Tage. So bleiben Sie flexibel.
+                                Wir bieten maximale Flexibilität, wenn Sie einen Lagerraum mieten. Die Mindestmietdauer beträgt in der Regel einen Monat. Die Kündigungsfrist ist kurz und beträgt meist nur 14 Tage. So bleiben Sie flexibel.
                             </p>
                         </div>
                     </div>
@@ -215,19 +259,19 @@
 
                     <div class="faq-item px-6">
                         <button class="faq-question flex justify-between items-center w-full py-6">
-                            <span class="text-lg font-medium text-gray-900">Ist das Nordlager für Firmen (B2B) geeignet?</span>
-                            <svg class="chevron w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <span class="text-lg font-medium text-gray-900 text-left">Ist das Nordlager für Firmen (B2B) geeignet?</span>
+                            <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </button>
                         <div class="faq-answer">
                             <p class="pt-2 pb-6 text-gray-700 leading-relaxed">
-                                Absolut. Wir sind auf B2B-Kunden spezialisiert. Unsere Boxen sind die ideale Lösung für:
+                                Absolut. Wir sind auf B2B-Kunden spezialisiert und bieten die ideale Selfstorage-Lösung für:
                                 <ul class="list-disc list-inside mt-2 space-y-1">
-                                    <li>**Handwerker:** Als sicheres Material- und Werkzeuglager.</li>
-                                    <li>**E-Commerce:** Als flexibles Warenlager oder Micro-Hub.</li>
-                                    <li>**Firmen:** Zur professionellen Aktenlagerung (Archiv).</li>
-                                    <li>**Dienstleister:** Für Messematerial oder Werbemittel.</li>
+                                    <li><strong>Handwerker:</strong> Als sicheres Material- und Werkzeuglager.</li>
+                                    <li><strong>E-Commerce:</strong> Als flexibles Warenlager oder Micro-Hub für Online-Shops.</li>
+                                    <li><strong>Firmen, Praxen und Kanzleien:</strong> Zur professionellen Aktenlagerung (Archivlagerung).</li>
+                                    <li><strong>Dienstleister:</strong> Für Messematerial oder Werbemittel.</li>
                                 </ul>
                             </p>
                         </div>
@@ -235,28 +279,28 @@
                     
                     <div class="faq-item px-6">
                         <button class="faq-question flex justify-between items-center w-full py-6">
-                            <span class="text-lg font-medium text-gray-900">Eignet sich eine Box zur Aktenlagerung? Sind die Boxen trocken?</span>
-                            <svg class="chevron w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <span class="text-lg font-medium text-gray-900 text-left">Eignet sich eine Box zur Aktenlagerung? Sind die Boxen trocken?</span>
+                            <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </button>
                         <div class="faq-answer">
                             <p class="pt-2 pb-6 text-gray-700 leading-relaxed">
-                                Ja, perfekt. Unsere Boxen sind **garantiert trocken, sauber und frostsicher**. Sie erfüllen damit alle Anforderungen für die professionelle Aktenlagerung gemäß gesetzlicher Aufbewahrungsfristen.
+                                Ja, perfekt. Unsere Boxen bieten optimale Lagerbedingungen: Sie sind <strong>garantiert trocken, sauber und frostsicher</strong>. Sie erfüllen damit alle Anforderungen für die professionelle Aktenlagerung oder die Einlagerung von sensiblem Lagergut gemäß gesetzlicher Aufbewahrungsfristen und DSGVO.
                             </p>
                         </div>
                     </div>
 
                     <div class="faq-item px-6">
                         <button class="faq-question flex justify-between items-center w-full py-6">
-                            <span class="text-lg font-medium text-gray-900">Darf ich in der Box arbeiten?</span>
-                            <svg class="chevron w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <span class="text-lg font-medium text-gray-900 text-left">Darf ich in der Box arbeiten?</span>
+                            <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </button>
                         <div class="faq-answer">
                             <p class="pt-2 pb-6 text-gray-700 leading-relaxed">
-                                Nein. Unsere Boxen sind reine **passive Lagerräume**. Aus Sicherheits- und Versicherungsgründen ist es nicht gestattet, in den Boxen zu arbeiten, eine Werkstatt zu betreiben oder handwerkliche Tätigkeiten auszuführen. Das reine Kommissionieren von Waren ist natürlich erlaubt.
+                                Nein. Unsere Boxen sind reine <strong>passive Lagerräume</strong> und nur für Lagerzwecke vorgesehen. Aus Sicherheits- und Versicherungsgründen ist es nicht gestattet, in den Boxen zu arbeiten, eine Werkstatt zu betreiben oder handwerkliche Tätigkeiten auszuführen. Das reine Kommissionieren von Waren (z.B. für E-Commerce) ist natürlich erlaubt.
                             </p>
                         </div>
                     </div>
@@ -297,7 +341,7 @@
                 <a href="impressum.html" class="text-gray-400 hover:text-white">Impressum</a>
                 <a href="datenschutz.html" class="text-gray-400 hover:text-white">Datenschutz</a>
             </div>
-            <p class="text-gray-500 text-sm">&copy; 2025 Nordlager-Halle.de</p>
+            <p class="text-gray-500 text-sm">© 2025 Nordlager-Halle.de</p>
         </div>
     </footer>
 
@@ -315,8 +359,8 @@
             
             const apiKey = ""; 
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
-            const recommendations = { kartons: "Lagerbox S (2-3 m²). Perfekt für Kartons und kleinere Gegenstände.", wohnung1: "Lagerbox M (4-6 m²). Ideal für die Einrichtung einer kleinen Wohnung.", wohnung2: "Lagerbox L (7-10 m²). Bietet genug Platz für den Hausstand einer 2-Zimmer-Wohnung.", akten: "Lagerbox S oder M (je nach Menge). Optimal für die sichere Archivierung Ihrer Dokumente.", hobby: "Lagerbox S (2-3 m²). Genug Raum für Ihre Ski, Campingausrüstung oder saisonale Deko.", motorrad: "Lagerbox M (4-5 m²). Sicherer Stellplatz für Ihr Motorrad und Zubehör." };
-            const detailedDescriptions = { kartons: "20 Umzugskartons, Kleidung, Bücher und kleine Haushaltsgegenstände, die in einem S-Lagerraum (2-3 m²) verstaut werden sollen.", wohnung1: "Möbel und Gegenstände aus einer typischen 1-Zimmer-Wohnung, darunter ein Bett, ein Schreibtisch, ein kleines Sofa und 15 Kisten. Lagerraumgröße M (4-6 m²).", wohnung2: "Möbel und Gegenstände aus einer typischen 2-Zimmer-Wohnung, darunter ein Doppelbett, ein Esstisch mit Stühlen, ein größeres Sofa und ca. 30 Kisten. Lagerraumgröße L (7-10 m²).", akten: "Archivmaterial und Aktenordner (ca. 50 Stück) sowie ein kleiner Aktenschrank. Lagerraumgröße S oder M.", hobby: "Umfangreiche Hobbymaterialien (z.B. Angelausrüstung, Modellbau, Wintersportausrüstung) die trocken gelagert werden müssen.", motorrad: "Ein Motorrad, Helm und Motorradkleidung, die sicher und witterungsgeschützt in einem M-Lagerraum untergebracht werden sollen." };
+            const recommendations = { kartons: "Lagerbox S (2-3 m²). Perfekt für Kartons und kleinere Gegenstände.", wohnung1: "Lagerbox M (4-5 m²). Ideal für die Einrichtung einer kleinen Wohnung.", wohnung2: "Lagerbox L (6-10 m²). Bietet genug Platz für den Hausstand einer 2-Zimmer-Wohnung.", akten: "Lagerbox S oder M (je nach Menge). Optimal für die sichere Archivierung Ihrer Dokumente.", hobby: "Lagerbox S (2-3 m²). Genug Raum für Ihre Ski, Campingausrüstung oder saisonale Deko.", motorrad: "Lagerbox M (4-5 m²). Sicherer Stellplatz für Ihr Motorrad und Zubehör." };
+            const detailedDescriptions = { kartons: "20 Umzugskartons, Kleidung, Bücher und kleine Haushaltsgegenstände, die in einem S-Lagerraum (2-3 m²) verstaut werden sollen.", wohnung1: "Möbel und Gegenstände aus einer typischen 1-Zimmer-Wohnung, darunter ein Bett, ein Schreibtisch, ein kleines Sofa und 15 Kisten. Lagerraumgröße M (4-6 m²).", wohnung2: "Möbel und Gegenstände aus einer typischen 2-Zimmer-Wohnung, darunter ein Doppelbett, ein Esstisch mit Stühlen, ein größeres Sofa und ca. 30 Kisten. Lagerraumgröße L (6-10 m²).", akten: "Archivmaterial und Aktenordner (ca. 50 Stück) sowie ein kleiner Aktenschrank. Lagerraumgröße S oder M.", hobby: "Umfangreiche Hobbymaterialien (z.B. Angelausrüstung, Modellbau, Wintersportausrüstung) die trocken gelagert werden müssen.", motorrad: "Ein Motorrad, Helm und Motorradkleidung, die sicher und witterungsgeschützt in einem M-Lagerraum untergebracht werden sollen." };
 
             async function fetchWithRetry(url, options, maxRetries = 3) { for (let i = 0; i < maxRetries; i++) { try { const response = await fetch(url, options); if (!response.ok) { throw new Error(`HTTP error! status: ${response.status}`); } return await response.json(); } catch (error) { console.error("Fetch attempt failed:", error); if (i === maxRetries - 1) throw error; const delay = Math.pow(2, i) * 1000 + Math.random() * 1000; await new Promise(resolve => setTimeout(resolve, delay)); } } }
             
@@ -413,21 +457,21 @@
                 mapPlaceholder.addEventListener('click', loadGoogleMap, { once: true });
             }
 
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    
+                    question.classList.toggle('is-open');
+                    
+                    if (answer && answer.classList.contains('faq-answer')) {
+                        answer.classList.toggle('is-open');
+                    }
+                });
+            });
+
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
