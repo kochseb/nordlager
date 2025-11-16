@@ -1,4 +1,3 @@
-/* 1. LOKAL GEHOSTETE FONTS */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
@@ -31,7 +30,6 @@
        url('assets/fonts/Inter-ExtraBold.woff') format('woff');
 }
 
-/* 2. BASIS-STILE & DESIGN-SYSTEM */
 body {
     font-family: 'Inter', sans-serif;
     background-color: #F8F7F4;
@@ -72,7 +70,6 @@ header {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
-/* Datenschutz & Impressum Formatierung */
 main h2 {
     font-size: 1.5rem;
     font-weight: 700;
@@ -104,3 +101,18 @@ main a {
 main a:hover {
     color: #c2410c;
 }
+.faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-answer.is-open {
+            max-height: 500px; /* Ausreichend Höhe für den Inhalt */
+            transition: max-height 0.5s ease-in;
+        }
+        .faq-question .chevron {
+            transition: transform 0.3s ease-out;
+        }
+        .faq-question.is-open .chevron {
+            transform: rotate(180deg);
+        }
