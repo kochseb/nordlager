@@ -232,12 +232,6 @@
                     </a>
             </div>
         </section>
-        <section id="buchen" style="scroll-margin-top: 9rem;">
-            <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-            <stripe-pricing-table pricing-table-id="prctbl_1SSleRIuuOhjj5yoFnn2Qbjs"
-                publishable-key="pk_live_51SSkhUIuuOhjj5yoLE0WtcVYCrcz5d5C5vWvhxLRHkLgIDNhd0nvWck0kTfATmb6nqSZruVZIp3osvkqSyu1lPkp00zx3ihVU3">
-            </stripe-pricing-table>
-        </section>
         <section id="rechner" class="py-20 md:py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -251,7 +245,7 @@
                             <option value="default" selected disabled>-- Bitte wählen --</option>
                             <option value="kartons">Umzugskartons (10-20 Stück)</option>
                             <option value="wohnung1">Möbel aus 1-Zimmer-Wohnung</option>
-                            <option value="wohnung2">Möbel aus 2-Zimmer-Wohnung</option>
+                            <option value="wohnung2">Möbel aus 2-3-Zimmer-Wohnung</option>
                             <option value="akten">Akten & Büromaterial</option>
                             <option value="hobby">Hobby- / Saisonausrüstung</option>
                             <option value="motorrad">Motorrad / Fahrräder</option>
@@ -284,7 +278,12 @@
                 </div>
             </div>
         </section>
-
+        <section id="buchen" style="scroll-margin-top: 8rem;">
+            <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+            <stripe-pricing-table pricing-table-id="prctbl_1SSleRIuuOhjj5yoFnn2Qbjs"
+                publishable-key="pk_live_51SSkhUIuuOhjj5yoLE0WtcVYCrcz5d5C5vWvhxLRHkLgIDNhd0nvWck0kTfATmb6nqSZruVZIp3osvkqSyu1lPkp00zx3ihVU3">
+            </stripe-pricing-table>
+        </section>
         <section id="faq" class="py-20 md:py-24 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -652,6 +651,7 @@
     </script>
 </body>
 </html>
+
 
 
 
