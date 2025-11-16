@@ -93,7 +93,6 @@
             </div>
         </div>
     </main>
-
     <footer class="bg-gray-800 text-white py-16">
         <div class="container mx-auto px-6 text-center">
              <h3 class="text-3xl font-bold mb-4">Nordlager-Halle.de</h3>
@@ -110,6 +109,49 @@
             <p class="text-gray-500 text-sm">&copy; 2025 Nordlager-Halle.de</p>
         </div>
     </footer>
+    <div id="cookie-banner" class="hidden fixed bottom-0 left-0 right-0 z-50 bg-gray-100 p-4 shadow-lg border-t border-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4"> 
+                <p class="text-sm text-gray-700 text-center md:text-left">
+                    Wir verwenden ausschließlich technisch notwendige Cookies, um die Funktionalität dieser Website zu gewährleisten. 
+                    <a href="datenschutz.html" class="underline text-orange-600 hover:text-orange-700">Mehr erfahren</a>.
+                </p>   
+                <div class="flex-shrink-0 flex gap-3">
+                    <button id="cookie-dismiss" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-5 rounded-lg text-sm">
+                    Ablehnen
+                    </button>
+                    <button id="cookie-accept" class="accent-bg text-white font-bold py-2 px-5 rounded-lg text-sm cta-button">
+                    Akzeptieren
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+                        
+            const cookieBanner = document.getElementById('cookie-banner');
+            const cookieAcceptBtn = document.getElementById('cookie-accept');
+            const cookieDismissBtn = document.getElementById('cookie-dismiss');
 
+            function hideCookieBanner() {
+                localStorage.setItem('cookieConsentGiven', 'true');
+                if (cookieBanner) {
+                    cookieBanner.classList.add('hidden');
+                }
+            }
+            if (!localStorage.getItem('cookieConsentGiven')) {
+                if (cookieBanner) {
+                    cookieBanner.classList.remove('hidden');
+                }
+            }
+            if (cookieAcceptBtn) {
+                cookieAcceptBtn.addEventListener('click', hideCookieBanner);
+            }
+            if (cookieDismissBtn) {
+                cookieDismissBtn.addEventListener('click', hideCookieBanner);
+            }
+        });
+    </script>
 </body>
 </html>
