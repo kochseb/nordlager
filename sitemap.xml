@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://www.nordlager-halle.de/index.html</loc>
+    <lastmod>2026-01-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    
+    <image:image>
+      <image:loc>https://www.nordlager-halle.de/box4.jpg</image:loc>
+      <image:title>Sauberer Lagerraum in Halle Trotha</image:title>
+      <image:caption>Ebenerdige und trockene Lagerbox (4qm) im Nordlager Halle.</image:caption>
+    </image:image>
+    
+    <video:video>
+      <video:thumbnail_loc>https://www.nordlager-halle.de/box4.jpg</video:thumbnail_loc>
+      <video:title>Nordlager Halle - Selfstorage Tour</video:title>
+      <video:description>Kurzer Einblick in das saubere und sichere Lager in Halle Trotha.</video:description>
+      <video:content_loc>https://www.nordlager-halle.de/lager-loop.mp4</video:content_loc>
+      <video:publication_date>2024-01-01T00:00:00+01:00</video:publication_date>
+    </video:video>
+  </url>
+</urlset>
