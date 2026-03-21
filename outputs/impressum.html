@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-        (function () {
-            var saved = localStorage.getItem('nl-theme');
-            if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-            }
-        })();
+      (function() {
+        var saved = localStorage.getItem('nl-theme');
+        if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
     </script>
     <title>Impressum | Nordlager-Halle.de</title>
     <meta name="description" content="Impressum und gesetzliche Anbieterkennzeichnung von Nordlager-Halle.de.">
@@ -24,7 +24,7 @@
     <meta property="og:image" content="https://www.nordlager-halle.de/box4.webp">
     <meta property="og:url" content="https://www.nordlager-halle.de/impressum.html">
 
-    <link rel="stylesheet" href="assets/css/nordlager.css?v=1.1">
+    <link rel="stylesheet" href="assets/css/nordlager.css">
     <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -75,8 +75,8 @@
                     class="text-gray-600 hover:text-orange-600 font-medium transition-colors">Anfahrt</a>
             </nav>
 
-            <a href="mailto:info@nordlager-halle.de?subject=Anfrage%20f%C3%BCr%20eine%20Lagerbox%20-%20Nordlager-Halle.de&body=Hallo%20Nordlager-Team%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20die%20Anmietung%20einer%20Lagerbox%20in%20Halle%20Trotha.%0A%0AGew%C3%BCnschte%20Gr%C3%B6%C3%9Fe%3A%20________________%0AGeplanter%20Einzugstermin%3A%20________________%0ADauer%20der%20Anmietung%3A%20________________%0A%0AMeine%20Kontaktdaten%3A%0AName%3A%0ATelefon%3A%0A%0AVielen%20Dank%20und%20beste%20Gr%C3%BC%C3%9Fe%2C%0A(Ihr%20Name)"
-                class="bg-green-600 text-white font-bold py-2 px-5 rounded-lg shadow-md hover:bg-green-700 transition-colors">
+            <a href="index.html#buchen"
+                class="bg-green-500 text-white font-bold py-2 px-5 rounded-lg shadow-md hover:bg-green-600 transition-colors">
                 Jetzt Buchen
             </a>
         </div>
@@ -100,10 +100,12 @@
                 </div>
 
                 <div>
-                    <p class="text-gray-600">Vertreten durch: Volker Kadler</p>
+                    <h2 class="text-xl font-bold text-gray-900 mb-2">Vertreten durch</h2>
+                    <p class="text-gray-600">Volker Kadler</p>
                 </div>
 
                 <div>
+                    <h2 class="text-xl font-bold text-gray-900 mb-2">Kontakt</h2>
                     <p class="text-gray-600">
                         Telefon: <a href="tel:+491772002092" class="text-orange-600 hover:underline font-medium">+49 (0)
                             177 200 20 92</a><br>
@@ -118,7 +120,7 @@
                         Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a
                             href="https://consumer-redress.ec.europa.eu/index_en" target="_blank"
                             rel="noopener noreferrer"
-                            class="underline hover:text-orange-600">https://consumer-redress.ec.europa.eu/</a>.
+                            class="underline hover:text-orange-600">https://consumer-redress.ec.europa.eu/</a>.<br>
                         Wir ziehen es vor, Ihre Anliegen im direkten Austausch mit Ihnen zu klären. Daher nehmen wir
                         nicht an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teil. Bitte
                         kontaktieren Sie uns bei Fragen oder Problemen direkt über unsere E-Mail-Adresse.
@@ -140,7 +142,7 @@
         </div>
     </main>
 
-    <footer class="bg-gray-800 text-white py-10 mt-auto" style="padding-bottom: 2.5rem !important;">
+    <footer class="bg-gray-800 text-white py-10 mt-auto">
         <div class="container mx-auto px-6 text-center">
             <h3 class="text-3xl font-bold mb-4">Nordlager-Halle.de</h3>
             <p class="mb-4">Ihr Self-Storage in Halle Trotha</p>
@@ -153,13 +155,14 @@
                 <a href="impressum.html" class="text-gray-400 hover:text-white">Impressum</a>
                 <a href="datenschutz.html" class="text-gray-400 hover:text-white">Datenschutz</a>
             </div>
+            <p class="text-gray-500 text-sm">© 2026 Nordlager-Halle.de</p>
             <div class="theme-toggle-wrapper">
-                <button id="theme-toggle" aria-label="Farbschema wechseln" class="theme-toggle-btn">
-                    <span class="theme-icon-sun" aria-hidden="true">☀️</span>
-                    <span class="theme-icon-moon" aria-hidden="true">🌙</span>
-                </button>
+              <button id="theme-toggle" aria-label="Farbschema wechseln"
+                      class="theme-toggle-btn">
+                <span class="theme-icon-light">☀️</span>
+                <span class="theme-icon-dark">🌙</span>
+              </button>
             </div>
-            <p class="text-gray-500 text-sm mt-4">© 2026 Nordlager-Halle.de</p>
         </div>
     </footer>
 
@@ -209,9 +212,9 @@
 
             const themeToggleBtn = document.getElementById('theme-toggle');
             if (themeToggleBtn) {
-                themeToggleBtn.addEventListener('click', function () {
+                themeToggleBtn.addEventListener('click', function() {
                     const isDark = document.documentElement
-                        .getAttribute('data-theme') === 'dark';
+                                     .getAttribute('data-theme') === 'dark';
                     if (isDark) {
                         document.documentElement.removeAttribute('data-theme');
                         localStorage.setItem('nl-theme', 'light');
