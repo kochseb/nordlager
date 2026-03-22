@@ -1,12 +1,12 @@
 export async function onRequestOptions({ request }) {
     const origin = request.headers.get('Origin');
-    
+
     let corsHeaders = {
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type',
         'Access-Control-Max-Age': '86400',
     };
-    
+
     // Echo back the origin for preflight requests if provided
     if (origin) {
         corsHeaders['Access-Control-Allow-Origin'] = origin;
@@ -20,11 +20,11 @@ export async function onRequestOptions({ request }) {
 
 export async function onRequestPost({ request, env }) {
     const origin = request.headers.get('Origin');
-    
+
     // Check if the origin is one of the allowed ones
     const isLocalhost = origin && (origin.startsWith('http://localhost') || origin.startsWith('http://127.0.0.1'));
     const isAllowedDomain = origin === 'https://nordlager-halle.de' || origin === 'https://www.nordlager-halle.de';
-    
+
     // Postman/Server-to-Server usually don't send an origin. We allow them or we strict check. Let's strict check origin if it exists.
     const isAllowed = !origin || isLocalhost || isAllowedDomain;
 
@@ -47,9 +47,9 @@ export async function onRequestPost({ request, env }) {
         const inputJSON = await request.text();
 
         if (!inputJSON) {
-            return new Response(JSON.stringify({ error: "Empty request body" }), { 
-                status: 400, 
-                headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+            return new Response(JSON.stringify({ error: "Empty request body" }), {
+                status: 400,
+                headers: { ...corsHeaders, 'Content-Type': 'application/json' }
             });
         }
 
@@ -88,4 +88,7 @@ export async function onRequestPost({ request, env }) {
             headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         });
     }
+}
+export async function onRequestGet() {
+    return new Response("Der Proxy ist online und erreichbar!", { status: 200 });
 }
