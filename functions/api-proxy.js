@@ -1,94 +1,91 @@
-export async function onRequestOptions({ request }) {
+export async function onRequest(context) {
+    const { request, env } = context;
     const origin = request.headers.get('Origin');
 
+    // 1. Erlaube alle Methoden
     let corsHeaders = {
-        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Max-Age': '86400',
     };
 
-    // Echo back the origin for preflight requests if provided
-    if (origin) {
-        corsHeaders['Access-Control-Allow-Origin'] = origin;
-    }
-
-    return new Response(null, {
-        status: 204,
-        headers: corsHeaders
-    });
-}
-
-export async function onRequestPost({ request, env }) {
-    const origin = request.headers.get('Origin');
-
-    // Check if the origin is one of the allowed ones
+    // 2. Sicherheits-Check (CORS)
     const isLocalhost = origin && (origin.startsWith('http://localhost') || origin.startsWith('http://127.0.0.1'));
     const isAllowedDomain = origin === 'https://nordlager-halle.de' || origin === 'https://www.nordlager-halle.de';
-
-    // Postman/Server-to-Server usually don't send an origin. We allow them or we strict check. Let's strict check origin if it exists.
     const isAllowed = !origin || isLocalhost || isAllowedDomain;
 
-    let corsHeaders = {
-        'Access-Control-Allow-Methods': 'POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type',
-    };
-
-    if (origin) {
-        if (!isAllowed) {
-            return new Response(JSON.stringify({ error: "Origin not allowed" }), {
-                status: 403,
-                headers: { 'Content-Type': 'application/json' }
-            });
-        }
+    if (origin && isAllowed) {
         corsHeaders['Access-Control-Allow-Origin'] = origin;
     }
 
-    try {
-        const inputJSON = await request.text();
+    // 3. Preflight-Check (Der Browser fragt vorher an, ob er POSTen darf)
+    if (request.method === "OPTIONS") {
+        return new Response(null, { status: 204, headers: corsHeaders });
+    }
 
-        if (!inputJSON) {
-            return new Response(JSON.stringify({ error: "Empty request body" }), {
-                status: 400,
+    // 4. Test-Route (Unser GET-Test von vorhin)
+    if (request.method === "GET") {
+        return new Response("Der Proxy funktioniert jetzt für ALLE Methoden (GET, POST, OPTIONS)!", {
+            status: 200,
+            headers: corsHeaders
+        });
+    }
+
+    // 5. Die eigentliche KI-Anfrage (POST)
+    if (request.method === "POST") {
+        // Blockiere fremde Domains
+        if (origin && !isAllowed) {
+            return new Response(JSON.stringify({ error: "Origin not allowed" }), {
+                status: 403,
                 headers: { ...corsHeaders, 'Content-Type': 'application/json' }
             });
         }
 
-        // Get API key from Cloudflare Pages Environment Variables
-        const apiKey = env.GEMINI_API_KEY;
-        if (!apiKey) {
-            return new Response(JSON.stringify({ error: "API key not configured in environment (GEMINI_API_KEY)" }), {
+        try {
+            const inputJSON = await request.text();
+
+            if (!inputJSON) {
+                return new Response(JSON.stringify({ error: "Empty request body" }), {
+                    status: 400,
+                    headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+                });
+            }
+
+            // Hole Key aus den Cloudflare Einstellungen
+            const apiKey = env.GEMINI_API_KEY;
+            if (!apiKey) {
+                return new Response(JSON.stringify({ error: "API key is missing in Cloudflare" }), {
+                    status: 500,
+                    headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+                });
+            }
+
+            // Weiterleitung an Google
+            const googleApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+
+            const geminiResponse = await fetch(googleApiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: inputJSON
+            });
+
+            const responseData = await geminiResponse.text();
+
+            return new Response(responseData, {
+                status: geminiResponse.status,
+                headers: {
+                    ...corsHeaders,
+                    'Content-Type': 'application/json; charset=UTF-8'
+                }
+            });
+
+        } catch (error) {
+            return new Response(JSON.stringify({ error: "Internal Server Error", message: error.message }), {
                 status: 500,
                 headers: { ...corsHeaders, 'Content-Type': 'application/json' }
             });
         }
-
-        const googleApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
-
-        const geminiResponse = await fetch(googleApiUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: inputJSON
-        });
-
-        const responseData = await geminiResponse.text();
-
-        return new Response(responseData, {
-            status: geminiResponse.status,
-            headers: {
-                ...corsHeaders,
-                'Content-Type': 'application/json; charset=UTF-8'
-            }
-        });
-
-    } catch (error) {
-        return new Response(JSON.stringify({ error: "Internal Server Error", message: error.message }), {
-            status: 500,
-            headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-        });
     }
-}
-export async function onRequestGet() {
-    return new Response("Der Proxy ist online und erreichbar!", { status: 200 });
+
+    // Falls jemand etwas anderes als GET, POST oder OPTIONS schickt
+    return new Response("Method not allowed", { status: 405, headers: corsHeaders });
 }
