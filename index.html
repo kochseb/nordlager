@@ -29,12 +29,13 @@
     <meta property="og:locale" content="de_DE">
     <meta property="og:site_name" content="Nordlager-Halle.de">
 
-    <link rel="stylesheet" href="assets/css/nordlager.css?v=1.1">
+    <link rel="stylesheet" href="assets/css/nordlager.css?v=1.2">
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="canonical" href="https://www.nordlager-halle.de/index.html">
     <link rel="preload" as="image" href="box4.webp">
+    <link rel="preload" as="video" href="lager-loop.webm" type="video/webm">
 
     <script type="application/ld+json">
         [
@@ -216,14 +217,18 @@
 </head>
 <body class="antialiased">
 
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only bg-orange-600 text-white p-4 absolute z-[100] left-0 top-0">Zum Inhalt springen</a>
+
     <header class="bg-white/70 backdrop-blur-md sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="favicon-32x32.png" alt="Nordlager-Halle Logo" class="h-8 w-8">
-                <span class="text-2xl font-bold accent-text">
+        <div class="container mx-auto px-2 sm:px-6 py-4 flex justify-between items-center flex-nowrap">
+            <a href="index.html" class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                <img src="favicon-32x32.png" alt="Nordlager-Halle Logo" class="h-7 w-7 sm:h-8 sm:w-8">
+                <span class="text-base sm:text-2xl font-bold accent-text whitespace-nowrap">
                     Nordlager-Halle<span class="text-gray-400">.de</span>
                 </span>
             </a>
+
             <nav class="hidden md:flex space-x-8">
                 <a href="#vorteile" class="nav-link text-gray-600 hover:accent-text">Vorteile</a>
                 <a href="#angebot" class="nav-link text-gray-600 hover:accent-text">Angebot</a>
@@ -231,15 +236,42 @@
                 <a href="#faq" class="nav-link text-gray-600 hover:accent-text">FAQ</a>
                 <a href="#anfahrt" class="nav-link text-gray-600">Anfahrt</a>
             </nav>
-            <a href="mailto:info@nordlager-halle.de?subject=Anfrage%20f%C3%BCr%20eine%20Lagerbox%20-%20Nordlager-Halle.de&body=Hallo%20Nordlager-Team%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20die%20Anmietung%20einer%20Lagerbox%20in%20Halle%20Trotha.%0A%0AGew%C3%BCnschte%20Gr%C3%B6%C3%9Fe%3A%20________________%0AGeplanter%20Einzugstermin%3A%20________________%0ADauer%20der%20Anmietung%3A%20________________%0A%0AMeine%20Kontaktdaten%3A%0AName%3A%0ATelefon%3A%0A%0AVielen%20Dank%20und%20beste%20Gr%C3%BC%C3%9Fe%2C%0A(Ihr%20Name)" 
-               class="bg-green-600 text-white font-bold py-2 px-5 rounded-lg shadow-md hover:bg-green-700 transition-colors"
-               aria-label="Jetzt unverbindlich anfragen per E-Mail">
-                Jetzt Buchen
+
+            <div class="flex items-center gap-1 sm:gap-4 grow-0">
+                <a href="mailto:info@nordlager-halle.de?subject=Anfrage%20f%C3%BCr%20eine%20Lagerbox%20-%20Nordlager-Halle.de&body=Hallo%20Nordlager-Team%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20die%20Anmietung%20einer%20Lagerbox%20in%20Halle%20Trotha.%0A%0AGew%C3%BCnschte%20Gr%C3%B6%C3%9Fe%3A%20________________%0AGeplanter%20Einzugstermin%3A%20________________%0ADauer%20der%20Anmietung%3A%20________________%0A%0AMeine%20Kontaktdaten%3A%0AName%3A%0ATelefon%3A%0A%0AVielen%20Dank%20und%20beste%20Gr%C3%BC%C3%9Fe%2C%0A(Ihr%20Name)"
+                   class="bg-green-600 text-white font-bold py-2 px-3 sm:px-5 rounded-lg shadow-md hover:bg-green-700 transition-colors whitespace-nowrap text-sm sm:text-base"
+                   aria-label="Jetzt unverbindlich anfragen per E-Mail">
+                    Jetzt Buchen
+                </a>
+
+                <!-- Hamburger Button -->
+                <button id="mobile-menu-button" class="md:hidden p-1 text-gray-600 focus:outline-none" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="hamburger-icon" class="block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 flex-col py-8 px-6 space-y-6 shadow-2xl z-40">
+            <a href="#vorteile" class="mobile-nav-link text-xl font-semibold text-gray-700">Vorteile</a>
+            <a href="#angebot" class="mobile-nav-link text-xl font-semibold text-gray-700">Angebot</a>
+            <a href="#rechner" class="mobile-nav-link text-xl font-semibold text-gray-700">Bedarfsrechner</a>
+            <a href="#faq" class="mobile-nav-link text-xl font-semibold text-gray-700">FAQ</a>
+            <a href="#anfahrt" class="mobile-nav-link text-xl font-semibold text-gray-700">Anfahrt</a>
+            <hr class="border-gray-100">
+            <a href="tel:+491772002092" class="text-xl font-bold text-orange-600 flex items-center gap-3">
+                <span aria-hidden="true">📞</span> +49 177 2002092
+            </a>
+            <a href="https://wa.me/491783072176" target="_blank" rel="noopener" class="text-xl font-bold text-green-600 flex items-center gap-3">
+                <span aria-hidden="true">💬</span> WhatsApp Chat
             </a>
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section id="problem" class="hero-bg py-20 md:py-32 relative overflow-hidden">
             <video autoplay loop muted playsinline poster="box4.webp" class="hidden md:block absolute z-0 inset-0 w-full h-full object-cover opacity-30">
                 <source src="lager-loop.webm" type="video/webm">
@@ -573,9 +605,12 @@
                 <a href="tel:+491772002092" class="hover:text-orange-400">Anrufen</a> | 
                 <a href="mailto:info@nordlager-halle.de?subject=Anfrage%20f%C3%BCr%20eine%20Lagerbox%20-%20Nordlager-Halle.de&body=Hallo%20Nordlager-Team%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20die%20Anmietung%20einer%20Lagerbox%20in%20Halle%20Trotha.%0A%0AGew%C3%BCnschte%20Gr%C3%B6%C3%9Fe%3A%20________________%0AGeplanter%20Einzugstermin%3A%20________________%0ADauer%20der%20Anmietung%3A%20________________%0A%0AMeine%20Kontaktdaten%3A%0AName%3A%0ATelefon%3A%0A%0AVielen%20Dank%20und%20beste%20Gr%C3%BC%C3%9Fe%2C%0A(Ihr%20Name)" class="hover:text-orange-400">E-Mail senden</a>
             </p>
-            <div class="mb-4 space-x-6">
-                <a href="impressum.html" class="text-gray-400 hover:text-white" target="_blank" rel="noopener noreferrer">Impressum</a>
-                <a href="datenschutz.html" class="text-gray-400 hover:text-white" target="_blank" rel="noopener noreferrer">Datenschutz</a>
+            <div class="mb-4 flex flex-wrap justify-center gap-6">
+                <a href="impressum.html" class="text-gray-400 hover:text-white px-2" target="_blank" rel="noopener noreferrer">Impressum</a>
+                <a href="datenschutz.html" class="text-gray-400 hover:text-white px-2" target="_blank" rel="noopener noreferrer">Datenschutz</a>
+                <a href="https://wa.me/491783072176" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green-400 flex items-center gap-1 px-2">
+                    <span aria-hidden="true">💬</span> WhatsApp
+                </a>
             </div>
             <div class="theme-toggle-wrapper">
               <button id="theme-toggle" aria-label="Darstellung: Hell/Dunkel umschalten"
@@ -617,6 +652,40 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Logic
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', () => {
+                    const isOpen = mobileMenu.classList.toggle('is-open');
+                    menuButton.setAttribute('aria-expanded', isOpen);
+
+                    if (isOpen) {
+                        mobileMenu.classList.remove('hidden');
+                        hamburgerIcon.classList.add('hidden');
+                        closeIcon.classList.remove('hidden');
+                    } else {
+                        mobileMenu.classList.add('hidden');
+                        hamburgerIcon.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
+                    }
+                });
+
+                // Close menu when clicking a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('is-open');
+                        mobileMenu.classList.add('hidden');
+                        hamburgerIcon.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
+                        menuButton.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+
             const calculateBtn = document.getElementById('calculate-btn');
             const storageNeedSelect = document.getElementById('storage-need');
             const recommendationDiv = document.getElementById('recommendation');
@@ -640,7 +709,28 @@
                 const systemPrompt = "Sie sind ein professioneller Umzugs- und Lagerplaner. Erstellen Sie eine detaillierte und strukturierte Packliste basierend auf der folgenden Beschreibung. Geben Sie die Antwort ausschließlich im angeforderten JSON-Format zurück.";
                 const userQuery = `Erstelle eine Packliste für das Einlagern folgender Gegenstände: ${description}`;
                 const payload = { contents: [{ parts: [{ text: userQuery }] }], systemInstruction: { parts: [{ text: systemPrompt }] }, generationConfig: { responseMimeType: "application/json", responseSchema: { type: "OBJECT", properties: { title: { type: "STRING", description: "Ein kurzer, ansprechender Titel für die Packliste." }, categories: { type: "ARRAY", description: "Eine Liste von Packkategorien (z.B. Küche, Wohnzimmer, Archiv).", items: { type: "OBJECT", properties: { name: { type: "STRING", description: "Name der Kategorie." }, items: { type: "ARRAY", description: "3 bis 5 spezifische Gegenstände/Aufgaben für diese Kategorie.", items: { type: "STRING" } } }, required: ["name", "items"] } } }, required: ["title", "categories"] } } };
-                try { const response = await fetchWithRetry(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }); const jsonText = response.candidates?.[0]?.content?.parts?.[0]?.text; if (!jsonText) { throw new Error("API response text was empty."); } const parsedJson = JSON.parse(jsonText); renderPacklist(parsedJson); } catch (error) { console.error("Fehler beim Abrufen des Packplans:", error); packlistContentDiv.innerHTML = '<p class="text-center text-red-600">Es tut uns leid, beim Generieren des Packplans ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.</p>'; }
+                try {
+                    const response = await fetchWithRetry(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                    let jsonText = response.candidates?.[0]?.content?.parts?.[0]?.text;
+                    if (!jsonText) { throw new Error("API response text was empty."); }
+
+                    // Robust JSON extraction from potential markdown or text wrapper
+                    const jsonMatch = jsonText.match(/\{[\s\S]*\}/);
+                    if (jsonMatch) {
+                        jsonText = jsonMatch[0];
+                    }
+
+                    const parsedJson = JSON.parse(jsonText);
+                    renderPacklist(parsedJson);
+                } catch (error) {
+                    console.error("Fehler beim Abrufen des Packplans:", error);
+                    let errorMsg = "Ein unbekannter Fehler ist aufgetreten.";
+                    if (error.message.includes("404")) errorMsg = "Die API-Schnittstelle wurde nicht gefunden (404).";
+                    if (error.message.includes("500")) errorMsg = "Interner Server-Fehler (500). Bitte prüfen Sie die Cloudflare-Funktion.";
+                    if (error.message.includes("API key")) errorMsg = "API-Key fehlt oder ist ungültig.";
+
+                    packlistContentDiv.innerHTML = `<p class="text-center text-red-600">Es tut uns leid, beim Generieren des Packplans ist ein Fehler aufgetreten.<br><span class="text-sm">(${errorMsg})</span></p>`;
+                }
             }
 
             function renderPacklist(data) { let html = `<h5 class="text-2xl font-semibold mb-4">${data.title}</h5>`; data.categories.forEach(cat => { html += `<div class="mb-5 border-b border-blue-100 pb-3"><h6 class="text-xl font-bold text-blue-700 mb-2">${cat.name}</h6><ul class="list-disc list-inside pl-2 space-y-1 text-gray-700">`; cat.items.forEach(item => { html += `<li>${item}</li>`; }); html += `</ul></div>`; }); packlistContentDiv.innerHTML = html; }
