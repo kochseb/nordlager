@@ -221,11 +221,11 @@
     <a href="#main-content" class="sr-only focus:not-sr-only bg-orange-600 text-white p-4 absolute z-[100] left-0 top-0">Zum Inhalt springen</a>
 
     <header class="bg-white/70 backdrop-blur-md sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
-                <img src="favicon-32x32.png" alt="Nordlager-Halle Logo" class="h-8 w-8">
-                <span class="text-xl sm:text-2xl font-bold accent-text">
-                    Nordlager-Halle<span class="text-gray-400">.de</span>
+        <div class="container mx-auto px-2 sm:px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-1 sm:gap-3 flex-shrink-0">
+                <img src="favicon-32x32.png" alt="Nordlager-Halle Logo" class="h-6 w-6 sm:h-8 sm:w-8">
+                <span class="text-base sm:text-2xl font-bold accent-text">
+                    Nordlager<span class="hidden sm:inline">-Halle</span><span class="text-gray-400">.de</span>
                 </span>
             </a>
 
@@ -237,16 +237,15 @@
                 <a href="#anfahrt" class="nav-link text-gray-600">Anfahrt</a>
             </nav>
 
-            <div class="flex items-center gap-2 sm:gap-4 grow-0">
+            <div class="flex items-center gap-1 sm:gap-4 grow-0">
                 <a href="mailto:info@nordlager-halle.de?subject=Anfrage%20f%C3%BCr%20eine%20Lagerbox%20-%20Nordlager-Halle.de&body=Hallo%20Nordlager-Team%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20die%20Anmietung%20einer%20Lagerbox%20in%20Halle%20Trotha.%0A%0AGew%C3%BCnschte%20Gr%C3%B6%C3%9Fe%3A%20________________%0AGeplanter%20Einzugstermin%3A%20________________%0ADauer%20der%20Anmietung%3A%20________________%0A%0AMeine%20Kontaktdaten%3A%0AName%3A%0ATelefon%3A%0A%0AVielen%20Dank%20und%20beste%20Gr%C3%BC%C3%9Fe%2C%0A(Ihr%20Name)"
-                   class="bg-green-600 text-white font-bold py-2 px-3 sm:px-5 rounded-lg shadow-md hover:bg-green-700 transition-colors whitespace-nowrap text-sm sm:text-base"
+                   class="bg-green-600 text-white font-bold py-2 px-2 sm:px-5 rounded-lg shadow-md hover:bg-green-700 transition-colors whitespace-nowrap text-xs sm:text-base"
                    aria-label="Jetzt unverbindlich anfragen per E-Mail">
-                    <span class="hidden sm:inline">Jetzt Buchen</span>
-                    <span class="sm:hidden" aria-hidden="true">📅</span>
+                    Jetzt Buchen
                 </a>
 
                 <!-- Hamburger Button -->
-                <button id="mobile-menu-button" class="md:hidden p-2 text-gray-600 focus:outline-none" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+                <button id="mobile-menu-button" class="md:hidden p-1 text-gray-600 focus:outline-none" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path id="hamburger-icon" class="block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -607,9 +606,9 @@
                 <a href="mailto:info@nordlager-halle.de?subject=Anfrage%20f%C3%BCr%20eine%20Lagerbox%20-%20Nordlager-Halle.de&body=Hallo%20Nordlager-Team%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20die%20Anmietung%20einer%20Lagerbox%20in%20Halle%20Trotha.%0A%0AGew%C3%BCnschte%20Gr%C3%B6%C3%9Fe%3A%20________________%0AGeplanter%20Einzugstermin%3A%20________________%0ADauer%20der%20Anmietung%3A%20________________%0A%0AMeine%20Kontaktdaten%3A%0AName%3A%0ATelefon%3A%0A%0AVielen%20Dank%20und%20beste%20Gr%C3%BC%C3%9Fe%2C%0A(Ihr%20Name)" class="hover:text-orange-400">E-Mail senden</a>
             </p>
             <div class="mb-4 flex flex-wrap justify-center gap-6">
-                <a href="impressum.html" class="text-gray-400 hover:text-white" target="_blank" rel="noopener noreferrer">Impressum</a>
-                <a href="datenschutz.html" class="text-gray-400 hover:text-white" target="_blank" rel="noopener noreferrer">Datenschutz</a>
-                <a href="https://wa.me/491783072176" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green-400 flex items-center gap-1">
+                <a href="impressum.html" class="text-gray-400 hover:text-white px-2" target="_blank" rel="noopener noreferrer">Impressum</a>
+                <a href="datenschutz.html" class="text-gray-400 hover:text-white px-2" target="_blank" rel="noopener noreferrer">Datenschutz</a>
+                <a href="https://wa.me/491783072176" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green-400 flex items-center gap-1 px-2">
                     <span aria-hidden="true">💬</span> WhatsApp
                 </a>
             </div>
@@ -717,13 +716,23 @@
                     const response = await fetchWithRetry(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
                     let jsonText = response.candidates?.[0]?.content?.parts?.[0]?.text;
                     if (!jsonText) { throw new Error("API response text was empty."); }
-                    // Remove potential markdown formatting if Gemini ignored the mime type request
-                    jsonText = jsonText.replace(/^```json\n?/, '').replace(/\n?```$/, '').trim();
+
+                    // Robust JSON extraction from potential markdown or text wrapper
+                    const jsonMatch = jsonText.match(/\{[\s\S]*\}/);
+                    if (jsonMatch) {
+                        jsonText = jsonMatch[0];
+                    }
+
                     const parsedJson = JSON.parse(jsonText);
                     renderPacklist(parsedJson);
                 } catch (error) {
                     console.error("Fehler beim Abrufen des Packplans:", error);
-                    packlistContentDiv.innerHTML = `<p class="text-center text-red-600">Es tut uns leid, beim Generieren des Packplans ist ein Fehler aufgetreten. (${error.message})</p>`;
+                    let errorMsg = "Ein unbekannter Fehler ist aufgetreten.";
+                    if (error.message.includes("404")) errorMsg = "Die API-Schnittstelle wurde nicht gefunden (404).";
+                    if (error.message.includes("500")) errorMsg = "Interner Server-Fehler (500). Bitte prüfen Sie die Cloudflare-Funktion.";
+                    if (error.message.includes("API key")) errorMsg = "API-Key fehlt oder ist ungültig.";
+
+                    packlistContentDiv.innerHTML = `<p class="text-center text-red-600">Es tut uns leid, beim Generieren des Packplans ist ein Fehler aufgetreten.<br><span class="text-sm">(${errorMsg})</span></p>`;
                 }
             }
 
