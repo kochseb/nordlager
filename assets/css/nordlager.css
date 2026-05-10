@@ -532,7 +532,7 @@ footer a:hover {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+  src: url('../fonts/static/Inter_18pt-Regular.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -540,7 +540,7 @@ footer a:hover {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
-  src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+  src: url('../fonts/static/Inter_18pt-SemiBold.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -548,7 +548,7 @@ footer a:hover {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/Inter-Bold.woff2') format('woff2');
+  src: url('../fonts/static/Inter_18pt-Bold.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -556,7 +556,7 @@ footer a:hover {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 800;
-  src: url('../fonts/Inter-ExtraBold.woff2') format('woff2');
+  src: url('../fonts/static/Inter_18pt-ExtraBold.ttf') format('truetype');
   font-display: swap;
 }
 
