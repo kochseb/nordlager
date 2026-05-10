@@ -224,8 +224,8 @@
         <div class="container mx-auto px-2 sm:px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-1 sm:gap-3 flex-shrink-0">
                 <img src="favicon-32x32.png" alt="Nordlager-Halle Logo" class="h-6 w-6 sm:h-8 sm:w-8">
-                <span class="text-base sm:text-2xl font-bold accent-text">
-                    Nordlager<span class="hidden sm:inline">-Halle</span><span class="text-gray-400">.de</span>
+                <span class="text-sm sm:text-2xl font-bold accent-text whitespace-nowrap">
+                    Nordlager-Halle<span class="text-gray-400">.de</span>
                 </span>
             </a>
 
@@ -667,12 +667,10 @@
                         mobileMenu.classList.remove('hidden');
                         hamburgerIcon.classList.add('hidden');
                         closeIcon.classList.remove('hidden');
-                        document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
                     } else {
                         mobileMenu.classList.add('hidden');
                         hamburgerIcon.classList.remove('hidden');
                         closeIcon.classList.add('hidden');
-                        document.body.style.overflow = '';
                     }
                 });
 
@@ -684,7 +682,6 @@
                         hamburgerIcon.classList.remove('hidden');
                         closeIcon.classList.add('hidden');
                         menuButton.setAttribute('aria-expanded', 'false');
-                        document.body.style.overflow = '';
                     });
                 });
             }
